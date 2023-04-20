@@ -115,6 +115,46 @@ void task_ctrl(void *arg)
     osThreadSetPriority(ble_task, osPriorityNormal);
 }
 
+void task_imu(void *arg){
+    float accData[3];
+    float magData[3];
+    float angles[3];
+    float heading;
+    while (1){
+        ccReadXYZ(accData);
+        magReadXYZ(magData);
+        // estimate_angles(accData, magData, angles);
+        heading = estimate_heading(accData, magData, angles);
+
+        // printf("X:");
+        // print_float(accData[0],4);
+        // printf(",Y:");
+        // print_float(accData[1],4);
+        // printf("Z:");
+        // print_float(accData[2],4);
+        // printf("X:");
+        // print_float(magData[0],4);
+        // printf(",Y:");
+        // print_float(magData[1],4);
+        // printf("Z:");
+        // print_float(magData[2],4);
+        // printf(",");
+        printf("X:");
+        print_float(angles[0],4);
+        printf(",Y:");
+        print_float(angles[1],4);
+        printf(",Z:");
+        print_float(angles[2],4);
+        printf(",Heading:");
+        print_float(heading, 4);
+
+        float val = movAvg(heading);
+        printf(", AVG:");
+        print_float(val,4);
+        printf("\n");
+    }
+}
+
 int main(void)
 {
     osThreadId_t tid_ctrl;
