@@ -43,7 +43,7 @@ arm-none-eabi-objcopy -O ihex app.out app.hex
 mergehex -m $BLEDIR/hex/s113_nrf52_7.2.0_softdevice.hex app.hex -o MICROBIT.hex
 
 # Upload on the target
-cmd.exe /c copy 'U:\home\wicked\RTES23\Assignments\ble-setup\proj\MICROBIT.hex' Q:
+cmd.exe /c copy 'U:\home\wicked\RTES23\Final_project\MICROBIT.hex' Q:
 
 # The above command is applicable for a Windows PC. You may change it
 # appropriately to on Linux or MacOS. It should be something like:

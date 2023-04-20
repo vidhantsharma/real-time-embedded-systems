@@ -1,14 +1,14 @@
 _build/nrf52833_xxaa/system_nrf52833.c.o: \
  ../nRF5_SDK_17.1.0_ddde560/modules/nrfx/mdk/system_nrf52833.c \
  ../nRF5_SDK_17.1.0_ddde560/modules/nrfx/mdk/system_nrf52.c \
- /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h \
- /opt/arm-gcc/arm-none-eabi/include/stdint.h \
- /opt/arm-gcc/arm-none-eabi/include/machine/_default_types.h \
- /opt/arm-gcc/arm-none-eabi/include/sys/features.h \
- /opt/arm-gcc/arm-none-eabi/include/_newlib_version.h \
- /opt/arm-gcc/arm-none-eabi/include/sys/_intsup.h \
- /opt/arm-gcc/arm-none-eabi/include/sys/_stdint.h \
- /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/include/stdbool.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/stdint.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/machine/_default_types.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/features.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/_newlib_version.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/_intsup.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/_stdint.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdbool.h \
  ../nRF5_SDK_17.1.0_ddde560/modules/nrfx/mdk/nrf.h \
  ../nRF5_SDK_17.1.0_ddde560/modules/nrfx/mdk/nrf52833.h \
  ../nRF5_SDK_17.1.0_ddde560/components/toolchain/cmsis/include/core_cm4.h \
@@ -31,14 +31,14 @@ _build/nrf52833_xxaa/system_nrf52833.c.o: \
  ../nRF5_SDK_17.1.0_ddde560/modules/nrfx/mdk/system_nrf52.h \
  ../nRF5_SDK_17.1.0_ddde560/modules/nrfx/mdk/system_nrf52_approtect.h
 ../nRF5_SDK_17.1.0_ddde560/modules/nrfx/mdk/system_nrf52.c:
-/opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h:
-/opt/arm-gcc/arm-none-eabi/include/stdint.h:
-/opt/arm-gcc/arm-none-eabi/include/machine/_default_types.h:
-/opt/arm-gcc/arm-none-eabi/include/sys/features.h:
-/opt/arm-gcc/arm-none-eabi/include/_newlib_version.h:
-/opt/arm-gcc/arm-none-eabi/include/sys/_intsup.h:
-/opt/arm-gcc/arm-none-eabi/include/sys/_stdint.h:
-/opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/include/stdbool.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/stdint.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/machine/_default_types.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/features.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/_newlib_version.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/_intsup.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/_stdint.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdbool.h:
 ../nRF5_SDK_17.1.0_ddde560/modules/nrfx/mdk/nrf.h:
 ../nRF5_SDK_17.1.0_ddde560/modules/nrfx/mdk/nrf52833.h:
 ../nRF5_SDK_17.1.0_ddde560/components/toolchain/cmsis/include/core_cm4.h:

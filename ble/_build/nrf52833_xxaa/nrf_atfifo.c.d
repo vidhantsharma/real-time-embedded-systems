@@ -1,26 +1,26 @@
 _build/nrf52833_xxaa/nrf_atfifo.c.o: \
  ../nRF5_SDK_17.1.0_ddde560/components/libraries/atomic_fifo/nrf_atfifo.c \
- /opt/arm-gcc/arm-none-eabi/include/string.h \
- /opt/arm-gcc/arm-none-eabi/include/_ansi.h \
- /opt/arm-gcc/arm-none-eabi/include/newlib.h \
- /opt/arm-gcc/arm-none-eabi/include/_newlib_version.h \
- /opt/arm-gcc/arm-none-eabi/include/sys/config.h \
- /opt/arm-gcc/arm-none-eabi/include/machine/ieeefp.h \
- /opt/arm-gcc/arm-none-eabi/include/sys/features.h \
- /opt/arm-gcc/arm-none-eabi/include/sys/reent.h \
- /opt/arm-gcc/arm-none-eabi/include/_ansi.h \
- /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/include/stddef.h \
- /opt/arm-gcc/arm-none-eabi/include/sys/_types.h \
- /opt/arm-gcc/arm-none-eabi/include/machine/_types.h \
- /opt/arm-gcc/arm-none-eabi/include/machine/_default_types.h \
- /opt/arm-gcc/arm-none-eabi/include/sys/lock.h \
- /opt/arm-gcc/arm-none-eabi/include/sys/cdefs.h \
- /opt/arm-gcc/arm-none-eabi/include/sys/string.h \
- /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h \
- /opt/arm-gcc/arm-none-eabi/include/stdint.h \
- /opt/arm-gcc/arm-none-eabi/include/sys/_intsup.h \
- /opt/arm-gcc/arm-none-eabi/include/sys/_stdint.h \
- /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/include/stdbool.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/string.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/_ansi.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/newlib.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/_newlib_version.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/config.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/machine/ieeefp.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/features.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/reent.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/_ansi.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stddef.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/_types.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/machine/_types.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/machine/_default_types.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/lock.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/cdefs.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/string.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/stdint.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/_intsup.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/_stdint.h \
+ /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdbool.h \
  ../nRF5_SDK_17.1.0_ddde560/components/libraries/util/app_util.h \
  ../nRF5_SDK_17.1.0_ddde560/modules/nrfx/mdk/compiler_abstraction.h \
  ../nRF5_SDK_17.1.0_ddde560/components/libraries/util/nordic_common.h \
@@ -58,27 +58,27 @@ _build/nrf52833_xxaa/nrf_atfifo.c.o: \
  ../nRF5_SDK_17.1.0_ddde560/components/libraries/strerror/nrf_strerror.h \
  ../nRF5_SDK_17.1.0_ddde560/components/libraries/log/src/nrf_log_internal.h \
  ../nRF5_SDK_17.1.0_ddde560/components/libraries/log/nrf_log_types.h
-/opt/arm-gcc/arm-none-eabi/include/string.h:
-/opt/arm-gcc/arm-none-eabi/include/_ansi.h:
-/opt/arm-gcc/arm-none-eabi/include/newlib.h:
-/opt/arm-gcc/arm-none-eabi/include/_newlib_version.h:
-/opt/arm-gcc/arm-none-eabi/include/sys/config.h:
-/opt/arm-gcc/arm-none-eabi/include/machine/ieeefp.h:
-/opt/arm-gcc/arm-none-eabi/include/sys/features.h:
-/opt/arm-gcc/arm-none-eabi/include/sys/reent.h:
-/opt/arm-gcc/arm-none-eabi/include/_ansi.h:
-/opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/include/stddef.h:
-/opt/arm-gcc/arm-none-eabi/include/sys/_types.h:
-/opt/arm-gcc/arm-none-eabi/include/machine/_types.h:
-/opt/arm-gcc/arm-none-eabi/include/machine/_default_types.h:
-/opt/arm-gcc/arm-none-eabi/include/sys/lock.h:
-/opt/arm-gcc/arm-none-eabi/include/sys/cdefs.h:
-/opt/arm-gcc/arm-none-eabi/include/sys/string.h:
-/opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h:
-/opt/arm-gcc/arm-none-eabi/include/stdint.h:
-/opt/arm-gcc/arm-none-eabi/include/sys/_intsup.h:
-/opt/arm-gcc/arm-none-eabi/include/sys/_stdint.h:
-/opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/include/stdbool.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/string.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/_ansi.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/newlib.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/_newlib_version.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/config.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/machine/ieeefp.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/features.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/reent.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/_ansi.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stddef.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/_types.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/machine/_types.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/machine/_default_types.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/lock.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/cdefs.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/string.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/stdint.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/_intsup.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/_stdint.h:
+/opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdbool.h:
 ../nRF5_SDK_17.1.0_ddde560/components/libraries/util/app_util.h:
 ../nRF5_SDK_17.1.0_ddde560/modules/nrfx/mdk/compiler_abstraction.h:
 ../nRF5_SDK_17.1.0_ddde560/components/libraries/util/nordic_common.h:
