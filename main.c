@@ -7,6 +7,7 @@
 #include "lib.h"
 #include "servo.h"
 #include "controller.h"
+#include "estimator.h"
 
 /* OS objects */
 osThreadId_t ble_task;
