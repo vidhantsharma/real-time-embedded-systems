@@ -138,7 +138,7 @@ void task_ctrl(void *arg)
     // osThreadSetPriority(tid2, osPriorityNormal);
 
     ble_task = osThreadNew(bluetooth, NULL, NULL);
-    osThreadSetPriority(ble_task, osPriorityHigh);
+    osThreadSetPriority(ble_task, osPriorityLow);
 }
 
 int main(void)
