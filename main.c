@@ -56,7 +56,7 @@ static void task1(void *arg)
     
     while (1)
     {
-        forward(1);
+        // forward(1);
         led_display(frame_buffer);
         count++;
         if (count == MAX_COUNT)
@@ -67,22 +67,22 @@ static void task1(void *arg)
     }
 }
 
-static void task2(void *arg)
-{
-    printf("hello, task2!\n");
+// static void task2(void *arg)
+// {
+//     printf("hello, task2!\n");
 
-    while (1)
-    {
-        reverse(1);
-        led_display(frame_buffer);
-        count++;
-        if (count == MAX_COUNT)
-        {
-            count = 0;
-            osThreadYield();
-        }
-    }
-}
+//     while (1)
+//     {
+//         reverse(1);
+//         led_display(frame_buffer);
+//         count++;
+//         if (count == MAX_COUNT)
+//         {
+//             count = 0;
+//             osThreadYield();
+//         }
+//     }
+// }
 
 void bluetooth(void *arg)
 {
@@ -97,21 +97,48 @@ void bluetooth(void *arg)
 
         /* Echo on BLE */
         ble_send((uint8_t *) cmd_buf, strlen((char *) cmd_buf));
+
+        /* Buggy Control */
+        if (strlen((char *) cmd_buf) == 1)
+        {
+            switch (cmd_buf[0])
+            {
+            case 'u':
+                puts("Move forward\n");
+                forward(1);
+                break;
+            case 'd':
+                puts("Move reverse\n");
+                reverse(1);
+                break;
+            case 'l':
+                puts("Turn left\n");
+                turn_left(1);
+                break;
+            case 'r':
+                puts("Turn right\n");
+                turn_right(1);
+                break;
+            default:
+                break;
+            }
+        }
     }
 }
 
 void task_ctrl(void *arg)
 {
-    osThreadId_t tid1, tid2;
+    osThreadId_t tid1;
+    // osThreadId_t tid2;
 
     tid1 = osThreadNew(task1, NULL, NULL);
-    tid2 = osThreadNew(task2, NULL, NULL);
+    // tid2 = osThreadNew(task2, NULL, NULL);
 
     osThreadSetPriority(tid1, osPriorityNormal);
-    osThreadSetPriority(tid2, osPriorityNormal);
+    // osThreadSetPriority(tid2, osPriorityNormal);
 
     ble_task = osThreadNew(bluetooth, NULL, NULL);
-    osThreadSetPriority(ble_task, osPriorityNormal);
+    osThreadSetPriority(ble_task, osPriorityHigh);
 }
 
 int main(void)
@@ -130,7 +157,7 @@ int main(void)
 
     /* controller task */
     tid_ctrl = osThreadNew(task_ctrl, NULL, NULL);
-    osThreadSetPriority(tid_ctrl, osPriorityLow);
+    osThreadSetPriority(tid_ctrl, osPriorityNormal);
 
     osKernelStart();
     /* never returns */
