@@ -148,7 +148,7 @@ void task_imu(void *arg){
     float angles[3];
     float heading;
     while (1){
-        ccReadXYZ(accData);
+        accReadXYZ(accData);
         magReadXYZ(magData);
         // estimate_angles(accData, magData, angles);
         heading = estimate_heading(accData, magData, angles);
