@@ -14,6 +14,7 @@ bsp/libbsp.a(servo.o)         bsp/libbsp.a(controller.o) (servo_out)
 bsp/libbsp.a(pwm.o)           bsp/libbsp.a(audio.o) (pwm_init)
 bsp/libbsp.a(adc.o)           bsp/libbsp.a(audio.o) (adc_init)
 bsp/libbsp.a(i2c.o)           bsp/libbsp.a(lsm303agr.o) (i2c_init)
+<<<<<<< HEAD
 ble/libble_uart.a(ble_uart.c.o)
                               main.o (ble_send)
 ble/libble_uart.a(bsp.c.o)    ble/libble_uart.a(ble_uart.c.o) (bsp_indication_set)
@@ -95,6 +96,8 @@ ble/libble_uart.a(ble_conn_state.c.o)
                               ble/libble_uart.a(ble_link_ctx_manager.c.o) (ble_conn_state_conn_idx)
 ble/libble_uart.a(nrf_atflags.c.o)
                               ble/libble_uart.a(ble_conn_state.c.o) (nrf_atflags_set)
+=======
+>>>>>>> corrected
 rtx/librtx.a(rtx_kernel.o)    main.o (osKernelInitialize)
 rtx/librtx.a(rtx_evr.o)       rtx/librtx.a(rtx_kernel.o) (EvrRtxKernelError)
 rtx/librtx.a(rtx_lib.o)       rtx/librtx.a(rtx_kernel.o) (osRtxConfig)
@@ -146,12 +149,13 @@ rtx/librtx.a(rtx_mutex.o)     rtx/librtx.a(rtx_thread.o) (osRtxMutexOwnerRelease
                               /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_pow.o) (__math_uflow)
 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
                               /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_sqrt.o) (__errno)
+<<<<<<< HEAD
 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memcmp.o)
                               ble/libble_uart.a(ble_advdata.c.o) (memcmp)
+=======
+>>>>>>> corrected
 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
-                              ble/libble_uart.a(ble_uart.c.o) (memset)
-/opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-strcpy.o)
-                              ble/libble_uart.a(SEGGER_RTT.c.o) (strcpy)
+                              rtx/librtx.a(rtx_mempool.o) (memset)
 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-ctype_.o)
                               bsp/libbsp.a(audio.o) (_ctype_)
 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-impure.o)
@@ -210,6 +214,7 @@ rtx/librtx.a(rtx_mutex.o)     rtx/librtx.a(rtx_thread.o) (osRtxMutexOwnerRelease
                               main.o (__aeabi_d2f)
 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubsf3.o)
                               main.o (__aeabi_l2f)
+<<<<<<< HEAD
 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_ldivmod.o)
                               ble/libble_uart.a(bsp.c.o) (__aeabi_ldivmod)
 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
@@ -218,6 +223,8 @@ rtx/librtx.a(rtx_mutex.o)     rtx/librtx.a(rtx_thread.o) (osRtxMutexOwnerRelease
                               /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_ldivmod.o) (__udivmoddi4)
 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
                               /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_ldivmod.o) (__aeabi_ldiv0)
+=======
+>>>>>>> corrected
 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(close.o)
                               /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-closer.o) (_close)
 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(lseek.o)
@@ -228,6 +235,7 @@ rtx/librtx.a(rtx_mutex.o)     rtx/librtx.a(rtx_thread.o) (osRtxMutexOwnerRelease
                               /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-sbrkr.o) (_sbrk)
 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(write.o)
                               /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-writer.o) (_write)
+<<<<<<< HEAD
 
 Discarded input sections
 
@@ -10933,3 +10941,5 @@ LOAD linker stubs
  .debug_line_str
                 0x00000000000001e0        0xc /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
                                          0xc6 (size before relaxing)
+=======
+>>>>>>> corrected
