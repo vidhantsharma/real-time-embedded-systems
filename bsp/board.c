@@ -16,6 +16,10 @@ void board_init(void)
     buttons_init();
     serial_init(UART_RX, UART_TX);
     audio_init(SPEAKER, MIC, RUN_MIC);
+    rng_init();
+    IMUinit(LSM303_ACCEL_MODE_NORMAL, LSM303_ACCEL_RANGE_2G, LSM303_ACCEL_DATARATE_100HZ,
+            LSM303_MAG_LOW_POWER_MODE, LSM303_MAG_SYSMODE_CONTINUOUS, LSM303_MAG_DATARATE_100HZ);
+    delay_ms(90); // required for getting reliable data
 }
 
 /* Initialize LED matrix.
