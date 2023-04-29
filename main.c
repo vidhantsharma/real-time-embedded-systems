@@ -8,9 +8,13 @@
 #include "servo.h"
 #include "controller.h"
 #include "estimator.h"
+#include "lsm303agr.h"
+
+#define FLAGS_MSK1 0x00000001U
 
 /* OS objects */
 osThreadId_t ble_task;
+osEventFlagsId_t evt_frwd, evt_bwd, evt_left, evt_ryt, evt_stop;
 
 /* Buffer to hold the command received from UART or BLE
  * We use single buffer assuming command-response protocol,
@@ -19,6 +23,8 @@ osThreadId_t ble_task;
  */
 uint8_t cmd_buf[256];
 uint32_t cmd_len;
+float heading, val;
+float ang_des;
 
 uint8_t frame_buffer[LED_NUM_ROWS][LED_NUM_COLS] =
 {
@@ -29,7 +35,7 @@ uint8_t frame_buffer[LED_NUM_ROWS][LED_NUM_COLS] =
     { 0, 0, 0, 0, 0}
 };
 
-#define MAX_COUNT 100
+#define MAX_COUNT 50
 static int count;
 
 uint32_t r, c;
@@ -51,14 +57,19 @@ static void ble_recv_handler(const uint8_t s[], uint32_t len)
     osThreadFlagsSet(ble_task, 1); 
 }
 
-static void task1(void *arg)
-{
-    printf("hello, task1!\n");
-    
-    while (1)
-    {
-        // forward(1);
-        led_display(frame_buffer);
+void task_imu(void *arg){
+    float accData[3];
+    float magData[3];
+    float angles[3];
+    // printf("hello, task_imu!!!!\n");
+    while (1){
+        accReadXYZ(accData);
+        magReadXYZ(magData);
+        heading = estimate_heading(accData, magData, angles);
+        val = movAvg(heading);
+        // printf("\n AVG:");
+        // print_float(val,4);
+        
         count++;
         if (count == MAX_COUNT)
         {
@@ -68,30 +79,40 @@ static void task1(void *arg)
     }
 }
 
-// static void task2(void *arg)
-// {
-//     printf("hello, task2!\n");
+void task_cmd(void *arg){   // Only turning
+    
+    while(1){
+        if(osEventFlagsGet(evt_frwd)){
+            move_ctrlr(1);
+            printf("\nFrwd flag, %d", osEventFlagsGet(evt_frwd));
+        }
+        else if(osEventFlagsGet(evt_bwd))
+            move_ctrlr(-1);
+        else if(osEventFlagsGet(evt_left))
+            turn_ctrlr(ang_des, val);
+        else if(osEventFlagsGet(evt_ryt))
+            turn_ctrlr(ang_des, val); 
+        else if(osEventFlagsGet(evt_stop))
+            move_ctrlr(0);
+        
+        count++;
+        if (count == MAX_COUNT)
+        {
+            count = 0;
+            osThreadYield();
+        }
+    }
+}
 
-//     while (1)
-//     {
-//         reverse(1);
-//         led_display(frame_buffer);
-//         count++;
-//         if (count == MAX_COUNT)
-//         {
-//             count = 0;
-//             osThreadYield();
-//         }
-//     }
-// }
-
-void bluetooth(void *arg)
-{
+void bluetooth(void *arg){
     while (1)
     {
         /* Receive a command from BLE */
         osThreadFlagsWait(1, osFlagsWaitAny, osWaitForever);
 
+        // osEventFlagsClear(evt_frwd, FLAGS_MSK1); osEventFlagsClear(evt_bwd, FLAGS_MSK1);
+        // osEventFlagsClear(evt_left, FLAGS_MSK1); osEventFlagsClear(evt_ryt, FLAGS_MSK1); osEventFlagsClear(evt_stop, FLAGS_MSK1);
+        
         /* Echo on UART */
         puts((char *) cmd_buf);
         puts("\n");
@@ -106,19 +127,25 @@ void bluetooth(void *arg)
             {
             case 'u':
                 puts("Move forward\n");
-                forward(1);
+                osEventFlagsSet(evt_frwd, FLAGS_MSK1);
                 break;
             case 'd':
                 puts("Move reverse\n");
-                reverse(1);
+                osEventFlagsSet(evt_bwd, FLAGS_MSK1);
                 break;
             case 'l':
                 puts("Turn left\n");
-                turn_left(1);
+                ang_des = 90;
+                osEventFlagsSet(evt_left, FLAGS_MSK1);
                 break;
             case 'r':
                 puts("Turn right\n");
-                turn_right(1);
+                ang_des = 270.0; // Range: [0,360)
+                osEventFlagsSet(evt_ryt, FLAGS_MSK1);
+                break;
+            case 's':
+                puts("STOP!!\n");
+                osEventFlagsSet(evt_stop, FLAGS_MSK1);
                 break;
             default:
                 break;
@@ -132,54 +159,14 @@ void task_ctrl(void *arg)
     osThreadId_t tid1;
     // osThreadId_t tid2;
 
-    tid1 = osThreadNew(task1, NULL, NULL);
-    // tid2 = osThreadNew(task2, NULL, NULL);
-
+    tid1 = osThreadNew(task_imu, NULL, NULL);
     osThreadSetPriority(tid1, osPriorityNormal);
-    // osThreadSetPriority(tid2, osPriorityNormal);
-
+    
     ble_task = osThreadNew(bluetooth, NULL, NULL);
     osThreadSetPriority(ble_task, osPriorityNormal);
-}
 
-void task_imu(void *arg){
-    float accData[3];
-    float magData[3];
-    float angles[3];
-    float heading;
-    while (1){
-        accReadXYZ(accData);
-        magReadXYZ(magData);
-        // estimate_angles(accData, magData, angles);
-        heading = estimate_heading(accData, magData, angles);
-
-        // printf("X:");
-        // print_float(accData[0],4);
-        // printf(",Y:");
-        // print_float(accData[1],4);
-        // printf("Z:");
-        // print_float(accData[2],4);
-        // printf("X:");
-        // print_float(magData[0],4);
-        // printf(",Y:");
-        // print_float(magData[1],4);
-        // printf("Z:");
-        // print_float(magData[2],4);
-        // printf(",");
-        printf("X:");
-        print_float(angles[0],4);
-        printf(",Y:");
-        print_float(angles[1],4);
-        printf(",Z:");
-        print_float(angles[2],4);
-        printf(",Heading:");
-        print_float(heading, 4);
-
-        float val = movAvg(heading);
-        printf(", AVG:");
-        print_float(val,4);
-        printf("\n");
-    }
+    evt_frwd = osEventFlagsNew(NULL); evt_bwd = osEventFlagsNew(NULL);
+    evt_left = osEventFlagsNew(NULL); evt_ryt = osEventFlagsNew(NULL); evt_stop = osEventFlagsNew(NULL);
 }
 
 int main(void)
@@ -198,7 +185,7 @@ int main(void)
 
     /* controller task */
     tid_ctrl = osThreadNew(task_ctrl, NULL, NULL);
-    osThreadSetPriority(tid_ctrl, osPriorityNormal);
+    osThreadSetPriority(tid_ctrl, osPriorityLow);
 
     osKernelStart();
     /* never returns */
