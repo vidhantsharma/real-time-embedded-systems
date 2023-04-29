@@ -1,8 +1,6 @@
-#include <stdint.h>
-#include <stdio.h>
 #include <string.h>
 #include "servo.h"
-
+#include "lib.h"
 // #define concat(a, b) a##b
 /*
  * We will use PWM to provide a square wave to the speaker.
@@ -104,30 +102,36 @@ void servo_out(int traj, int dirn, int speed ){
     if(dirn == 0){
         seqB = mid_counter; seqA = mid_counter; //Stop
         // seqB = countertop; seqA = countertop; //Stop
+        printf("[SERVO] STOP here I am ");
     }
     else{
         if(traj == 1){
             if(dirn==1){    // Frwd
                 seqB = base + speed*diff;
                 seqA = seqB + mid_counter; 
+                printf("[SERVO] forward");
             }
             else{   //bwd
                 seqB = base + speed*diff +mid_counter;
                 seqA = seqB -mid_counter; 
+                printf("[SERVO] reverse");
             }
         }
         else if(traj==0){
             if(dirn==1){    // CCW
                 seqB = base + speed*diff ;
                 seqA = seqB; 
+                printf("[SERVO] left");
             }
             else{   //CW
                 seqB = base + speed*diff +mid_counter;
                 seqA = seqB; 
+                printf("[SERVO] right");
             }
         }
         else{
             seqB = mid_counter; seqA = mid_counter;   //Stop
+            printf("[SERVO] stop");
         }
     }
     
@@ -142,6 +146,7 @@ void servo_out(int traj, int dirn, int speed ){
     SEQ0START_PWM_A = 1;
     SEQ0START_PWM_B = 1;
 
+    delay_ms(10);
     /* Wait for the sequence to complete */
     while (EVENTS_SEQ0END_PWM_A == 0 || EVENTS_SEQ0END_PWM_B == 0){
         // printf("[servo_out] inside seqEnd");
