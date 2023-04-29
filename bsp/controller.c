@@ -23,15 +23,15 @@ void turn_ctrlr(float ang_des, float ang_curr){ // Only turning
     float tolr = 3.0;
 
     if(abs(ang_des - ang_curr) >= tolr){
-        servo_out(0,1,2);
+        servo_out(0,1,4);
     }
     else{
         printf("stopping");
-        servo_out(0,0,2);
+        servo_out(0,0,4);
     }
 }
 
 void move_ctrlr(int dirn){ // Only turning
-    servo_out(1,dirn,2);
+    servo_out(1,dirn,3);
 }
 
