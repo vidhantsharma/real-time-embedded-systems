@@ -8045,7 +8045,7 @@ RAM              0x0000000020002608 0x000000000001d9f8 xrw
 Linker script and memory map
 
 
-.text           0x000000000001c000     0xd5d1
+.text           0x000000000001c000     0xd4f1
  *(.isr_vector)
  .isr_vector    0x000000000001c000      0x200 bsp/libbsp.a(startup.o)
                 0x000000000001c000                vector_table
@@ -8102,1061 +8102,1060 @@ Linker script and memory map
                 0x000000000001cd78       0x3c bsp/libbsp.a(servo.o)
                 0x000000000001cd78                servo_init
  .text.servo_out
-                0x000000000001cdb4      0x140 bsp/libbsp.a(servo.o)
+                0x000000000001cdb4       0xec bsp/libbsp.a(servo.o)
                 0x000000000001cdb4                servo_out
  .text.turn_ctrlr
-                0x000000000001cef4       0x50 bsp/libbsp.a(controller.o)
-                0x000000000001cef4                turn_ctrlr
+                0x000000000001cea0       0x50 bsp/libbsp.a(controller.o)
+                0x000000000001cea0                turn_ctrlr
  .text.move_ctrlr
-                0x000000000001cf44        0xc bsp/libbsp.a(controller.o)
-                0x000000000001cf44                move_ctrlr
+                0x000000000001cef0        0xc bsp/libbsp.a(controller.o)
+                0x000000000001cef0                move_ctrlr
  .text.serial_init
-                0x000000000001cf50       0x50 bsp/libbsp.a(serial.o)
-                0x000000000001cf50                serial_init
+                0x000000000001cefc       0x50 bsp/libbsp.a(serial.o)
+                0x000000000001cefc                serial_init
  .text.print_buf
-                0x000000000001cfa0       0x34 bsp/libbsp.a(serial.o)
-                0x000000000001cfa0                print_buf
- .text.gpio_in  0x000000000001cfd4       0x18 bsp/libbsp.a(gpio.o)
-                0x000000000001cfd4                gpio_in
+                0x000000000001cf4c       0x34 bsp/libbsp.a(serial.o)
+                0x000000000001cf4c                print_buf
+ .text.gpio_in  0x000000000001cf80       0x18 bsp/libbsp.a(gpio.o)
+                0x000000000001cf80                gpio_in
  .text.gpio_out
-                0x000000000001cfec       0x38 bsp/libbsp.a(gpio.o)
-                0x000000000001cfec                gpio_out
+                0x000000000001cf98       0x38 bsp/libbsp.a(gpio.o)
+                0x000000000001cf98                gpio_out
  .text.gpio_set
-                0x000000000001d024       0x1c bsp/libbsp.a(gpio.o)
-                0x000000000001d024                gpio_set
+                0x000000000001cfd0       0x1c bsp/libbsp.a(gpio.o)
+                0x000000000001cfd0                gpio_set
  .text.gpio_clear
-                0x000000000001d040       0x1c bsp/libbsp.a(gpio.o)
-                0x000000000001d040                gpio_clear
- .text.printf   0x000000000001d05c      0x31c bsp/libbsp.a(lib.o)
-                0x000000000001d05c                printf
+                0x000000000001cfec       0x1c bsp/libbsp.a(gpio.o)
+                0x000000000001cfec                gpio_clear
+ .text.printf   0x000000000001d008      0x31c bsp/libbsp.a(lib.o)
+                0x000000000001d008                printf
  .text.audio_init
-                0x000000000001d378       0x38 bsp/libbsp.a(audio.o)
-                0x000000000001d378                audio_init
+                0x000000000001d324       0x38 bsp/libbsp.a(audio.o)
+                0x000000000001d324                audio_init
  .text.audio_sweep
-                0x000000000001d3b0       0x38 bsp/libbsp.a(audio.o)
-                0x000000000001d3b0                audio_sweep
+                0x000000000001d35c       0x38 bsp/libbsp.a(audio.o)
+                0x000000000001d35c                audio_sweep
  .text.rng_init
-                0x000000000001d3e8       0x18 bsp/libbsp.a(rng.o)
-                0x000000000001d3e8                rng_init
- .text.accInit  0x000000000001d400       0xc0 bsp/libbsp.a(lsm303agr.o)
-                0x000000000001d400                accInit
- .text.magInit  0x000000000001d4c0       0x88 bsp/libbsp.a(lsm303agr.o)
-                0x000000000001d4c0                magInit
- .text.IMUinit  0x000000000001d548       0x34 bsp/libbsp.a(lsm303agr.o)
-                0x000000000001d548                IMUinit
+                0x000000000001d394       0x18 bsp/libbsp.a(rng.o)
+                0x000000000001d394                rng_init
+ .text.accInit  0x000000000001d3ac       0xc0 bsp/libbsp.a(lsm303agr.o)
+                0x000000000001d3ac                accInit
+ .text.magInit  0x000000000001d46c       0x88 bsp/libbsp.a(lsm303agr.o)
+                0x000000000001d46c                magInit
+ .text.IMUinit  0x000000000001d4f4       0x34 bsp/libbsp.a(lsm303agr.o)
+                0x000000000001d4f4                IMUinit
  .text.getACCLSB
-                0x000000000001d57c       0xc8 bsp/libbsp.a(lsm303agr.o)
-                0x000000000001d57c                getACCLSB
+                0x000000000001d528       0xc8 bsp/libbsp.a(lsm303agr.o)
+                0x000000000001d528                getACCLSB
  .text.accReadXYZ
-                0x000000000001d644       0xfc bsp/libbsp.a(lsm303agr.o)
-                0x000000000001d644                accReadXYZ
+                0x000000000001d5f0       0xfc bsp/libbsp.a(lsm303agr.o)
+                0x000000000001d5f0                accReadXYZ
  .text.magReadXYZ
-                0x000000000001d740       0xd4 bsp/libbsp.a(lsm303agr.o)
-                0x000000000001d740                magReadXYZ
+                0x000000000001d6ec       0xd4 bsp/libbsp.a(lsm303agr.o)
+                0x000000000001d6ec                magReadXYZ
  .text.pwm_init
-                0x000000000001d814       0x18 bsp/libbsp.a(pwm.o)
-                0x000000000001d814                pwm_init
- .text.pwm_out  0x000000000001d82c       0x90 bsp/libbsp.a(pwm.o)
-                0x000000000001d82c                pwm_out
+                0x000000000001d7c0       0x18 bsp/libbsp.a(pwm.o)
+                0x000000000001d7c0                pwm_init
+ .text.pwm_out  0x000000000001d7d8       0x90 bsp/libbsp.a(pwm.o)
+                0x000000000001d7d8                pwm_out
  .text.adc_init
-                0x000000000001d8bc       0x34 bsp/libbsp.a(adc.o)
-                0x000000000001d8bc                adc_init
+                0x000000000001d868       0x34 bsp/libbsp.a(adc.o)
+                0x000000000001d868                adc_init
  .text.i2c_init
-                0x000000000001d8f0       0x24 bsp/libbsp.a(i2c.o)
-                0x000000000001d8f0                i2c_init
+                0x000000000001d89c       0x24 bsp/libbsp.a(i2c.o)
+                0x000000000001d89c                i2c_init
  .text.i2c_read_reg
-                0x000000000001d914       0x64 bsp/libbsp.a(i2c.o)
-                0x000000000001d914                i2c_read_reg
+                0x000000000001d8c0       0x64 bsp/libbsp.a(i2c.o)
+                0x000000000001d8c0                i2c_read_reg
  .text.i2c_write_reg
-                0x000000000001d978       0x54 bsp/libbsp.a(i2c.o)
-                0x000000000001d978                i2c_write_reg
+                0x000000000001d924       0x54 bsp/libbsp.a(i2c.o)
+                0x000000000001d924                i2c_write_reg
  .text.sd_ble_gap_disconnect
-                0x000000000001d9cc        0x4 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001d978        0x4 ble/libble_uart.a(ble_uart.c.o)
  .text.sd_ble_gap_ppcp_set
-                0x000000000001d9d0        0x4 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001d97c        0x4 ble/libble_uart.a(ble_uart.c.o)
  .text.sd_ble_gap_device_name_set
-                0x000000000001d9d4        0x4 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001d980        0x4 ble/libble_uart.a(ble_uart.c.o)
  .text.sd_ble_gap_sec_params_reply
-                0x000000000001d9d8        0x4 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001d984        0x4 ble/libble_uart.a(ble_uart.c.o)
  .text.sd_ble_gap_phy_update
-                0x000000000001d9dc        0x4 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001d988        0x4 ble/libble_uart.a(ble_uart.c.o)
  .text.sd_ble_gatts_sys_attr_set
-                0x000000000001d9e0        0x4 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001d98c        0x4 ble/libble_uart.a(ble_uart.c.o)
  .text.sd_power_system_off
-                0x000000000001d9e4        0x4 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001d990        0x4 ble/libble_uart.a(ble_uart.c.o)
  .text.nrf_qwr_error_handler
-                0x000000000001d9e8        0x4 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001d994        0x4 ble/libble_uart.a(ble_uart.c.o)
  .text.ble_evt_handler
-                0x000000000001d9ec      0x100 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001d998      0x100 ble/libble_uart.a(ble_uart.c.o)
  .text.on_conn_params_evt
-                0x000000000001daec       0x24 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001da98       0x24 ble/libble_uart.a(ble_uart.c.o)
  .text.bsp_event_handler
-                0x000000000001db10       0x70 ble/libble_uart.a(ble_uart.c.o)
-                0x000000000001db10                bsp_event_handler
+                0x000000000001dabc       0x70 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001dabc                bsp_event_handler
  .text.gatt_evt_handler
-                0x000000000001db80       0x4c ble/libble_uart.a(ble_uart.c.o)
-                0x000000000001db80                gatt_evt_handler
+                0x000000000001db2c       0x4c ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001db2c                gatt_evt_handler
  .text.nus_data_handler
-                0x000000000001dbcc       0x14 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001db78       0x14 ble/libble_uart.a(ble_uart.c.o)
  .text.conn_params_error_handler
-                0x000000000001dbe0        0x4 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001db8c        0x4 ble/libble_uart.a(ble_uart.c.o)
  .text.on_adv_evt
-                0x000000000001dbe4       0x40 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001db90       0x40 ble/libble_uart.a(ble_uart.c.o)
  .text.ble_send
-                0x000000000001dc24       0xc4 ble/libble_uart.a(ble_uart.c.o)
-                0x000000000001dc24                ble_send
+                0x000000000001dbd0       0xc4 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001dbd0                ble_send
  .text.ble_init
-                0x000000000001dce8      0x294 ble/libble_uart.a(ble_uart.c.o)
-                0x000000000001dce8                ble_init
+                0x000000000001dc94      0x294 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000001dc94                ble_init
  .text.ble_evt_handler
-                0x000000000001df7c       0xac ble/libble_uart.a(bsp_btn_ble.c.o)
+                0x000000000001df28       0xac ble/libble_uart.a(bsp_btn_ble.c.o)
  .text.bsp_btn_ble_sleep_mode_prepare
-                0x000000000001e028       0x24 ble/libble_uart.a(bsp_btn_ble.c.o)
-                0x000000000001e028                bsp_btn_ble_sleep_mode_prepare
+                0x000000000001dfd4       0x24 ble/libble_uart.a(bsp_btn_ble.c.o)
+                0x000000000001dfd4                bsp_btn_ble_sleep_mode_prepare
  .text.bsp_btn_ble_init
-                0x000000000001e04c       0x6c ble/libble_uart.a(bsp_btn_ble.c.o)
-                0x000000000001e04c                bsp_btn_ble_init
+                0x000000000001dff8       0x6c ble/libble_uart.a(bsp_btn_ble.c.o)
+                0x000000000001dff8                bsp_btn_ble_init
  .text.alert_timer_handler
-                0x000000000001e0b8        0x8 ble/libble_uart.a(bsp.c.o)
+                0x000000000001e064        0x8 ble/libble_uart.a(bsp.c.o)
  .text.bsp_button_event_handler
-                0x000000000001e0c0       0xa8 ble/libble_uart.a(bsp.c.o)
+                0x000000000001e06c       0xa8 ble/libble_uart.a(bsp.c.o)
  .text.button_timer_handler
-                0x000000000001e168       0x34 ble/libble_uart.a(bsp.c.o)
+                0x000000000001e114       0x34 ble/libble_uart.a(bsp.c.o)
  .text.bsp_led_indication
-                0x000000000001e19c      0x308 ble/libble_uart.a(bsp.c.o)
+                0x000000000001e148      0x308 ble/libble_uart.a(bsp.c.o)
  .text.leds_timer_handler
-                0x000000000001e4a4       0x1c ble/libble_uart.a(bsp.c.o)
+                0x000000000001e450       0x1c ble/libble_uart.a(bsp.c.o)
  .text.bsp_button_is_pressed
-                0x000000000001e4c0        0xc ble/libble_uart.a(bsp.c.o)
-                0x000000000001e4c0                bsp_button_is_pressed
+                0x000000000001e46c        0xc ble/libble_uart.a(bsp.c.o)
+                0x000000000001e46c                bsp_button_is_pressed
  .text.bsp_indication_set
-                0x000000000001e4cc       0x18 ble/libble_uart.a(bsp.c.o)
-                0x000000000001e4cc                bsp_indication_set
+                0x000000000001e478       0x18 ble/libble_uart.a(bsp.c.o)
+                0x000000000001e478                bsp_indication_set
  .text.bsp_init
-                0x000000000001e4e4       0xb4 ble/libble_uart.a(bsp.c.o)
-                0x000000000001e4e4                bsp_init
+                0x000000000001e490       0xb4 ble/libble_uart.a(bsp.c.o)
+                0x000000000001e490                bsp_init
  .text.bsp_event_to_button_action_assign
-                0x000000000001e598       0x54 ble/libble_uart.a(bsp.c.o)
-                0x000000000001e598                bsp_event_to_button_action_assign
+                0x000000000001e544       0x54 ble/libble_uart.a(bsp.c.o)
+                0x000000000001e544                bsp_event_to_button_action_assign
  .text.bsp_wakeup_button_enable
-                0x000000000001e5ec       0x40 ble/libble_uart.a(bsp.c.o)
-                0x000000000001e5ec                bsp_wakeup_button_enable
+                0x000000000001e598       0x40 ble/libble_uart.a(bsp.c.o)
+                0x000000000001e598                bsp_wakeup_button_enable
  .text.sd_ble_gap_data_length_update
-                0x000000000001e62c        0x4 ble/libble_uart.a(nrf_ble_gatt.c.o)
+                0x000000000001e5d8        0x4 ble/libble_uart.a(nrf_ble_gatt.c.o)
  .text.sd_ble_gattc_exchange_mtu_request
-                0x000000000001e630        0x4 ble/libble_uart.a(nrf_ble_gatt.c.o)
+                0x000000000001e5dc        0x4 ble/libble_uart.a(nrf_ble_gatt.c.o)
  .text.sd_ble_gatts_exchange_mtu_reply
-                0x000000000001e634        0x4 ble/libble_uart.a(nrf_ble_gatt.c.o)
+                0x000000000001e5e0        0x4 ble/libble_uart.a(nrf_ble_gatt.c.o)
  .text.data_length_update
-                0x000000000001e638       0x8c ble/libble_uart.a(nrf_ble_gatt.c.o)
+                0x000000000001e5e4       0x8c ble/libble_uart.a(nrf_ble_gatt.c.o)
  .text.nrf_ble_gatt_init
-                0x000000000001e6c4       0x30 ble/libble_uart.a(nrf_ble_gatt.c.o)
-                0x000000000001e6c4                nrf_ble_gatt_init
+                0x000000000001e670       0x30 ble/libble_uart.a(nrf_ble_gatt.c.o)
+                0x000000000001e670                nrf_ble_gatt_init
  .text.nrf_ble_gatt_att_mtu_periph_set
-                0x000000000001e6f4       0x18 ble/libble_uart.a(nrf_ble_gatt.c.o)
-                0x000000000001e6f4                nrf_ble_gatt_att_mtu_periph_set
+                0x000000000001e6a0       0x18 ble/libble_uart.a(nrf_ble_gatt.c.o)
+                0x000000000001e6a0                nrf_ble_gatt_att_mtu_periph_set
  .text.nrf_ble_gatt_on_ble_evt
-                0x000000000001e70c      0x1cc ble/libble_uart.a(nrf_ble_gatt.c.o)
-                0x000000000001e70c                nrf_ble_gatt_on_ble_evt
+                0x000000000001e6b8      0x1cc ble/libble_uart.a(nrf_ble_gatt.c.o)
+                0x000000000001e6b8                nrf_ble_gatt_on_ble_evt
  .text.sd_ble_gatts_rw_authorize_reply
-                0x000000000001e8d8        0x4 ble/libble_uart.a(nrf_ble_qwr.c.o)
+                0x000000000001e884        0x4 ble/libble_uart.a(nrf_ble_qwr.c.o)
  .text.sd_ble_user_mem_reply
-                0x000000000001e8dc        0x4 ble/libble_uart.a(nrf_ble_qwr.c.o)
+                0x000000000001e888        0x4 ble/libble_uart.a(nrf_ble_qwr.c.o)
  .text.nrf_ble_qwr_init
-                0x000000000001e8e0       0x24 ble/libble_uart.a(nrf_ble_qwr.c.o)
-                0x000000000001e8e0                nrf_ble_qwr_init
+                0x000000000001e88c       0x24 ble/libble_uart.a(nrf_ble_qwr.c.o)
+                0x000000000001e88c                nrf_ble_qwr_init
  .text.nrf_ble_qwr_conn_handle_assign
-                0x000000000001e904       0x18 ble/libble_uart.a(nrf_ble_qwr.c.o)
-                0x000000000001e904                nrf_ble_qwr_conn_handle_assign
+                0x000000000001e8b0       0x18 ble/libble_uart.a(nrf_ble_qwr.c.o)
+                0x000000000001e8b0                nrf_ble_qwr_conn_handle_assign
  .text.nrf_ble_qwr_on_ble_evt
-                0x000000000001e91c       0xec ble/libble_uart.a(nrf_ble_qwr.c.o)
-                0x000000000001e91c                nrf_ble_qwr_on_ble_evt
+                0x000000000001e8c8       0xec ble/libble_uart.a(nrf_ble_qwr.c.o)
+                0x000000000001e8c8                nrf_ble_qwr_on_ble_evt
  .text.nrf_log_default_backends_init
-                0x000000000001ea08       0x20 ble/libble_uart.a(nrf_log_default_backends.c.o)
-                0x000000000001ea08                nrf_log_default_backends_init
+                0x000000000001e9b4       0x20 ble/libble_uart.a(nrf_log_default_backends.c.o)
+                0x000000000001e9b4                nrf_log_default_backends_init
  .text.nrf_log_init
-                0x000000000001ea28       0x28 ble/libble_uart.a(nrf_log_frontend.c.o)
-                0x000000000001ea28                nrf_log_init
+                0x000000000001e9d4       0x28 ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x000000000001e9d4                nrf_log_init
  .text.nrf_log_module_name_get
-                0x000000000001ea50       0x48 ble/libble_uart.a(nrf_log_frontend.c.o)
-                0x000000000001ea50                nrf_log_module_name_get
+                0x000000000001e9fc       0x48 ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x000000000001e9fc                nrf_log_module_name_get
  .text.nrf_log_color_id_get
-                0x000000000001ea98       0x2c ble/libble_uart.a(nrf_log_frontend.c.o)
-                0x000000000001ea98                nrf_log_color_id_get
+                0x000000000001ea44       0x2c ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x000000000001ea44                nrf_log_color_id_get
  .text.log_pending_hook
-                0x000000000001eac4        0x4 ble/libble_uart.a(nrf_log_frontend.c.o)
-                0x000000000001eac4                log_pending_hook
+                0x000000000001ea70        0x4 ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x000000000001ea70                log_pending_hook
  .text.nrf_log_frontend_dequeue
-                0x000000000001eac8      0x24c ble/libble_uart.a(nrf_log_frontend.c.o)
-                0x000000000001eac8                nrf_log_frontend_dequeue
+                0x000000000001ea74      0x24c ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x000000000001ea74                nrf_log_frontend_dequeue
  .text.nrf_log_frontend_std_2
-                0x000000000001ed14      0x1c8 ble/libble_uart.a(nrf_log_frontend.c.o)
-                0x000000000001ed14                nrf_log_frontend_std_2
+                0x000000000001ecc0      0x1c8 ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x000000000001ecc0                nrf_log_frontend_std_2
  .text.nrf_log_frontend_std_1
-                0x000000000001eedc      0x1bc ble/libble_uart.a(nrf_log_frontend.c.o)
-                0x000000000001eedc                nrf_log_frontend_std_1
+                0x000000000001ee88      0x1bc ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x000000000001ee88                nrf_log_frontend_std_1
  .text.nrf_log_frontend_std_0
-                0x000000000001f098      0x1ac ble/libble_uart.a(nrf_log_frontend.c.o)
-                0x000000000001f098                nrf_log_frontend_std_0
+                0x000000000001f044      0x1ac ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x000000000001f044                nrf_log_frontend_std_0
  .text.nrf_log_backend_add
-                0x000000000001f244       0x5c ble/libble_uart.a(nrf_log_frontend.c.o)
-                0x000000000001f244                nrf_log_backend_add
+                0x000000000001f1f0       0x5c ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x000000000001f1f0                nrf_log_backend_add
  .text.nrf_log_panic
-                0x000000000001f2a0       0x28 ble/libble_uart.a(nrf_log_frontend.c.o)
-                0x000000000001f2a0                nrf_log_panic
+                0x000000000001f24c       0x28 ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x000000000001f24c                nrf_log_panic
  .text.nrf_memobj_pool_init
-                0x000000000001f2c8        0x4 ble/libble_uart.a(nrf_memobj.c.o)
-                0x000000000001f2c8                nrf_memobj_pool_init
+                0x000000000001f274        0x4 ble/libble_uart.a(nrf_memobj.c.o)
+                0x000000000001f274                nrf_memobj_pool_init
  .text.nrf_memobj_alloc
-                0x000000000001f2cc       0x98 ble/libble_uart.a(nrf_memobj.c.o)
-                0x000000000001f2cc                nrf_memobj_alloc
+                0x000000000001f278       0x98 ble/libble_uart.a(nrf_memobj.c.o)
+                0x000000000001f278                nrf_memobj_alloc
  .text.nrf_memobj_get
-                0x000000000001f364        0x8 ble/libble_uart.a(nrf_memobj.c.o)
-                0x000000000001f364                nrf_memobj_get
+                0x000000000001f310        0x8 ble/libble_uart.a(nrf_memobj.c.o)
+                0x000000000001f310                nrf_memobj_get
  .text.nrf_memobj_put
-                0x000000000001f36c       0x58 ble/libble_uart.a(nrf_memobj.c.o)
-                0x000000000001f36c                nrf_memobj_put
+                0x000000000001f318       0x58 ble/libble_uart.a(nrf_memobj.c.o)
+                0x000000000001f318                nrf_memobj_put
  .text.nrf_memobj_write
-                0x000000000001f3c4       0x68 ble/libble_uart.a(nrf_memobj.c.o)
-                0x000000000001f3c4                nrf_memobj_write
+                0x000000000001f370       0x68 ble/libble_uart.a(nrf_memobj.c.o)
+                0x000000000001f370                nrf_memobj_write
  .text.nrf_memobj_read
-                0x000000000001f42c       0x68 ble/libble_uart.a(nrf_memobj.c.o)
-                0x000000000001f42c                nrf_memobj_read
+                0x000000000001f3d8       0x68 ble/libble_uart.a(nrf_memobj.c.o)
+                0x000000000001f3d8                nrf_memobj_read
  .text.nrf_pwr_mgmt_init
-                0x000000000001f494       0x2c ble/libble_uart.a(nrf_pwr_mgmt.c.o)
-                0x000000000001f494                nrf_pwr_mgmt_init
+                0x000000000001f440       0x2c ble/libble_uart.a(nrf_pwr_mgmt.c.o)
+                0x000000000001f440                nrf_pwr_mgmt_init
  .text.nrf_ringbuf_init
-                0x000000000001f4c0       0x1c ble/libble_uart.a(nrf_ringbuf.c.o)
-                0x000000000001f4c0                nrf_ringbuf_init
+                0x000000000001f46c       0x1c ble/libble_uart.a(nrf_ringbuf.c.o)
+                0x000000000001f46c                nrf_ringbuf_init
  .text.sd_ble_enable
-                0x000000000001f4dc        0x4 ble/libble_uart.a(nrf_sdh_ble.c.o)
+                0x000000000001f488        0x4 ble/libble_uart.a(nrf_sdh_ble.c.o)
  .text.sd_ble_cfg_set
-                0x000000000001f4e0        0x4 ble/libble_uart.a(nrf_sdh_ble.c.o)
+                0x000000000001f48c        0x4 ble/libble_uart.a(nrf_sdh_ble.c.o)
  .text.sd_ble_evt_get
-                0x000000000001f4e4        0x4 ble/libble_uart.a(nrf_sdh_ble.c.o)
+                0x000000000001f490        0x4 ble/libble_uart.a(nrf_sdh_ble.c.o)
  .text.nrf_sdh_ble_evts_poll.part.0
-                0x000000000001f4e8       0x5c ble/libble_uart.a(nrf_sdh_ble.c.o)
+                0x000000000001f494       0x5c ble/libble_uart.a(nrf_sdh_ble.c.o)
  .text.nrf_sdh_ble_evts_poll
-                0x000000000001f544       0x10 ble/libble_uart.a(nrf_sdh_ble.c.o)
+                0x000000000001f4f0       0x10 ble/libble_uart.a(nrf_sdh_ble.c.o)
  .text.nrf_sdh_ble_default_cfg_set
-                0x000000000001f554      0x1b0 ble/libble_uart.a(nrf_sdh_ble.c.o)
-                0x000000000001f554                nrf_sdh_ble_default_cfg_set
+                0x000000000001f500      0x1b0 ble/libble_uart.a(nrf_sdh_ble.c.o)
+                0x000000000001f500                nrf_sdh_ble_default_cfg_set
  .text.nrf_sdh_ble_enable
-                0x000000000001f704       0x9c ble/libble_uart.a(nrf_sdh_ble.c.o)
-                0x000000000001f704                nrf_sdh_ble_enable
+                0x000000000001f6b0       0x9c ble/libble_uart.a(nrf_sdh_ble.c.o)
+                0x000000000001f6b0                nrf_sdh_ble_enable
  .text.sd_softdevice_enable
-                0x000000000001f7a0        0x4 ble/libble_uart.a(nrf_sdh.c.o)
+                0x000000000001f74c        0x4 ble/libble_uart.a(nrf_sdh.c.o)
  .text.nrf_sdh_enable_request.part.0
-                0x000000000001f7a4      0x10c ble/libble_uart.a(nrf_sdh.c.o)
+                0x000000000001f750      0x10c ble/libble_uart.a(nrf_sdh.c.o)
  .text.nrf_sdh_enable_request
-                0x000000000001f8b0       0x14 ble/libble_uart.a(nrf_sdh.c.o)
-                0x000000000001f8b0                nrf_sdh_enable_request
+                0x000000000001f85c       0x14 ble/libble_uart.a(nrf_sdh.c.o)
+                0x000000000001f85c                nrf_sdh_enable_request
  .text.SWI2_EGU2_IRQHandler
-                0x000000000001f8c4       0x2c ble/libble_uart.a(nrf_sdh.c.o)
-                0x000000000001f8c4                SWI2_EGU2_IRQHandler
+                0x000000000001f870       0x2c ble/libble_uart.a(nrf_sdh.c.o)
+                0x000000000001f870                SWI2_EGU2_IRQHandler
  .text.nrf_section_iter_init
-                0x000000000001f8f0       0x14 ble/libble_uart.a(nrf_section_iter.c.o)
-                0x000000000001f8f0                nrf_section_iter_init
+                0x000000000001f89c       0x14 ble/libble_uart.a(nrf_section_iter.c.o)
+                0x000000000001f89c                nrf_section_iter_init
  .text.nrf_section_iter_next
-                0x000000000001f904       0x18 ble/libble_uart.a(nrf_section_iter.c.o)
-                0x000000000001f904                nrf_section_iter_next
+                0x000000000001f8b0       0x18 ble/libble_uart.a(nrf_section_iter.c.o)
+                0x000000000001f8b0                nrf_section_iter_next
  .text.nrf_strerror_get
-                0x000000000001f91c       0x44 ble/libble_uart.a(nrf_strerror.c.o)
-                0x000000000001f91c                nrf_strerror_get
+                0x000000000001f8c8       0x44 ble/libble_uart.a(nrf_strerror.c.o)
+                0x000000000001f8c8                nrf_strerror_get
  .text.gpiote_event_handler
-                0x000000000001f960       0x74 ble/libble_uart.a(app_button.c.o)
+                0x000000000001f90c       0x74 ble/libble_uart.a(app_button.c.o)
  .text.detection_delay_timeout_handler
-                0x000000000001f9d4      0x274 ble/libble_uart.a(app_button.c.o)
+                0x000000000001f980      0x274 ble/libble_uart.a(app_button.c.o)
  .text.app_button_init
-                0x000000000001fc48       0xb8 ble/libble_uart.a(app_button.c.o)
-                0x000000000001fc48                app_button_init
+                0x000000000001fbf4       0xb8 ble/libble_uart.a(app_button.c.o)
+                0x000000000001fbf4                app_button_init
  .text.app_button_enable
-                0x000000000001fd00       0x2c ble/libble_uart.a(app_button.c.o)
-                0x000000000001fd00                app_button_enable
+                0x000000000001fcac       0x2c ble/libble_uart.a(app_button.c.o)
+                0x000000000001fcac                app_button_enable
  .text.app_error_handler_bare
-                0x000000000001fd2c       0x20 ble/libble_uart.a(app_error.c.o)
-                0x000000000001fd2c                app_error_handler_bare
+                0x000000000001fcd8       0x20 ble/libble_uart.a(app_error.c.o)
+                0x000000000001fcd8                app_error_handler_bare
  .text.app_error_fault_handler
-                0x000000000001fd4c       0x6c ble/libble_uart.a(app_error_weak.c.o)
-                0x000000000001fd4c                app_error_fault_handler
+                0x000000000001fcf8       0x6c ble/libble_uart.a(app_error_weak.c.o)
+                0x000000000001fcf8                app_error_fault_handler
  .text.compare_func
-                0x000000000001fdb8       0x18 ble/libble_uart.a(app_timer2.c.o)
+                0x000000000001fd64       0x18 ble/libble_uart.a(app_timer2.c.o)
  .text.timer_expire
-                0x000000000001fdd0       0xe8 ble/libble_uart.a(app_timer2.c.o)
- .text.rtc_irq  0x000000000001feb8      0x220 ble/libble_uart.a(app_timer2.c.o)
+                0x000000000001fd7c       0xe8 ble/libble_uart.a(app_timer2.c.o)
+ .text.rtc_irq  0x000000000001fe64      0x220 ble/libble_uart.a(app_timer2.c.o)
  .text.app_timer_init
-                0x00000000000200d8       0x6c ble/libble_uart.a(app_timer2.c.o)
-                0x00000000000200d8                app_timer_init
- *fill*         0x0000000000020144        0x4 
+                0x0000000000020084       0x6c ble/libble_uart.a(app_timer2.c.o)
+                0x0000000000020084                app_timer_init
  .text.app_timer_create
-                0x0000000000020148       0x30 ble/libble_uart.a(app_timer2.c.o)
-                0x0000000000020148                app_timer_create
+                0x00000000000200f0       0x30 ble/libble_uart.a(app_timer2.c.o)
+                0x00000000000200f0                app_timer_create
  .text.app_timer_start
-                0x0000000000020178       0xb8 ble/libble_uart.a(app_timer2.c.o)
-                0x0000000000020178                app_timer_start
+                0x0000000000020120       0xb8 ble/libble_uart.a(app_timer2.c.o)
+                0x0000000000020120                app_timer_start
  .text.app_timer_stop
-                0x0000000000020230       0x7c ble/libble_uart.a(app_timer2.c.o)
-                0x0000000000020230                app_timer_stop
+                0x00000000000201d8       0x7c ble/libble_uart.a(app_timer2.c.o)
+                0x00000000000201d8                app_timer_stop
  .text.app_util_critical_region_enter
-                0x00000000000202ac       0x4c ble/libble_uart.a(app_util_platform.c.o)
-                0x00000000000202ac                app_util_critical_region_enter
+                0x0000000000020254       0x4c ble/libble_uart.a(app_util_platform.c.o)
+                0x0000000000020254                app_util_critical_region_enter
  .text.app_util_critical_region_exit
-                0x00000000000202f8       0x30 ble/libble_uart.a(app_util_platform.c.o)
-                0x00000000000202f8                app_util_critical_region_exit
+                0x00000000000202a0       0x30 ble/libble_uart.a(app_util_platform.c.o)
+                0x00000000000202a0                app_util_critical_region_exit
  .text.sd_ble_gap_adv_set_configure
-                0x0000000000020328        0x4 ble/libble_uart.a(ble_advertising.c.o)
+                0x00000000000202d0        0x4 ble/libble_uart.a(ble_advertising.c.o)
  .text.sd_ble_gap_adv_start
-                0x000000000002032c        0x4 ble/libble_uart.a(ble_advertising.c.o)
+                0x00000000000202d4        0x4 ble/libble_uart.a(ble_advertising.c.o)
  .text.sd_ble_gap_adv_stop
-                0x0000000000020330        0x4 ble/libble_uart.a(ble_advertising.c.o)
+                0x00000000000202d8        0x4 ble/libble_uart.a(ble_advertising.c.o)
  .text.ble_advertising_start.part.0
-                0x0000000000020334      0x2d4 ble/libble_uart.a(ble_advertising.c.o)
+                0x00000000000202dc      0x2d4 ble/libble_uart.a(ble_advertising.c.o)
  .text.ble_advertising_conn_cfg_tag_set
-                0x0000000000020608        0x8 ble/libble_uart.a(ble_advertising.c.o)
-                0x0000000000020608                ble_advertising_conn_cfg_tag_set
+                0x00000000000205b0        0x8 ble/libble_uart.a(ble_advertising.c.o)
+                0x00000000000205b0                ble_advertising_conn_cfg_tag_set
  .text.ble_advertising_init
-                0x0000000000020610       0xf4 ble/libble_uart.a(ble_advertising.c.o)
-                0x0000000000020610                ble_advertising_init
+                0x00000000000205b8       0xf4 ble/libble_uart.a(ble_advertising.c.o)
+                0x00000000000205b8                ble_advertising_init
  .text.ble_advertising_start
-                0x0000000000020704        0xc ble/libble_uart.a(ble_advertising.c.o)
-                0x0000000000020704                ble_advertising_start
+                0x00000000000206ac        0xc ble/libble_uart.a(ble_advertising.c.o)
+                0x00000000000206ac                ble_advertising_start
  .text.ble_advertising_on_ble_evt
-                0x0000000000020710       0x8c ble/libble_uart.a(ble_advertising.c.o)
-                0x0000000000020710                ble_advertising_on_ble_evt
+                0x00000000000206b8       0x8c ble/libble_uart.a(ble_advertising.c.o)
+                0x00000000000206b8                ble_advertising_on_ble_evt
  .text.ble_advertising_restart_without_whitelist
-                0x000000000002079c       0x60 ble/libble_uart.a(ble_advertising.c.o)
-                0x000000000002079c                ble_advertising_restart_without_whitelist
+                0x0000000000020744       0x60 ble/libble_uart.a(ble_advertising.c.o)
+                0x0000000000020744                ble_advertising_restart_without_whitelist
  .text.sd_ble_gap_conn_param_update
-                0x00000000000207fc        0x4 ble/libble_uart.a(ble_conn_params.c.o)
+                0x00000000000207a4        0x4 ble/libble_uart.a(ble_conn_params.c.o)
  .text.sd_ble_gap_disconnect
-                0x0000000000020800        0x4 ble/libble_uart.a(ble_conn_params.c.o)
+                0x00000000000207a8        0x4 ble/libble_uart.a(ble_conn_params.c.o)
  .text.sd_ble_gap_ppcp_set
-                0x0000000000020804        0x4 ble/libble_uart.a(ble_conn_params.c.o)
+                0x00000000000207ac        0x4 ble/libble_uart.a(ble_conn_params.c.o)
  .text.sd_ble_gap_ppcp_get
-                0x0000000000020808        0x4 ble/libble_uart.a(ble_conn_params.c.o)
+                0x00000000000207b0        0x4 ble/libble_uart.a(ble_conn_params.c.o)
  .text.update_timeout_handler
-                0x000000000002080c       0x80 ble/libble_uart.a(ble_conn_params.c.o)
+                0x00000000000207b4       0x80 ble/libble_uart.a(ble_conn_params.c.o)
  .text.ble_evt_handler
-                0x000000000002088c      0x1d0 ble/libble_uart.a(ble_conn_params.c.o)
+                0x0000000000020834      0x1d0 ble/libble_uart.a(ble_conn_params.c.o)
  .text.ble_conn_params_init
-                0x0000000000020a5c       0x78 ble/libble_uart.a(ble_conn_params.c.o)
-                0x0000000000020a5c                ble_conn_params_init
+                0x0000000000020a04       0x78 ble/libble_uart.a(ble_conn_params.c.o)
+                0x0000000000020a04                ble_conn_params_init
  .text.sd_ble_gatts_service_add
-                0x0000000000020ad4        0x4 ble/libble_uart.a(ble_nus.c.o)
+                0x0000000000020a7c        0x4 ble/libble_uart.a(ble_nus.c.o)
  .text.sd_ble_gatts_value_get
-                0x0000000000020ad8        0x4 ble/libble_uart.a(ble_nus.c.o)
+                0x0000000000020a80        0x4 ble/libble_uart.a(ble_nus.c.o)
  .text.sd_ble_gatts_hvx
-                0x0000000000020adc        0x4 ble/libble_uart.a(ble_nus.c.o)
+                0x0000000000020a84        0x4 ble/libble_uart.a(ble_nus.c.o)
  .text.sd_ble_uuid_vs_add
-                0x0000000000020ae0        0x4 ble/libble_uart.a(ble_nus.c.o)
+                0x0000000000020a88        0x4 ble/libble_uart.a(ble_nus.c.o)
  .text.ble_nus_on_ble_evt
-                0x0000000000020ae4      0x134 ble/libble_uart.a(ble_nus.c.o)
-                0x0000000000020ae4                ble_nus_on_ble_evt
+                0x0000000000020a8c      0x134 ble/libble_uart.a(ble_nus.c.o)
+                0x0000000000020a8c                ble_nus_on_ble_evt
  .text.ble_nus_init
-                0x0000000000020c18       0xe4 ble/libble_uart.a(ble_nus.c.o)
-                0x0000000000020c18                ble_nus_init
+                0x0000000000020bc0       0xe4 ble/libble_uart.a(ble_nus.c.o)
+                0x0000000000020bc0                ble_nus_init
  .text.ble_nus_data_send
-                0x0000000000020cfc       0x6c ble/libble_uart.a(ble_nus.c.o)
-                0x0000000000020cfc                ble_nus_data_send
+                0x0000000000020ca4       0x6c ble/libble_uart.a(ble_nus.c.o)
+                0x0000000000020ca4                ble_nus_data_send
  .text.sd_ble_gatts_characteristic_add
-                0x0000000000020d68        0x4 ble/libble_uart.a(ble_srv_common.c.o)
+                0x0000000000020d10        0x4 ble/libble_uart.a(ble_srv_common.c.o)
  .text.ble_srv_is_notification_enabled
-                0x0000000000020d6c        0x8 ble/libble_uart.a(ble_srv_common.c.o)
-                0x0000000000020d6c                ble_srv_is_notification_enabled
+                0x0000000000020d14        0x8 ble/libble_uart.a(ble_srv_common.c.o)
+                0x0000000000020d14                ble_srv_is_notification_enabled
  .text.characteristic_add
-                0x0000000000020d74      0x270 ble/libble_uart.a(ble_srv_common.c.o)
-                0x0000000000020d74                characteristic_add
+                0x0000000000020d1c      0x270 ble/libble_uart.a(ble_srv_common.c.o)
+                0x0000000000020d1c                characteristic_add
  .text.bsp_board_led_state_get
-                0x0000000000020fe4       0x28 ble/libble_uart.a(boards.c.o)
-                0x0000000000020fe4                bsp_board_led_state_get
+                0x0000000000020f8c       0x28 ble/libble_uart.a(boards.c.o)
+                0x0000000000020f8c                bsp_board_led_state_get
  .text.bsp_board_led_on
-                0x000000000002100c       0x24 ble/libble_uart.a(boards.c.o)
-                0x000000000002100c                bsp_board_led_on
+                0x0000000000020fb4       0x24 ble/libble_uart.a(boards.c.o)
+                0x0000000000020fb4                bsp_board_led_on
  .text.bsp_board_led_off
-                0x0000000000021030       0x24 ble/libble_uart.a(boards.c.o)
-                0x0000000000021030                bsp_board_led_off
+                0x0000000000020fd8       0x24 ble/libble_uart.a(boards.c.o)
+                0x0000000000020fd8                bsp_board_led_off
  .text.bsp_board_leds_off
-                0x0000000000021054       0x60 ble/libble_uart.a(boards.c.o)
-                0x0000000000021054                bsp_board_leds_off
+                0x0000000000020ffc       0x60 ble/libble_uart.a(boards.c.o)
+                0x0000000000020ffc                bsp_board_leds_off
  .text.bsp_board_leds_on
-                0x00000000000210b4       0x60 ble/libble_uart.a(boards.c.o)
-                0x00000000000210b4                bsp_board_leds_on
+                0x000000000002105c       0x60 ble/libble_uart.a(boards.c.o)
+                0x000000000002105c                bsp_board_leds_on
  .text.bsp_board_led_invert
-                0x0000000000021114       0x34 ble/libble_uart.a(boards.c.o)
-                0x0000000000021114                bsp_board_led_invert
+                0x00000000000210bc       0x34 ble/libble_uart.a(boards.c.o)
+                0x00000000000210bc                bsp_board_led_invert
  .text.bsp_board_button_state_get
-                0x0000000000021148       0x28 ble/libble_uart.a(boards.c.o)
-                0x0000000000021148                bsp_board_button_state_get
+                0x00000000000210f0       0x28 ble/libble_uart.a(boards.c.o)
+                0x00000000000210f0                bsp_board_button_state_get
  .text.bsp_board_pin_to_button_idx
-                0x0000000000021170       0x14 ble/libble_uart.a(boards.c.o)
-                0x0000000000021170                bsp_board_pin_to_button_idx
+                0x0000000000021118       0x14 ble/libble_uart.a(boards.c.o)
+                0x0000000000021118                bsp_board_pin_to_button_idx
  .text.bsp_board_button_idx_to_pin
-                0x0000000000021184        0xc ble/libble_uart.a(boards.c.o)
-                0x0000000000021184                bsp_board_button_idx_to_pin
+                0x000000000002112c        0xc ble/libble_uart.a(boards.c.o)
+                0x000000000002112c                bsp_board_button_idx_to_pin
  .text.bsp_board_init
-                0x0000000000021190       0xb4 ble/libble_uart.a(boards.c.o)
-                0x0000000000021190                bsp_board_init
+                0x0000000000021138       0xb4 ble/libble_uart.a(boards.c.o)
+                0x0000000000021138                bsp_board_init
  .text.drv_rtc_init
-                0x0000000000021244       0xc8 ble/libble_uart.a(drv_rtc.c.o)
-                0x0000000000021244                drv_rtc_init
+                0x00000000000211ec       0xc8 ble/libble_uart.a(drv_rtc.c.o)
+                0x00000000000211ec                drv_rtc_init
  .text.drv_rtc_start
-                0x000000000002130c        0x8 ble/libble_uart.a(drv_rtc.c.o)
-                0x000000000002130c                drv_rtc_start
+                0x00000000000212b4        0x8 ble/libble_uart.a(drv_rtc.c.o)
+                0x00000000000212b4                drv_rtc_start
  .text.drv_rtc_stop
-                0x0000000000021314        0x8 ble/libble_uart.a(drv_rtc.c.o)
-                0x0000000000021314                drv_rtc_stop
+                0x00000000000212bc        0x8 ble/libble_uart.a(drv_rtc.c.o)
+                0x00000000000212bc                drv_rtc_stop
  .text.drv_rtc_compare_set
-                0x000000000002131c       0x54 ble/libble_uart.a(drv_rtc.c.o)
-                0x000000000002131c                drv_rtc_compare_set
+                0x00000000000212c4       0x54 ble/libble_uart.a(drv_rtc.c.o)
+                0x00000000000212c4                drv_rtc_compare_set
  .text.drv_rtc_windowed_compare_set
-                0x0000000000021370      0x100 ble/libble_uart.a(drv_rtc.c.o)
-                0x0000000000021370                drv_rtc_windowed_compare_set
+                0x0000000000021318      0x100 ble/libble_uart.a(drv_rtc.c.o)
+                0x0000000000021318                drv_rtc_windowed_compare_set
  .text.drv_rtc_overflow_enable
-                0x0000000000021470       0x14 ble/libble_uart.a(drv_rtc.c.o)
-                0x0000000000021470                drv_rtc_overflow_enable
+                0x0000000000021418       0x14 ble/libble_uart.a(drv_rtc.c.o)
+                0x0000000000021418                drv_rtc_overflow_enable
  .text.drv_rtc_overflow_pending
-                0x0000000000021484       0x20 ble/libble_uart.a(drv_rtc.c.o)
-                0x0000000000021484                drv_rtc_overflow_pending
+                0x000000000002142c       0x20 ble/libble_uart.a(drv_rtc.c.o)
+                0x000000000002142c                drv_rtc_overflow_pending
  .text.drv_rtc_compare_disable
-                0x00000000000214a4       0x18 ble/libble_uart.a(drv_rtc.c.o)
-                0x00000000000214a4                drv_rtc_compare_disable
+                0x000000000002144c       0x18 ble/libble_uart.a(drv_rtc.c.o)
+                0x000000000002144c                drv_rtc_compare_disable
  .text.drv_rtc_compare_pending
-                0x00000000000214bc       0x20 ble/libble_uart.a(drv_rtc.c.o)
-                0x00000000000214bc                drv_rtc_compare_pending
+                0x0000000000021464       0x20 ble/libble_uart.a(drv_rtc.c.o)
+                0x0000000000021464                drv_rtc_compare_pending
  .text.drv_rtc_counter_get
-                0x00000000000214dc        0x8 ble/libble_uart.a(drv_rtc.c.o)
-                0x00000000000214dc                drv_rtc_counter_get
+                0x0000000000021484        0x8 ble/libble_uart.a(drv_rtc.c.o)
+                0x0000000000021484                drv_rtc_counter_get
  .text.drv_rtc_irq_trigger
-                0x00000000000214e4       0x24 ble/libble_uart.a(drv_rtc.c.o)
-                0x00000000000214e4                drv_rtc_irq_trigger
+                0x000000000002148c       0x24 ble/libble_uart.a(drv_rtc.c.o)
+                0x000000000002148c                drv_rtc_irq_trigger
  .text.RTC1_IRQHandler
-                0x0000000000021508       0x14 ble/libble_uart.a(drv_rtc.c.o)
-                0x0000000000021508                RTC1_IRQHandler
+                0x00000000000214b0       0x14 ble/libble_uart.a(drv_rtc.c.o)
+                0x00000000000214b0                RTC1_IRQHandler
  .text.nrf_atfifo_init
-                0x000000000002151c       0x30 ble/libble_uart.a(nrf_atfifo.c.o)
-                0x000000000002151c                nrf_atfifo_init
+                0x00000000000214c4       0x30 ble/libble_uart.a(nrf_atfifo.c.o)
+                0x00000000000214c4                nrf_atfifo_init
  .text.nrf_atfifo_item_alloc
-                0x000000000002154c       0x64 ble/libble_uart.a(nrf_atfifo.c.o)
-                0x000000000002154c                nrf_atfifo_item_alloc
+                0x00000000000214f4       0x64 ble/libble_uart.a(nrf_atfifo.c.o)
+                0x00000000000214f4                nrf_atfifo_item_alloc
  .text.nrf_atfifo_item_put
-                0x00000000000215b0       0x20 ble/libble_uart.a(nrf_atfifo.c.o)
-                0x00000000000215b0                nrf_atfifo_item_put
+                0x0000000000021558       0x20 ble/libble_uart.a(nrf_atfifo.c.o)
+                0x0000000000021558                nrf_atfifo_item_put
  .text.nrf_atfifo_item_get
-                0x00000000000215d0       0x64 ble/libble_uart.a(nrf_atfifo.c.o)
-                0x00000000000215d0                nrf_atfifo_item_get
+                0x0000000000021578       0x64 ble/libble_uart.a(nrf_atfifo.c.o)
+                0x0000000000021578                nrf_atfifo_item_get
  .text.nrf_atfifo_item_free
-                0x0000000000021634       0x20 ble/libble_uart.a(nrf_atfifo.c.o)
-                0x0000000000021634                nrf_atfifo_item_free
+                0x00000000000215dc       0x20 ble/libble_uart.a(nrf_atfifo.c.o)
+                0x00000000000215dc                nrf_atfifo_item_free
  .text.nrf_atomic_u32_fetch_store
-                0x0000000000021654       0x14 ble/libble_uart.a(nrf_atomic.c.o)
-                0x0000000000021654                nrf_atomic_u32_fetch_store
+                0x00000000000215fc       0x14 ble/libble_uart.a(nrf_atomic.c.o)
+                0x00000000000215fc                nrf_atomic_u32_fetch_store
  .text.nrf_atomic_u32_or
-                0x0000000000021668       0x18 ble/libble_uart.a(nrf_atomic.c.o)
-                0x0000000000021668                nrf_atomic_u32_or
+                0x0000000000021610       0x18 ble/libble_uart.a(nrf_atomic.c.o)
+                0x0000000000021610                nrf_atomic_u32_or
  .text.nrf_atomic_u32_and
-                0x0000000000021680       0x18 ble/libble_uart.a(nrf_atomic.c.o)
-                0x0000000000021680                nrf_atomic_u32_and
+                0x0000000000021628       0x18 ble/libble_uart.a(nrf_atomic.c.o)
+                0x0000000000021628                nrf_atomic_u32_and
  .text.nrf_atomic_u32_add
-                0x0000000000021698       0x18 ble/libble_uart.a(nrf_atomic.c.o)
-                0x0000000000021698                nrf_atomic_u32_add
+                0x0000000000021640       0x18 ble/libble_uart.a(nrf_atomic.c.o)
+                0x0000000000021640                nrf_atomic_u32_add
  .text.nrf_atomic_u32_sub
-                0x00000000000216b0       0x18 ble/libble_uart.a(nrf_atomic.c.o)
-                0x00000000000216b0                nrf_atomic_u32_sub
+                0x0000000000021658       0x18 ble/libble_uart.a(nrf_atomic.c.o)
+                0x0000000000021658                nrf_atomic_u32_sub
  .text.nrf_atomic_flag_set
-                0x00000000000216c8       0x18 ble/libble_uart.a(nrf_atomic.c.o)
-                0x00000000000216c8                nrf_atomic_flag_set
+                0x0000000000021670       0x18 ble/libble_uart.a(nrf_atomic.c.o)
+                0x0000000000021670                nrf_atomic_flag_set
  .text.nrf_atomic_flag_clear_fetch
-                0x00000000000216e0       0x18 ble/libble_uart.a(nrf_atomic.c.o)
-                0x00000000000216e0                nrf_atomic_flag_clear_fetch
+                0x0000000000021688       0x18 ble/libble_uart.a(nrf_atomic.c.o)
+                0x0000000000021688                nrf_atomic_flag_clear_fetch
  .text.nrf_balloc_init
-                0x00000000000216f8       0x3c ble/libble_uart.a(nrf_balloc.c.o)
-                0x00000000000216f8                nrf_balloc_init
+                0x00000000000216a0       0x3c ble/libble_uart.a(nrf_balloc.c.o)
+                0x00000000000216a0                nrf_balloc_init
  .text.nrf_balloc_alloc
-                0x0000000000021734       0x50 ble/libble_uart.a(nrf_balloc.c.o)
-                0x0000000000021734                nrf_balloc_alloc
+                0x00000000000216dc       0x50 ble/libble_uart.a(nrf_balloc.c.o)
+                0x00000000000216dc                nrf_balloc_alloc
  .text.nrf_balloc_free
-                0x0000000000021784       0x38 ble/libble_uart.a(nrf_balloc.c.o)
-                0x0000000000021784                nrf_balloc_free
+                0x000000000002172c       0x38 ble/libble_uart.a(nrf_balloc.c.o)
+                0x000000000002172c                nrf_balloc_free
  .text.nrf_log_backend_rtt_flush
-                0x00000000000217bc        0x4 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
+                0x0000000000021764        0x4 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
  .text.nrf_log_backend_rtt_put
-                0x00000000000217c0       0x20 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
+                0x0000000000021768       0x20 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
  .text.serial_tx
-                0x00000000000217e0       0x5c ble/libble_uart.a(nrf_log_backend_rtt.c.o)
+                0x0000000000021788       0x5c ble/libble_uart.a(nrf_log_backend_rtt.c.o)
  .text.nrf_log_backend_rtt_panic_set
-                0x000000000002183c        0x4 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
+                0x00000000000217e4        0x4 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
  .text.nrf_log_backend_rtt_init
-                0x0000000000021840        0x4 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
-                0x0000000000021840                nrf_log_backend_rtt_init
+                0x00000000000217e8        0x4 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
+                0x00000000000217e8                nrf_log_backend_rtt_init
  .text.nrf_log_backend_serial_put
-                0x0000000000021844       0xd8 ble/libble_uart.a(nrf_log_backend_serial.c.o)
-                0x0000000000021844                nrf_log_backend_serial_put
+                0x00000000000217ec       0xd8 ble/libble_uart.a(nrf_log_backend_serial.c.o)
+                0x00000000000217ec                nrf_log_backend_serial_put
  .text.prefix_process.constprop.0
-                0x000000000002191c       0x80 ble/libble_uart.a(nrf_log_str_formatter.c.o)
+                0x00000000000218c4       0x80 ble/libble_uart.a(nrf_log_str_formatter.c.o)
  .text.nrf_log_std_entry_process
-                0x000000000002199c       0xec ble/libble_uart.a(nrf_log_str_formatter.c.o)
-                0x000000000002199c                nrf_log_std_entry_process
+                0x0000000000021944       0xec ble/libble_uart.a(nrf_log_str_formatter.c.o)
+                0x0000000000021944                nrf_log_std_entry_process
  .text.nrf_log_hexdump_entry_process
-                0x0000000000021a88      0x104 ble/libble_uart.a(nrf_log_str_formatter.c.o)
-                0x0000000000021a88                nrf_log_hexdump_entry_process
+                0x0000000000021a30      0x104 ble/libble_uart.a(nrf_log_str_formatter.c.o)
+                0x0000000000021a30                nrf_log_hexdump_entry_process
  .text.nrf_sortlist_add
-                0x0000000000021b8c       0x28 ble/libble_uart.a(nrf_sortlist.c.o)
-                0x0000000000021b8c                nrf_sortlist_add
+                0x0000000000021b34       0x28 ble/libble_uart.a(nrf_sortlist.c.o)
+                0x0000000000021b34                nrf_sortlist_add
  .text.nrf_sortlist_pop
-                0x0000000000021bb4        0xc ble/libble_uart.a(nrf_sortlist.c.o)
-                0x0000000000021bb4                nrf_sortlist_pop
+                0x0000000000021b5c        0xc ble/libble_uart.a(nrf_sortlist.c.o)
+                0x0000000000021b5c                nrf_sortlist_pop
  .text.nrf_sortlist_peek
-                0x0000000000021bc0        0x8 ble/libble_uart.a(nrf_sortlist.c.o)
-                0x0000000000021bc0                nrf_sortlist_peek
+                0x0000000000021b68        0x8 ble/libble_uart.a(nrf_sortlist.c.o)
+                0x0000000000021b68                nrf_sortlist_peek
  .text.nrf_sortlist_remove
-                0x0000000000021bc8       0x1c ble/libble_uart.a(nrf_sortlist.c.o)
-                0x0000000000021bc8                nrf_sortlist_remove
+                0x0000000000021b70       0x1c ble/libble_uart.a(nrf_sortlist.c.o)
+                0x0000000000021b70                nrf_sortlist_remove
  .text.nrfx_gpiote_init
-                0x0000000000021be4       0xb4 ble/libble_uart.a(nrfx_gpiote.c.o)
-                0x0000000000021be4                nrfx_gpiote_init
+                0x0000000000021b8c       0xb4 ble/libble_uart.a(nrfx_gpiote.c.o)
+                0x0000000000021b8c                nrfx_gpiote_init
  .text.nrfx_gpiote_is_init
-                0x0000000000021c98       0x14 ble/libble_uart.a(nrfx_gpiote.c.o)
-                0x0000000000021c98                nrfx_gpiote_is_init
+                0x0000000000021c40       0x14 ble/libble_uart.a(nrfx_gpiote.c.o)
+                0x0000000000021c40                nrfx_gpiote_is_init
  .text.nrfx_gpiote_in_init
-                0x0000000000021cac      0x200 ble/libble_uart.a(nrfx_gpiote.c.o)
-                0x0000000000021cac                nrfx_gpiote_in_init
+                0x0000000000021c54      0x200 ble/libble_uart.a(nrfx_gpiote.c.o)
+                0x0000000000021c54                nrfx_gpiote_in_init
  .text.nrfx_gpiote_in_event_enable
-                0x0000000000021eac       0xf0 ble/libble_uart.a(nrfx_gpiote.c.o)
-                0x0000000000021eac                nrfx_gpiote_in_event_enable
+                0x0000000000021e54       0xf0 ble/libble_uart.a(nrfx_gpiote.c.o)
+                0x0000000000021e54                nrfx_gpiote_in_event_enable
  .text.nrfx_gpiote_in_is_set
-                0x0000000000021f9c       0x20 ble/libble_uart.a(nrfx_gpiote.c.o)
-                0x0000000000021f9c                nrfx_gpiote_in_is_set
+                0x0000000000021f44       0x20 ble/libble_uart.a(nrfx_gpiote.c.o)
+                0x0000000000021f44                nrfx_gpiote_in_is_set
  .text.GPIOTE_IRQHandler
-                0x0000000000021fbc      0x504 ble/libble_uart.a(nrfx_gpiote.c.o)
-                0x0000000000021fbc                GPIOTE_IRQHandler
+                0x0000000000021f64      0x504 ble/libble_uart.a(nrfx_gpiote.c.o)
+                0x0000000000021f64                GPIOTE_IRQHandler
  .text.SEGGER_RTT_WriteNoLock
-                0x00000000000224c0      0x1a8 ble/libble_uart.a(SEGGER_RTT.c.o)
-                0x00000000000224c0                SEGGER_RTT_WriteNoLock
+                0x0000000000022468      0x1a8 ble/libble_uart.a(SEGGER_RTT.c.o)
+                0x0000000000022468                SEGGER_RTT_WriteNoLock
  .text.SEGGER_RTT_Init
-                0x0000000000022668       0x68 ble/libble_uart.a(SEGGER_RTT.c.o)
-                0x0000000000022668                SEGGER_RTT_Init
+                0x0000000000022610       0x68 ble/libble_uart.a(SEGGER_RTT.c.o)
+                0x0000000000022610                SEGGER_RTT_Init
  .text.sd_ble_gap_addr_get
-                0x00000000000226d0        0x4 ble/libble_uart.a(ble_advdata.c.o)
+                0x0000000000022678        0x4 ble/libble_uart.a(ble_advdata.c.o)
  .text.sd_ble_gap_appearance_get
-                0x00000000000226d4        0x4 ble/libble_uart.a(ble_advdata.c.o)
+                0x000000000002267c        0x4 ble/libble_uart.a(ble_advdata.c.o)
  .text.sd_ble_gap_device_name_get
-                0x00000000000226d8        0x4 ble/libble_uart.a(ble_advdata.c.o)
+                0x0000000000022680        0x4 ble/libble_uart.a(ble_advdata.c.o)
  .text.sd_ble_uuid_encode
-                0x00000000000226dc        0x4 ble/libble_uart.a(ble_advdata.c.o)
+                0x0000000000022684        0x4 ble/libble_uart.a(ble_advdata.c.o)
  .text.uuid_list_sized_encode
-                0x00000000000226e0       0xb8 ble/libble_uart.a(ble_advdata.c.o)
+                0x0000000000022688       0xb8 ble/libble_uart.a(ble_advdata.c.o)
  .text.ble_advdata_encode
-                0x0000000000022798      0x424 ble/libble_uart.a(ble_advdata.c.o)
-                0x0000000000022798                ble_advdata_encode
+                0x0000000000022740      0x424 ble/libble_uart.a(ble_advdata.c.o)
+                0x0000000000022740                ble_advdata_encode
  .text.ble_advdata_parse
-                0x0000000000022bbc       0x4c ble/libble_uart.a(ble_advdata.c.o)
-                0x0000000000022bbc                ble_advdata_parse
+                0x0000000000022b64       0x4c ble/libble_uart.a(ble_advdata.c.o)
+                0x0000000000022b64                ble_advdata_parse
  .text.blcm_link_ctx_get
-                0x0000000000022c08       0x50 ble/libble_uart.a(ble_link_ctx_manager.c.o)
-                0x0000000000022c08                blcm_link_ctx_get
+                0x0000000000022bb0       0x50 ble/libble_uart.a(ble_link_ctx_manager.c.o)
+                0x0000000000022bb0                blcm_link_ctx_get
  .text.nrf_fprintf_buffer_flush
-                0x0000000000022c58       0x18 ble/libble_uart.a(nrf_fprintf.c.o)
-                0x0000000000022c58                nrf_fprintf_buffer_flush
+                0x0000000000022c00       0x18 ble/libble_uart.a(nrf_fprintf.c.o)
+                0x0000000000022c00                nrf_fprintf_buffer_flush
  .text.nrf_fprintf
-                0x0000000000022c70       0x20 ble/libble_uart.a(nrf_fprintf.c.o)
-                0x0000000000022c70                nrf_fprintf
+                0x0000000000022c18       0x20 ble/libble_uart.a(nrf_fprintf.c.o)
+                0x0000000000022c18                nrf_fprintf
  .text.unsigned_print
-                0x0000000000022c90      0x158 ble/libble_uart.a(nrf_fprintf_format.c.o)
+                0x0000000000022c38      0x158 ble/libble_uart.a(nrf_fprintf_format.c.o)
  .text.nrf_fprintf_fmt
-                0x0000000000022de8      0x610 ble/libble_uart.a(nrf_fprintf_format.c.o)
-                0x0000000000022de8                nrf_fprintf_fmt
+                0x0000000000022d90      0x610 ble/libble_uart.a(nrf_fprintf_format.c.o)
+                0x0000000000022d90                nrf_fprintf_fmt
  .text.ble_evt_handler
-                0x00000000000233f8      0x13c ble/libble_uart.a(ble_conn_state.c.o)
+                0x00000000000233a0      0x13c ble/libble_uart.a(ble_conn_state.c.o)
  .text.ble_conn_state_conn_idx
-                0x0000000000023534       0x24 ble/libble_uart.a(ble_conn_state.c.o)
-                0x0000000000023534                ble_conn_state_conn_idx
+                0x00000000000234dc       0x24 ble/libble_uart.a(ble_conn_state.c.o)
+                0x00000000000234dc                ble_conn_state_conn_idx
  .text.nrf_atflags_set
-                0x0000000000023558       0x18 ble/libble_uart.a(nrf_atflags.c.o)
-                0x0000000000023558                nrf_atflags_set
+                0x0000000000023500       0x18 ble/libble_uart.a(nrf_atflags.c.o)
+                0x0000000000023500                nrf_atflags_set
  .text.nrf_atflags_clear
-                0x0000000000023570       0x18 ble/libble_uart.a(nrf_atflags.c.o)
-                0x0000000000023570                nrf_atflags_clear
+                0x0000000000023518       0x18 ble/libble_uart.a(nrf_atflags.c.o)
+                0x0000000000023518                nrf_atflags_clear
  .text.nrf_atflags_get
-                0x0000000000023588       0x14 ble/libble_uart.a(nrf_atflags.c.o)
-                0x0000000000023588                nrf_atflags_get
+                0x0000000000023530       0x14 ble/libble_uart.a(nrf_atflags.c.o)
+                0x0000000000023530                nrf_atflags_get
  .text.svcRtxEventFlagsNew
-                0x000000000002359c       0x8c rtx/librtx.a(rtx_evflags.o)
+                0x0000000000023544       0x8c rtx/librtx.a(rtx_evflags.o)
  .text.svcRtxEventFlagsClear
-                0x0000000000023628       0x40 rtx/librtx.a(rtx_evflags.o)
+                0x00000000000235d0       0x40 rtx/librtx.a(rtx_evflags.o)
  .text.svcRtxEventFlagsGet
-                0x0000000000023668       0x24 rtx/librtx.a(rtx_evflags.o)
+                0x0000000000023610       0x24 rtx/librtx.a(rtx_evflags.o)
  .text.osRtxEventFlagsPostProcess
-                0x000000000002368c       0xa8 rtx/librtx.a(rtx_evflags.o)
+                0x0000000000023634       0xa8 rtx/librtx.a(rtx_evflags.o)
  .text.svcRtxEventFlagsSet
-                0x0000000000023734       0xfc rtx/librtx.a(rtx_evflags.o)
+                0x00000000000236dc       0xfc rtx/librtx.a(rtx_evflags.o)
  .text.osEventFlagsNew
-                0x0000000000023830       0x38 rtx/librtx.a(rtx_evflags.o)
-                0x0000000000023830                osEventFlagsNew
+                0x00000000000237d8       0x38 rtx/librtx.a(rtx_evflags.o)
+                0x00000000000237d8                osEventFlagsNew
  .text.osEventFlagsSet
-                0x0000000000023868       0x78 rtx/librtx.a(rtx_evflags.o)
-                0x0000000000023868                osEventFlagsSet
+                0x0000000000023810       0x78 rtx/librtx.a(rtx_evflags.o)
+                0x0000000000023810                osEventFlagsSet
  .text.osEventFlagsClear
-                0x00000000000238e0       0x74 rtx/librtx.a(rtx_evflags.o)
-                0x00000000000238e0                osEventFlagsClear
+                0x0000000000023888       0x74 rtx/librtx.a(rtx_evflags.o)
+                0x0000000000023888                osEventFlagsClear
  .text.osEventFlagsGet
-                0x0000000000023954       0x44 rtx/librtx.a(rtx_evflags.o)
-                0x0000000000023954                osEventFlagsGet
+                0x00000000000238fc       0x44 rtx/librtx.a(rtx_evflags.o)
+                0x00000000000238fc                osEventFlagsGet
  .text.svcRtxKernelInitialize
-                0x0000000000023998      0x15c rtx/librtx.a(rtx_kernel.o)
+                0x0000000000023940      0x15c rtx/librtx.a(rtx_kernel.o)
  .text.svcRtxKernelStart
-                0x0000000000023af4       0xb8 rtx/librtx.a(rtx_kernel.o)
+                0x0000000000023a9c       0xb8 rtx/librtx.a(rtx_kernel.o)
  .text.osRtxKernelBeforeInit
-                0x0000000000023bac        0x4 rtx/librtx.a(rtx_kernel.o)
-                0x0000000000023bac                osRtxKernelBeforeInit
+                0x0000000000023b54        0x4 rtx/librtx.a(rtx_kernel.o)
+                0x0000000000023b54                osRtxKernelBeforeInit
  .text.osRtxKernelErrorNotify
-                0x0000000000023bb0       0x18 rtx/librtx.a(rtx_kernel.o)
-                0x0000000000023bb0                osRtxKernelErrorNotify
+                0x0000000000023b58       0x18 rtx/librtx.a(rtx_kernel.o)
+                0x0000000000023b58                osRtxKernelErrorNotify
  .text.osKernelInitialize
-                0x0000000000023bc8       0x38 rtx/librtx.a(rtx_kernel.o)
-                0x0000000000023bc8                osKernelInitialize
+                0x0000000000023b70       0x38 rtx/librtx.a(rtx_kernel.o)
+                0x0000000000023b70                osKernelInitialize
  .text.osKernelStart
-                0x0000000000023c00       0x34 rtx/librtx.a(rtx_kernel.o)
-                0x0000000000023c00                osKernelStart
+                0x0000000000023ba8       0x34 rtx/librtx.a(rtx_kernel.o)
+                0x0000000000023ba8                osKernelStart
  .text.EvrRtxMemoryInit
-                0x0000000000023c34        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c34                EvrRtxMemoryInit
+                0x0000000000023bdc        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023bdc                EvrRtxMemoryInit
  .text.EvrRtxMemoryAlloc
-                0x0000000000023c38        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c38                EvrRtxMemoryAlloc
+                0x0000000000023be0        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023be0                EvrRtxMemoryAlloc
  .text.EvrRtxMemoryFree
-                0x0000000000023c3c        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c3c                EvrRtxMemoryFree
+                0x0000000000023be4        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023be4                EvrRtxMemoryFree
  .text.EvrRtxMemoryBlockInit
-                0x0000000000023c40        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c40                EvrRtxMemoryBlockInit
+                0x0000000000023be8        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023be8                EvrRtxMemoryBlockInit
  .text.EvrRtxMemoryBlockAlloc
-                0x0000000000023c44        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c44                EvrRtxMemoryBlockAlloc
+                0x0000000000023bec        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023bec                EvrRtxMemoryBlockAlloc
  .text.EvrRtxMemoryBlockFree
-                0x0000000000023c48        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c48                EvrRtxMemoryBlockFree
+                0x0000000000023bf0        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023bf0                EvrRtxMemoryBlockFree
  .text.EvrRtxKernelError
-                0x0000000000023c4c        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c4c                EvrRtxKernelError
+                0x0000000000023bf4        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023bf4                EvrRtxKernelError
  .text.EvrRtxKernelInitialize
-                0x0000000000023c50        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c50                EvrRtxKernelInitialize
+                0x0000000000023bf8        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023bf8                EvrRtxKernelInitialize
  .text.EvrRtxKernelInitialized
-                0x0000000000023c54        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c54                EvrRtxKernelInitialized
+                0x0000000000023bfc        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023bfc                EvrRtxKernelInitialized
  .text.EvrRtxKernelStart
-                0x0000000000023c58        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c58                EvrRtxKernelStart
+                0x0000000000023c00        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c00                EvrRtxKernelStart
  .text.EvrRtxKernelStarted
-                0x0000000000023c5c        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c5c                EvrRtxKernelStarted
+                0x0000000000023c04        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c04                EvrRtxKernelStarted
  .text.EvrRtxKernelErrorNotify
-                0x0000000000023c60        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c60                EvrRtxKernelErrorNotify
+                0x0000000000023c08        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c08                EvrRtxKernelErrorNotify
  .text.EvrRtxThreadError
-                0x0000000000023c64        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c64                EvrRtxThreadError
+                0x0000000000023c0c        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c0c                EvrRtxThreadError
  .text.EvrRtxThreadNew
-                0x0000000000023c68        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c68                EvrRtxThreadNew
+                0x0000000000023c10        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c10                EvrRtxThreadNew
  .text.EvrRtxThreadCreated
-                0x0000000000023c6c        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c6c                EvrRtxThreadCreated
+                0x0000000000023c14        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c14                EvrRtxThreadCreated
  .text.EvrRtxThreadSetPriority
-                0x0000000000023c70        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c70                EvrRtxThreadSetPriority
+                0x0000000000023c18        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c18                EvrRtxThreadSetPriority
  .text.EvrRtxThreadPriorityUpdated
-                0x0000000000023c74        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c74                EvrRtxThreadPriorityUpdated
+                0x0000000000023c1c        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c1c                EvrRtxThreadPriorityUpdated
  .text.EvrRtxThreadYield
-                0x0000000000023c78        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c78                EvrRtxThreadYield
+                0x0000000000023c20        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c20                EvrRtxThreadYield
  .text.EvrRtxThreadJoined
-                0x0000000000023c7c        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c7c                EvrRtxThreadJoined
+                0x0000000000023c24        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c24                EvrRtxThreadJoined
  .text.EvrRtxThreadBlocked
-                0x0000000000023c80        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c80                EvrRtxThreadBlocked
+                0x0000000000023c28        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c28                EvrRtxThreadBlocked
  .text.EvrRtxThreadUnblocked
-                0x0000000000023c84        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c84                EvrRtxThreadUnblocked
+                0x0000000000023c2c        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c2c                EvrRtxThreadUnblocked
  .text.EvrRtxThreadPreempted
-                0x0000000000023c88        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c88                EvrRtxThreadPreempted
+                0x0000000000023c30        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c30                EvrRtxThreadPreempted
  .text.EvrRtxThreadSwitched
-                0x0000000000023c8c        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c8c                EvrRtxThreadSwitched
+                0x0000000000023c34        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c34                EvrRtxThreadSwitched
  .text.EvrRtxThreadExit
-                0x0000000000023c90        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c90                EvrRtxThreadExit
+                0x0000000000023c38        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c38                EvrRtxThreadExit
  .text.EvrRtxThreadDestroyed
-                0x0000000000023c94        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c94                EvrRtxThreadDestroyed
+                0x0000000000023c3c        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c3c                EvrRtxThreadDestroyed
  .text.EvrRtxThreadFlagsError
-                0x0000000000023c98        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c98                EvrRtxThreadFlagsError
+                0x0000000000023c40        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c40                EvrRtxThreadFlagsError
  .text.EvrRtxThreadFlagsSet
-                0x0000000000023c9c        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023c9c                EvrRtxThreadFlagsSet
+                0x0000000000023c44        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c44                EvrRtxThreadFlagsSet
  .text.EvrRtxThreadFlagsSetDone
-                0x0000000000023ca0        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023ca0                EvrRtxThreadFlagsSetDone
+                0x0000000000023c48        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c48                EvrRtxThreadFlagsSetDone
  .text.EvrRtxThreadFlagsWait
-                0x0000000000023ca4        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023ca4                EvrRtxThreadFlagsWait
+                0x0000000000023c4c        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c4c                EvrRtxThreadFlagsWait
  .text.EvrRtxThreadFlagsWaitPending
-                0x0000000000023ca8        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023ca8                EvrRtxThreadFlagsWaitPending
+                0x0000000000023c50        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c50                EvrRtxThreadFlagsWaitPending
  .text.EvrRtxThreadFlagsWaitTimeout
-                0x0000000000023cac        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cac                EvrRtxThreadFlagsWaitTimeout
+                0x0000000000023c54        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c54                EvrRtxThreadFlagsWaitTimeout
  .text.EvrRtxThreadFlagsWaitCompleted
-                0x0000000000023cb0        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cb0                EvrRtxThreadFlagsWaitCompleted
+                0x0000000000023c58        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c58                EvrRtxThreadFlagsWaitCompleted
  .text.EvrRtxThreadFlagsWaitNotCompleted
-                0x0000000000023cb4        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cb4                EvrRtxThreadFlagsWaitNotCompleted
+                0x0000000000023c5c        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c5c                EvrRtxThreadFlagsWaitNotCompleted
  .text.EvrRtxDelayCompleted
-                0x0000000000023cb8        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cb8                EvrRtxDelayCompleted
+                0x0000000000023c60        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c60                EvrRtxDelayCompleted
  .text.EvrRtxTimerCallback
-                0x0000000000023cbc        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cbc                EvrRtxTimerCallback
+                0x0000000000023c64        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c64                EvrRtxTimerCallback
  .text.EvrRtxEventFlagsError
-                0x0000000000023cc0        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cc0                EvrRtxEventFlagsError
+                0x0000000000023c68        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c68                EvrRtxEventFlagsError
  .text.EvrRtxEventFlagsNew
-                0x0000000000023cc4        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cc4                EvrRtxEventFlagsNew
+                0x0000000000023c6c        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c6c                EvrRtxEventFlagsNew
  .text.EvrRtxEventFlagsCreated
-                0x0000000000023cc8        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cc8                EvrRtxEventFlagsCreated
+                0x0000000000023c70        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c70                EvrRtxEventFlagsCreated
  .text.EvrRtxEventFlagsSet
-                0x0000000000023ccc        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023ccc                EvrRtxEventFlagsSet
+                0x0000000000023c74        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c74                EvrRtxEventFlagsSet
  .text.EvrRtxEventFlagsSetDone
-                0x0000000000023cd0        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cd0                EvrRtxEventFlagsSetDone
+                0x0000000000023c78        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c78                EvrRtxEventFlagsSetDone
  .text.EvrRtxEventFlagsClear
-                0x0000000000023cd4        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cd4                EvrRtxEventFlagsClear
+                0x0000000000023c7c        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c7c                EvrRtxEventFlagsClear
  .text.EvrRtxEventFlagsClearDone
-                0x0000000000023cd8        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cd8                EvrRtxEventFlagsClearDone
+                0x0000000000023c80        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c80                EvrRtxEventFlagsClearDone
  .text.EvrRtxEventFlagsGet
-                0x0000000000023cdc        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cdc                EvrRtxEventFlagsGet
+                0x0000000000023c84        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c84                EvrRtxEventFlagsGet
  .text.EvrRtxEventFlagsWaitTimeout
-                0x0000000000023ce0        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023ce0                EvrRtxEventFlagsWaitTimeout
+                0x0000000000023c88        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c88                EvrRtxEventFlagsWaitTimeout
  .text.EvrRtxEventFlagsWaitCompleted
-                0x0000000000023ce4        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023ce4                EvrRtxEventFlagsWaitCompleted
+                0x0000000000023c8c        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c8c                EvrRtxEventFlagsWaitCompleted
  .text.EvrRtxMutexAcquireTimeout
-                0x0000000000023ce8        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023ce8                EvrRtxMutexAcquireTimeout
+                0x0000000000023c90        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c90                EvrRtxMutexAcquireTimeout
  .text.EvrRtxMutexAcquired
-                0x0000000000023cec        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cec                EvrRtxMutexAcquired
+                0x0000000000023c94        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c94                EvrRtxMutexAcquired
  .text.EvrRtxMutexReleased
-                0x0000000000023cf0        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cf0                EvrRtxMutexReleased
+                0x0000000000023c98        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c98                EvrRtxMutexReleased
  .text.EvrRtxSemaphoreAcquireTimeout
-                0x0000000000023cf4        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cf4                EvrRtxSemaphoreAcquireTimeout
+                0x0000000000023c9c        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023c9c                EvrRtxSemaphoreAcquireTimeout
  .text.EvrRtxMemoryPoolAllocTimeout
-                0x0000000000023cf8        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cf8                EvrRtxMemoryPoolAllocTimeout
+                0x0000000000023ca0        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023ca0                EvrRtxMemoryPoolAllocTimeout
  .text.EvrRtxMessageQueueError
-                0x0000000000023cfc        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023cfc                EvrRtxMessageQueueError
+                0x0000000000023ca4        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023ca4                EvrRtxMessageQueueError
  .text.EvrRtxMessageQueueCreated
-                0x0000000000023d00        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023d00                EvrRtxMessageQueueCreated
+                0x0000000000023ca8        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023ca8                EvrRtxMessageQueueCreated
  .text.EvrRtxMessageQueuePut
-                0x0000000000023d04        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023d04                EvrRtxMessageQueuePut
+                0x0000000000023cac        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023cac                EvrRtxMessageQueuePut
  .text.EvrRtxMessageQueuePutPending
-                0x0000000000023d08        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023d08                EvrRtxMessageQueuePutPending
+                0x0000000000023cb0        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023cb0                EvrRtxMessageQueuePutPending
  .text.EvrRtxMessageQueuePutTimeout
-                0x0000000000023d0c        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023d0c                EvrRtxMessageQueuePutTimeout
+                0x0000000000023cb4        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023cb4                EvrRtxMessageQueuePutTimeout
  .text.EvrRtxMessageQueueInsertPending
-                0x0000000000023d10        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023d10                EvrRtxMessageQueueInsertPending
+                0x0000000000023cb8        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023cb8                EvrRtxMessageQueueInsertPending
  .text.EvrRtxMessageQueueInserted
-                0x0000000000023d14        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023d14                EvrRtxMessageQueueInserted
+                0x0000000000023cbc        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023cbc                EvrRtxMessageQueueInserted
  .text.EvrRtxMessageQueueNotInserted
-                0x0000000000023d18        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023d18                EvrRtxMessageQueueNotInserted
+                0x0000000000023cc0        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023cc0                EvrRtxMessageQueueNotInserted
  .text.EvrRtxMessageQueueGet
-                0x0000000000023d1c        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023d1c                EvrRtxMessageQueueGet
+                0x0000000000023cc4        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023cc4                EvrRtxMessageQueueGet
  .text.EvrRtxMessageQueueGetPending
-                0x0000000000023d20        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023d20                EvrRtxMessageQueueGetPending
+                0x0000000000023cc8        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023cc8                EvrRtxMessageQueueGetPending
  .text.EvrRtxMessageQueueGetTimeout
-                0x0000000000023d24        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023d24                EvrRtxMessageQueueGetTimeout
+                0x0000000000023ccc        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023ccc                EvrRtxMessageQueueGetTimeout
  .text.EvrRtxMessageQueueRetrieved
-                0x0000000000023d28        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023d28                EvrRtxMessageQueueRetrieved
+                0x0000000000023cd0        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023cd0                EvrRtxMessageQueueRetrieved
  .text.EvrRtxMessageQueueNotRetrieved
-                0x0000000000023d2c        0x4 rtx/librtx.a(rtx_evr.o)
-                0x0000000000023d2c                EvrRtxMessageQueueNotRetrieved
+                0x0000000000023cd4        0x4 rtx/librtx.a(rtx_evr.o)
+                0x0000000000023cd4                EvrRtxMessageQueueNotRetrieved
  .text.osRtxMemoryInit
-                0x0000000000023d30       0x44 rtx/librtx.a(rtx_memory.o)
-                0x0000000000023d30                osRtxMemoryInit
+                0x0000000000023cd8       0x44 rtx/librtx.a(rtx_memory.o)
+                0x0000000000023cd8                osRtxMemoryInit
  .text.osRtxMemoryAlloc
-                0x0000000000023d74       0x90 rtx/librtx.a(rtx_memory.o)
-                0x0000000000023d74                osRtxMemoryAlloc
+                0x0000000000023d1c       0x90 rtx/librtx.a(rtx_memory.o)
+                0x0000000000023d1c                osRtxMemoryAlloc
  .text.osRtxMemoryFree
-                0x0000000000023e04       0x4c rtx/librtx.a(rtx_memory.o)
-                0x0000000000023e04                osRtxMemoryFree
+                0x0000000000023dac       0x4c rtx/librtx.a(rtx_memory.o)
+                0x0000000000023dac                osRtxMemoryFree
  .text.osRtxMemoryPoolInit
-                0x0000000000023e50       0x64 rtx/librtx.a(rtx_mempool.o)
-                0x0000000000023e50                osRtxMemoryPoolInit
+                0x0000000000023df8       0x64 rtx/librtx.a(rtx_mempool.o)
+                0x0000000000023df8                osRtxMemoryPoolInit
  .text.osRtxMemoryPoolAlloc
-                0x0000000000023eb4       0x48 rtx/librtx.a(rtx_mempool.o)
-                0x0000000000023eb4                osRtxMemoryPoolAlloc
+                0x0000000000023e5c       0x48 rtx/librtx.a(rtx_mempool.o)
+                0x0000000000023e5c                osRtxMemoryPoolAlloc
  .text.osRtxMemoryPoolFree
-                0x0000000000023efc       0x60 rtx/librtx.a(rtx_mempool.o)
-                0x0000000000023efc                osRtxMemoryPoolFree
+                0x0000000000023ea4       0x60 rtx/librtx.a(rtx_mempool.o)
+                0x0000000000023ea4                osRtxMemoryPoolFree
  .text.osRtxTick_Handler
-                0x0000000000023f5c       0x80 rtx/librtx.a(rtx_system.o)
-                0x0000000000023f5c                osRtxTick_Handler
+                0x0000000000023f04       0x80 rtx/librtx.a(rtx_system.o)
+                0x0000000000023f04                osRtxTick_Handler
  .text.osRtxPendSV_Handler
-                0x0000000000023fdc       0xa8 rtx/librtx.a(rtx_system.o)
-                0x0000000000023fdc                osRtxPendSV_Handler
+                0x0000000000023f84       0xa8 rtx/librtx.a(rtx_system.o)
+                0x0000000000023f84                osRtxPendSV_Handler
  .text.osRtxPostProcess
-                0x0000000000024084       0x74 rtx/librtx.a(rtx_system.o)
-                0x0000000000024084                osRtxPostProcess
+                0x000000000002402c       0x74 rtx/librtx.a(rtx_system.o)
+                0x000000000002402c                osRtxPostProcess
  .text.svcRtxThreadYield
-                0x00000000000240f8       0x88 rtx/librtx.a(rtx_thread.o)
+                0x00000000000240a0       0x88 rtx/librtx.a(rtx_thread.o)
  .text.osRtxThreadWaitEnter.part.0
-                0x0000000000024180       0xa4 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024128       0xa4 rtx/librtx.a(rtx_thread.o)
  .text.svcRtxThreadFlagsWait
-                0x0000000000024224      0x108 rtx/librtx.a(rtx_thread.o)
+                0x00000000000241cc      0x108 rtx/librtx.a(rtx_thread.o)
  .text.osRtxThreadListPut
-                0x000000000002432c       0x34 rtx/librtx.a(rtx_thread.o)
-                0x000000000002432c                osRtxThreadListPut
+                0x00000000000242d4       0x34 rtx/librtx.a(rtx_thread.o)
+                0x00000000000242d4                osRtxThreadListPut
  .text.osRtxThreadListGet
-                0x0000000000024360       0x14 rtx/librtx.a(rtx_thread.o)
-                0x0000000000024360                osRtxThreadListGet
+                0x0000000000024308       0x14 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024308                osRtxThreadListGet
  .text.osRtxThreadListSort
-                0x0000000000024374       0x5c rtx/librtx.a(rtx_thread.o)
-                0x0000000000024374                osRtxThreadListSort
+                0x000000000002431c       0x5c rtx/librtx.a(rtx_thread.o)
+                0x000000000002431c                osRtxThreadListSort
  .text.osRtxThreadListRemove
-                0x00000000000243d0       0x14 rtx/librtx.a(rtx_thread.o)
-                0x00000000000243d0                osRtxThreadListRemove
+                0x0000000000024378       0x14 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024378                osRtxThreadListRemove
  .text.osRtxThreadReadyPut
-                0x00000000000243e4       0x44 rtx/librtx.a(rtx_thread.o)
-                0x00000000000243e4                osRtxThreadReadyPut
+                0x000000000002438c       0x44 rtx/librtx.a(rtx_thread.o)
+                0x000000000002438c                osRtxThreadReadyPut
  .text.osRtxThreadDelayTick
-                0x0000000000024428      0x15c rtx/librtx.a(rtx_thread.o)
-                0x0000000000024428                osRtxThreadDelayTick
+                0x00000000000243d0      0x15c rtx/librtx.a(rtx_thread.o)
+                0x00000000000243d0                osRtxThreadDelayTick
  .text.osRtxThreadRegPtr
-                0x0000000000024584       0x14 rtx/librtx.a(rtx_thread.o)
-                0x0000000000024584                osRtxThreadRegPtr
+                0x000000000002452c       0x14 rtx/librtx.a(rtx_thread.o)
+                0x000000000002452c                osRtxThreadRegPtr
  .text.osRtxThreadSwitch
-                0x0000000000024598       0x10 rtx/librtx.a(rtx_thread.o)
-                0x0000000000024598                osRtxThreadSwitch
+                0x0000000000024540       0x10 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024540                osRtxThreadSwitch
  .text.osRtxThreadDispatch
-                0x00000000000245a8      0x108 rtx/librtx.a(rtx_thread.o)
-                0x00000000000245a8                osRtxThreadDispatch
+                0x0000000000024550      0x108 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024550                osRtxThreadDispatch
  .text.svcRtxThreadNew
-                0x00000000000246b0      0x2f0 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024658      0x2f0 rtx/librtx.a(rtx_thread.o)
  .text.svcRtxThreadSetPriority
-                0x00000000000249a0       0xb4 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024948       0xb4 rtx/librtx.a(rtx_thread.o)
  .text.osRtxThreadWaitExit
-                0x0000000000024a54       0xb8 rtx/librtx.a(rtx_thread.o)
-                0x0000000000024a54                osRtxThreadWaitExit
+                0x00000000000249fc       0xb8 rtx/librtx.a(rtx_thread.o)
+                0x00000000000249fc                osRtxThreadWaitExit
  .text.osRtxThreadPostProcess
-                0x0000000000024b0c       0x94 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024ab4       0x94 rtx/librtx.a(rtx_thread.o)
  .text.svcRtxThreadFlagsSet
-                0x0000000000024ba0       0xf4 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024b48       0xf4 rtx/librtx.a(rtx_thread.o)
  .text.osRtxThreadWaitEnter
-                0x0000000000024c94       0x18 rtx/librtx.a(rtx_thread.o)
-                0x0000000000024c94                osRtxThreadWaitEnter
+                0x0000000000024c3c       0x18 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024c3c                osRtxThreadWaitEnter
  .text.osRtxThreadBeforeFree
-                0x0000000000024cac        0x4 rtx/librtx.a(rtx_thread.o)
-                0x0000000000024cac                osRtxThreadBeforeFree
+                0x0000000000024c54        0x4 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024c54                osRtxThreadBeforeFree
  .text.osRtxThreadFree
-                0x0000000000024cb0       0x5c rtx/librtx.a(rtx_thread.o)
+                0x0000000000024c58       0x5c rtx/librtx.a(rtx_thread.o)
  .text.svcRtxThreadExit
-                0x0000000000024d0c      0x124 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024cb4      0x124 rtx/librtx.a(rtx_thread.o)
  .text.osRtxThreadStartup
-                0x0000000000024e30       0x44 rtx/librtx.a(rtx_thread.o)
-                0x0000000000024e30                osRtxThreadStartup
+                0x0000000000024dd8       0x44 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024dd8                osRtxThreadStartup
  .text.osThreadNew
-                0x0000000000024e74       0x40 rtx/librtx.a(rtx_thread.o)
-                0x0000000000024e74                osThreadNew
+                0x0000000000024e1c       0x40 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024e1c                osThreadNew
  .text.osThreadSetPriority
-                0x0000000000024eb4       0x3c rtx/librtx.a(rtx_thread.o)
-                0x0000000000024eb4                osThreadSetPriority
+                0x0000000000024e5c       0x3c rtx/librtx.a(rtx_thread.o)
+                0x0000000000024e5c                osThreadSetPriority
  .text.osThreadYield
-                0x0000000000024ef0       0x34 rtx/librtx.a(rtx_thread.o)
-                0x0000000000024ef0                osThreadYield
+                0x0000000000024e98       0x34 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024e98                osThreadYield
  .text.osThreadExit
-                0x0000000000024f24       0x1c rtx/librtx.a(rtx_thread.o)
-                0x0000000000024f24                osThreadExit
+                0x0000000000024ecc       0x1c rtx/librtx.a(rtx_thread.o)
+                0x0000000000024ecc                osThreadExit
  .text.osThreadEntry
-                0x0000000000024f40        0x8 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024ee8        0x8 rtx/librtx.a(rtx_thread.o)
  .text.osThreadFlagsSet
-                0x0000000000024f48       0x90 rtx/librtx.a(rtx_thread.o)
-                0x0000000000024f48                osThreadFlagsSet
+                0x0000000000024ef0       0x90 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024ef0                osThreadFlagsSet
  .text.osThreadFlagsWait
-                0x0000000000024fd8       0x44 rtx/librtx.a(rtx_thread.o)
-                0x0000000000024fd8                osThreadFlagsWait
+                0x0000000000024f80       0x44 rtx/librtx.a(rtx_thread.o)
+                0x0000000000024f80                osThreadFlagsWait
  .text.osRtxTimerTick
-                0x000000000002501c       0xc0 rtx/librtx.a(rtx_timer.o)
+                0x0000000000024fc4       0xc0 rtx/librtx.a(rtx_timer.o)
  .text.osRtxTimerSetup
-                0x00000000000250dc       0x20 rtx/librtx.a(rtx_timer.o)
-                0x00000000000250dc                osRtxTimerSetup
+                0x0000000000025084       0x20 rtx/librtx.a(rtx_timer.o)
+                0x0000000000025084                osRtxTimerSetup
  .text.osRtxTimerThread
-                0x00000000000250fc       0x28 rtx/librtx.a(rtx_timer.o)
-                0x00000000000250fc                osRtxTimerThread
+                0x00000000000250a4       0x28 rtx/librtx.a(rtx_timer.o)
+                0x00000000000250a4                osRtxTimerThread
  .text.OS_Tick_Setup
-                0x0000000000025124       0x4c rtx/librtx.a(os_systick.o)
-                0x0000000000025124                OS_Tick_Setup
+                0x00000000000250cc       0x4c rtx/librtx.a(os_systick.o)
+                0x00000000000250cc                OS_Tick_Setup
  .text.OS_Tick_Enable
-                0x0000000000025170       0x28 rtx/librtx.a(os_systick.o)
-                0x0000000000025170                OS_Tick_Enable
+                0x0000000000025118       0x28 rtx/librtx.a(os_systick.o)
+                0x0000000000025118                OS_Tick_Enable
  .text.OS_Tick_AcknowledgeIRQ
-                0x0000000000025198        0x8 rtx/librtx.a(os_systick.o)
-                0x0000000000025198                OS_Tick_AcknowledgeIRQ
+                0x0000000000025140        0x8 rtx/librtx.a(os_systick.o)
+                0x0000000000025140                OS_Tick_AcknowledgeIRQ
  .text.OS_Tick_GetIRQn
-                0x00000000000251a0        0x8 rtx/librtx.a(os_systick.o)
-                0x00000000000251a0                OS_Tick_GetIRQn
+                0x0000000000025148        0x8 rtx/librtx.a(os_systick.o)
+                0x0000000000025148                OS_Tick_GetIRQn
  .text.osRtxIdleThread
-                0x00000000000251a8        0x4 rtx/librtx.a(RTX_Config.o)
-                0x00000000000251a8                osRtxIdleThread
+                0x0000000000025150        0x4 rtx/librtx.a(RTX_Config.o)
+                0x0000000000025150                osRtxIdleThread
  .text.osRtxErrorNotify
-                0x00000000000251ac        0x4 rtx/librtx.a(RTX_Config.o)
-                0x00000000000251ac                osRtxErrorNotify
- .text          0x00000000000251b0       0xc8 rtx/librtx.a(irq_armv7m.o)
-                0x00000000000251b0                SVC_Handler
-                0x000000000002524a                PendSV_Handler
-                0x000000000002525a                SysTick_Handler
+                0x0000000000025154        0x4 rtx/librtx.a(RTX_Config.o)
+                0x0000000000025154                osRtxErrorNotify
+ .text          0x0000000000025158       0xc8 rtx/librtx.a(irq_armv7m.o)
+                0x0000000000025158                SVC_Handler
+                0x00000000000251f2                PendSV_Handler
+                0x0000000000025202                SysTick_Handler
  .text.svcRtxMessageQueuePut
-                0x0000000000025278      0x12c rtx/librtx.a(rtx_msgqueue.o)
+                0x0000000000025220      0x12c rtx/librtx.a(rtx_msgqueue.o)
  .text.osRtxMessageQueuePostProcess
-                0x00000000000253a4      0x18c rtx/librtx.a(rtx_msgqueue.o)
+                0x000000000002534c      0x18c rtx/librtx.a(rtx_msgqueue.o)
  .text.svcRtxMessageQueueGet
-                0x0000000000025530      0x1c4 rtx/librtx.a(rtx_msgqueue.o)
+                0x00000000000254d8      0x1c4 rtx/librtx.a(rtx_msgqueue.o)
  .text.osRtxMessageQueueTimerSetup
-                0x00000000000256f4      0x184 rtx/librtx.a(rtx_msgqueue.o)
-                0x00000000000256f4                osRtxMessageQueueTimerSetup
+                0x000000000002569c      0x184 rtx/librtx.a(rtx_msgqueue.o)
+                0x000000000002569c                osRtxMessageQueueTimerSetup
  .text.osMessageQueuePut
-                0x0000000000025878       0x9c rtx/librtx.a(rtx_msgqueue.o)
-                0x0000000000025878                osMessageQueuePut
+                0x0000000000025820       0x9c rtx/librtx.a(rtx_msgqueue.o)
+                0x0000000000025820                osMessageQueuePut
  .text.osMessageQueueGet
-                0x0000000000025914       0xe0 rtx/librtx.a(rtx_msgqueue.o)
-                0x0000000000025914                osMessageQueueGet
+                0x00000000000258bc       0xe0 rtx/librtx.a(rtx_msgqueue.o)
+                0x00000000000258bc                osMessageQueueGet
  .text.osRtxMutexOwnerRelease
-                0x00000000000259f4       0x64 rtx/librtx.a(rtx_mutex.o)
-                0x00000000000259f4                osRtxMutexOwnerRelease
+                0x000000000002599c       0x64 rtx/librtx.a(rtx_mutex.o)
+                0x000000000002599c                osRtxMutexOwnerRelease
  .text.osRtxMutexOwnerRestore
-                0x0000000000025a58       0x40 rtx/librtx.a(rtx_mutex.o)
-                0x0000000000025a58                osRtxMutexOwnerRestore
- .text.atan2    0x0000000000025a98        0x4 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_atan2.o)
-                0x0000000000025a98                atan2
- *fill*         0x0000000000025a9c        0x4 
- .text.atan     0x0000000000025aa0      0x338 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_atan.o)
-                0x0000000000025aa0                atan
- .text.cos      0x0000000000025dd8       0x88 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_cos.o)
-                0x0000000000025dd8                cos
+                0x0000000000025a00       0x40 rtx/librtx.a(rtx_mutex.o)
+                0x0000000000025a00                osRtxMutexOwnerRestore
+ .text.atan2    0x0000000000025a40        0x4 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_atan2.o)
+                0x0000000000025a40                atan2
+ *fill*         0x0000000000025a44        0x4 
+ .text.atan     0x0000000000025a48      0x338 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_atan.o)
+                0x0000000000025a48                atan
+ .text.cos      0x0000000000025d80       0x88 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_cos.o)
+                0x0000000000025d80                cos
  .text.__kernel_cos
-                0x0000000000025e60      0x264 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-k_cos.o)
-                0x0000000000025e60                __kernel_cos
- .text.fabs     0x00000000000260c4       0x10 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_fabs.o)
-                0x00000000000260c4                fabs
- *fill*         0x00000000000260d4        0x4 
+                0x0000000000025e08      0x264 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-k_cos.o)
+                0x0000000000025e08                __kernel_cos
+ .text.fabs     0x000000000002606c       0x10 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_fabs.o)
+                0x000000000002606c                fabs
+ *fill*         0x000000000002607c        0x4 
  .text.__kernel_sin
-                0x00000000000260d8      0x17c /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-k_sin.o)
-                0x00000000000260d8                __kernel_sin
- *fill*         0x0000000000026254        0x4 
+                0x0000000000026080      0x17c /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-k_sin.o)
+                0x0000000000026080                __kernel_sin
+ *fill*         0x00000000000261fc        0x4 
  .text.__ieee754_atan2
-                0x0000000000026258      0x1ac /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_atan2.o)
-                0x0000000000026258                __ieee754_atan2
- *fill*         0x0000000000026404        0x4 
+                0x0000000000026200      0x1ac /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_atan2.o)
+                0x0000000000026200                __ieee754_atan2
+ *fill*         0x00000000000263ac        0x4 
  .text.__ieee754_rem_pio2
-                0x0000000000026408      0x444 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_rem_pio2.o)
-                0x0000000000026408                __ieee754_rem_pio2
- *fill*         0x000000000002684c        0x4 
- .text.sin      0x0000000000026850       0x90 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_sin.o)
-                0x0000000000026850                sin
+                0x00000000000263b0      0x444 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_rem_pio2.o)
+                0x00000000000263b0                __ieee754_rem_pio2
+ *fill*         0x00000000000267f4        0x4 
+ .text.sin      0x00000000000267f8       0x90 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_sin.o)
+                0x00000000000267f8                sin
  .text.__kernel_rem_pio2
-                0x00000000000268e0      0x860 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-k_rem_pio2.o)
-                0x00000000000268e0                __kernel_rem_pio2
- .text.floor    0x0000000000027140      0x108 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_floor.o)
-                0x0000000000027140                floor
- .text.scalbn   0x0000000000027248      0x114 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_scalbn.o)
-                0x0000000000027248                scalbn
- .text.abs      0x000000000002735c        0x8 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-abs.o)
-                0x000000000002735c                abs
- .text.memset   0x0000000000027364       0xa4 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
-                0x0000000000027364                memset
- .text.strcpy   0x0000000000027408       0xbc /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-strcpy.o)
-                0x0000000000027408                strcpy
- .text          0x00000000000274c4      0x134 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memcpy.o)
-                0x00000000000274c4                memcpy
- *fill*         0x00000000000275f8        0x8 
- .text          0x0000000000027600       0xdc /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-strlen.o)
-                0x0000000000027600                strlen
- .text          0x00000000000276dc      0x378 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
-                0x00000000000276dc                __aeabi_drsub
-                0x00000000000276e4                __aeabi_dsub
-                0x00000000000276e4                __subdf3
-                0x00000000000276e8                __adddf3
-                0x00000000000276e8                __aeabi_dadd
-                0x0000000000027960                __aeabi_ui2d
-                0x0000000000027960                __floatunsidf
-                0x0000000000027980                __floatsidf
-                0x0000000000027980                __aeabi_i2d
-                0x00000000000279a4                __extendsfdf2
-                0x00000000000279a4                __aeabi_f2d
-                0x00000000000279e8                __aeabi_ul2d
-                0x00000000000279e8                __floatundidf
-                0x00000000000279f8                __floatdidf
-                0x00000000000279f8                __aeabi_l2d
- .text          0x0000000000027a54      0x424 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
-                0x0000000000027a54                __aeabi_dmul
-                0x0000000000027a54                __muldf3
-                0x0000000000027ca8                __aeabi_ddiv
-                0x0000000000027ca8                __divdf3
- .text          0x0000000000027e78      0x110 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
-                0x0000000000027e78                __gtdf2
-                0x0000000000027e78                __gedf2
-                0x0000000000027e80                __ltdf2
-                0x0000000000027e80                __ledf2
-                0x0000000000027e88                __cmpdf2
-                0x0000000000027e88                __eqdf2
-                0x0000000000027e88                __nedf2
-                0x0000000000027f04                __aeabi_cdrcmple
-                0x0000000000027f14                __aeabi_cdcmple
-                0x0000000000027f14                __aeabi_cdcmpeq
-                0x0000000000027f24                __aeabi_dcmpeq
-                0x0000000000027f38                __aeabi_dcmplt
-                0x0000000000027f4c                __aeabi_dcmple
-                0x0000000000027f60                __aeabi_dcmpge
-                0x0000000000027f74                __aeabi_dcmpgt
- .text          0x0000000000027f88       0x50 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
-                0x0000000000027f88                __fixdfsi
-                0x0000000000027f88                __aeabi_d2iz
- .text          0x0000000000027fd8       0xa0 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_truncdfsf2.o)
-                0x0000000000027fd8                __aeabi_d2f
-                0x0000000000027fd8                __truncdfsf2
- .text          0x0000000000028078       0x30 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
-                0x0000000000028078                __aeabi_uldivmod
+                0x0000000000026888      0x860 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-k_rem_pio2.o)
+                0x0000000000026888                __kernel_rem_pio2
+ .text.floor    0x00000000000270e8      0x108 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_floor.o)
+                0x00000000000270e8                floor
+ .text.scalbn   0x00000000000271f0      0x114 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_scalbn.o)
+                0x00000000000271f0                scalbn
+ .text.abs      0x0000000000027304        0x8 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-abs.o)
+                0x0000000000027304                abs
+ .text.memset   0x000000000002730c       0xa4 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
+                0x000000000002730c                memset
+ .text.strcpy   0x00000000000273b0       0xbc /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-strcpy.o)
+                0x00000000000273b0                strcpy
+ .text          0x000000000002746c      0x134 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memcpy.o)
+                0x000000000002746c                memcpy
+ *fill*         0x00000000000275a0       0x20 
+ .text          0x00000000000275c0       0xdc /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-strlen.o)
+                0x00000000000275c0                strlen
+ .text          0x000000000002769c      0x378 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
+                0x000000000002769c                __aeabi_drsub
+                0x00000000000276a4                __aeabi_dsub
+                0x00000000000276a4                __subdf3
+                0x00000000000276a8                __adddf3
+                0x00000000000276a8                __aeabi_dadd
+                0x0000000000027920                __aeabi_ui2d
+                0x0000000000027920                __floatunsidf
+                0x0000000000027940                __floatsidf
+                0x0000000000027940                __aeabi_i2d
+                0x0000000000027964                __extendsfdf2
+                0x0000000000027964                __aeabi_f2d
+                0x00000000000279a8                __aeabi_ul2d
+                0x00000000000279a8                __floatundidf
+                0x00000000000279b8                __floatdidf
+                0x00000000000279b8                __aeabi_l2d
+ .text          0x0000000000027a14      0x424 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
+                0x0000000000027a14                __aeabi_dmul
+                0x0000000000027a14                __muldf3
+                0x0000000000027c68                __aeabi_ddiv
+                0x0000000000027c68                __divdf3
+ .text          0x0000000000027e38      0x110 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
+                0x0000000000027e38                __gtdf2
+                0x0000000000027e38                __gedf2
+                0x0000000000027e40                __ltdf2
+                0x0000000000027e40                __ledf2
+                0x0000000000027e48                __cmpdf2
+                0x0000000000027e48                __eqdf2
+                0x0000000000027e48                __nedf2
+                0x0000000000027ec4                __aeabi_cdrcmple
+                0x0000000000027ed4                __aeabi_cdcmple
+                0x0000000000027ed4                __aeabi_cdcmpeq
+                0x0000000000027ee4                __aeabi_dcmpeq
+                0x0000000000027ef8                __aeabi_dcmplt
+                0x0000000000027f0c                __aeabi_dcmple
+                0x0000000000027f20                __aeabi_dcmpge
+                0x0000000000027f34                __aeabi_dcmpgt
+ .text          0x0000000000027f48       0x50 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
+                0x0000000000027f48                __fixdfsi
+                0x0000000000027f48                __aeabi_d2iz
+ .text          0x0000000000027f98       0xa0 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_truncdfsf2.o)
+                0x0000000000027f98                __aeabi_d2f
+                0x0000000000027f98                __truncdfsf2
+ .text          0x0000000000028038       0x30 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
+                0x0000000000028038                __aeabi_uldivmod
  .text.__udivmoddi4
-                0x00000000000280a8      0x2bc /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
-                0x00000000000280a8                __udivmoddi4
- .text          0x0000000000028364        0x4 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
-                0x0000000000028364                __aeabi_ldiv0
-                0x0000000000028364                __aeabi_idiv0
+                0x0000000000028068      0x2bc /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+                0x0000000000028068                __udivmoddi4
+ .text          0x0000000000028324        0x4 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
+                0x0000000000028324                __aeabi_ldiv0
+                0x0000000000028324                __aeabi_idiv0
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -9171,353 +9170,350 @@ Linker script and memory map
  *(.dtors)
  *(.rodata*)
  .rodata.bluetooth.str1.4
-                0x0000000000028368       0x53 main.o
+                0x0000000000028328       0x53 main.o
                                          0x57 (size before relaxing)
- *fill*         0x00000000000283bb        0x1 
+ *fill*         0x000000000002837b        0x1 
  .rodata.task_cmd.str1.4
-                0x00000000000283bc       0x89 main.o
- *fill*         0x0000000000028445        0x3 
+                0x000000000002837c       0x89 main.o
+ *fill*         0x0000000000028405        0x3 
  .rodata.task_imu.str1.4
-                0x0000000000028448       0x18 main.o
+                0x0000000000028408       0x18 main.o
  .rodata.main.str1.4
-                0x0000000000028460        0xf main.o
- *fill*         0x000000000002846f        0x1 
+                0x0000000000028420        0xf main.o
+ *fill*         0x000000000002842f        0x1 
  .rodata.led_cols
-                0x0000000000028470        0x5 bsp/libbsp.a(board.o)
-                0x0000000000028470                led_cols
- *fill*         0x0000000000028475        0x3 
+                0x0000000000028430        0x5 bsp/libbsp.a(board.o)
+                0x0000000000028430                led_cols
+ *fill*         0x0000000000028435        0x3 
  .rodata.led_rows
-                0x0000000000028478        0x5 bsp/libbsp.a(board.o)
-                0x0000000000028478                led_rows
- *fill*         0x000000000002847d        0x3 
- .rodata.servo_out.str1.4
-                0x0000000000028480       0x99 bsp/libbsp.a(servo.o)
- *fill*         0x0000000000028519        0x3 
+                0x0000000000028438        0x5 bsp/libbsp.a(board.o)
+                0x0000000000028438                led_rows
+ *fill*         0x000000000002843d        0x3 
  .rodata.turn_ctrlr.str1.4
-                0x000000000002851c        0x9 bsp/libbsp.a(controller.o)
- *fill*         0x0000000000028525        0x3 
+                0x0000000000028440        0x9 bsp/libbsp.a(controller.o)
+ *fill*         0x0000000000028449        0x3 
  .rodata._do_print.str1.4
-                0x0000000000028528       0x11 bsp/libbsp.a(lib.o)
- *fill*         0x0000000000028539        0x3 
+                0x000000000002844c       0x11 bsp/libbsp.a(lib.o)
+ *fill*         0x000000000002845d        0x3 
  .rodata.CSWTCH.11
-                0x000000000002853c        0x3 bsp/libbsp.a(lsm303agr.o)
- *fill*         0x000000000002853f        0x1 
+                0x0000000000028460        0x3 bsp/libbsp.a(lsm303agr.o)
+ *fill*         0x0000000000028463        0x1 
  .rodata.CSWTCH.10
-                0x0000000000028540        0x3 bsp/libbsp.a(lsm303agr.o)
- *fill*         0x0000000000028543        0x1 
+                0x0000000000028464        0x3 bsp/libbsp.a(lsm303agr.o)
+ *fill*         0x0000000000028467        0x1 
  .rodata.CSWTCH.6
-                0x0000000000028544        0x3 bsp/libbsp.a(lsm303agr.o)
- *fill*         0x0000000000028547        0x1 
+                0x0000000000028468        0x3 bsp/libbsp.a(lsm303agr.o)
+ *fill*         0x000000000002846b        0x1 
  .rodata.ble_evt_handler.str1.4
-                0x0000000000028548       0x19 ble/libble_uart.a(ble_uart.c.o)
- *fill*         0x0000000000028561        0x3 
+                0x000000000002846c       0x19 ble/libble_uart.a(ble_uart.c.o)
+ *fill*         0x0000000000028485        0x3 
  .rodata.gatt_evt_handler.str1.4
-                0x0000000000028564       0x1c ble/libble_uart.a(ble_uart.c.o)
+                0x0000000000028488       0x1c ble/libble_uart.a(ble_uart.c.o)
  .rodata.ble_init.str1.4
-                0x0000000000028580       0x49 ble/libble_uart.a(ble_uart.c.o)
- *fill*         0x00000000000285c9        0x3 
+                0x00000000000284a4       0x49 ble/libble_uart.a(ble_uart.c.o)
+ *fill*         0x00000000000284ed        0x3 
  .rodata.app_buttons
-                0x00000000000285cc       0x10 ble/libble_uart.a(bsp.c.o)
+                0x00000000000284f0       0x10 ble/libble_uart.a(bsp.c.o)
  .rodata.m_bsp_button_tmr
-                0x00000000000285dc        0x4 ble/libble_uart.a(bsp.c.o)
+                0x0000000000028500        0x4 ble/libble_uart.a(bsp.c.o)
  .rodata.m_bsp_alert_tmr
-                0x00000000000285e0        0x4 ble/libble_uart.a(bsp.c.o)
+                0x0000000000028504        0x4 ble/libble_uart.a(bsp.c.o)
  .rodata.m_bsp_leds_tmr
-                0x00000000000285e4        0x4 ble/libble_uart.a(bsp.c.o)
+                0x0000000000028508        0x4 ble/libble_uart.a(bsp.c.o)
  .rodata.data_length_update.str1.4
-                0x00000000000285e8       0xe2 ble/libble_uart.a(nrf_ble_gatt.c.o)
- *fill*         0x00000000000286ca        0x2 
+                0x000000000002850c       0xe2 ble/libble_uart.a(nrf_ble_gatt.c.o)
+ *fill*         0x00000000000285ee        0x2 
  .rodata.nrf_ble_gatt_on_ble_evt.str1.4
-                0x00000000000286cc       0x63 ble/libble_uart.a(nrf_ble_gatt.c.o)
- *fill*         0x000000000002872f        0x1 
+                0x00000000000285f0       0x63 ble/libble_uart.a(nrf_ble_gatt.c.o)
+ *fill*         0x0000000000028653        0x1 
  .rodata.str1.4
-                0x0000000000028730        0xd ble/libble_uart.a(nrf_ble_gatt.c.o)
- *fill*         0x000000000002873d        0x3 
+                0x0000000000028654        0xd ble/libble_uart.a(nrf_ble_gatt.c.o)
+ *fill*         0x0000000000028661        0x3 
  .rodata.str1.4
-                0x0000000000028740       0x10 ble/libble_uart.a(nrf_log_default_backends.c.o)
+                0x0000000000028664       0x10 ble/libble_uart.a(nrf_log_default_backends.c.o)
  .rodata.nrf_log_frontend_dequeue.str1.4
-                0x0000000000028750       0x11 ble/libble_uart.a(nrf_log_frontend.c.o)
- *fill*         0x0000000000028761        0x3 
+                0x0000000000028674       0x11 ble/libble_uart.a(nrf_log_frontend.c.o)
+ *fill*         0x0000000000028685        0x3 
  .rodata.str1.4
-                0x0000000000028764        0x4 ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x0000000000028688        0x4 ble/libble_uart.a(nrf_log_frontend.c.o)
  .rodata.m_log_push_ringbuf
-                0x0000000000028768        0xc ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x000000000002868c        0xc ble/libble_uart.a(nrf_log_frontend.c.o)
  .rodata.pwr_mgmt_data
-                0x0000000000028774        0xc ble/libble_uart.a(nrf_pwr_mgmt.c.o)
+                0x0000000000028698        0xc ble/libble_uart.a(nrf_pwr_mgmt.c.o)
  .rodata.str1.4
-                0x0000000000028780        0x9 ble/libble_uart.a(nrf_pwr_mgmt.c.o)
- *fill*         0x0000000000028789        0x3 
+                0x00000000000286a4        0x9 ble/libble_uart.a(nrf_pwr_mgmt.c.o)
+ *fill*         0x00000000000286ad        0x3 
  .rodata.nrf_sdh_ble_default_cfg_set.str1.4
-                0x000000000002878c      0x1cf ble/libble_uart.a(nrf_sdh_ble.c.o)
- *fill*         0x000000000002895b        0x1 
+                0x00000000000286b0      0x1cf ble/libble_uart.a(nrf_sdh_ble.c.o)
+ *fill*         0x000000000002887f        0x1 
  .rodata.nrf_sdh_ble_enable.str1.4
-                0x000000000002895c       0xad ble/libble_uart.a(nrf_sdh_ble.c.o)
- *fill*         0x0000000000028a09        0x3 
+                0x0000000000028880       0xad ble/libble_uart.a(nrf_sdh_ble.c.o)
+ *fill*         0x000000000002892d        0x3 
  .rodata.sdh_ble_observers
-                0x0000000000028a0c        0xc ble/libble_uart.a(nrf_sdh_ble.c.o)
+                0x0000000000028930        0xc ble/libble_uart.a(nrf_sdh_ble.c.o)
  .rodata.str1.4
-                0x0000000000028a18        0xc ble/libble_uart.a(nrf_sdh_ble.c.o)
+                0x000000000002893c        0xc ble/libble_uart.a(nrf_sdh_ble.c.o)
  .rodata.sdh_stack_observers
-                0x0000000000028a24        0xc ble/libble_uart.a(nrf_sdh.c.o)
+                0x0000000000028948        0xc ble/libble_uart.a(nrf_sdh.c.o)
  .rodata.sdh_state_observers
-                0x0000000000028a30        0xc ble/libble_uart.a(nrf_sdh.c.o)
+                0x0000000000028954        0xc ble/libble_uart.a(nrf_sdh.c.o)
  .rodata.sdh_req_observers
-                0x0000000000028a3c        0xc ble/libble_uart.a(nrf_sdh.c.o)
+                0x0000000000028960        0xc ble/libble_uart.a(nrf_sdh.c.o)
  .rodata.str1.4
-                0x0000000000028a48        0x8 ble/libble_uart.a(nrf_sdh.c.o)
- .rodata        0x0000000000028a50        0x4 ble/libble_uart.a(nrf_sdh.c.o)
+                0x000000000002896c        0x8 ble/libble_uart.a(nrf_sdh.c.o)
+ .rodata        0x0000000000028974        0x4 ble/libble_uart.a(nrf_sdh.c.o)
  .rodata.str1.4
-                0x0000000000028a54      0x3e9 ble/libble_uart.a(nrf_strerror.c.o)
- *fill*         0x0000000000028e3d        0x3 
+                0x0000000000028978      0x3e9 ble/libble_uart.a(nrf_strerror.c.o)
+ *fill*         0x0000000000028d61        0x3 
  .rodata.nrf_strerror_array
-                0x0000000000028e40      0x128 ble/libble_uart.a(nrf_strerror.c.o)
+                0x0000000000028d64      0x128 ble/libble_uart.a(nrf_strerror.c.o)
  .rodata.m_unknown_str
-                0x0000000000028f68       0x13 ble/libble_uart.a(nrf_strerror.c.o)
- *fill*         0x0000000000028f7b        0x1 
+                0x0000000000028e8c       0x13 ble/libble_uart.a(nrf_strerror.c.o)
+ *fill*         0x0000000000028e9f        0x1 
  .rodata.m_detection_delay_timer_id
-                0x0000000000028f7c        0x4 ble/libble_uart.a(app_button.c.o)
+                0x0000000000028ea0        0x4 ble/libble_uart.a(app_button.c.o)
  .rodata.str1.4
-                0x0000000000028f80        0xb ble/libble_uart.a(app_button.c.o)
- *fill*         0x0000000000028f8b        0x1 
+                0x0000000000028ea4        0xb ble/libble_uart.a(app_button.c.o)
+ *fill*         0x0000000000028eaf        0x1 
  .rodata.app_error_fault_handler.str1.4
-                0x0000000000028f8c       0x19 ble/libble_uart.a(app_error_weak.c.o)
- *fill*         0x0000000000028fa5        0x3 
+                0x0000000000028eb0       0x19 ble/libble_uart.a(app_error_weak.c.o)
+ *fill*         0x0000000000028ec9        0x3 
  .rodata.m_app_timer_sortlist
-                0x0000000000028fa8        0xc ble/libble_uart.a(app_timer2.c.o)
+                0x0000000000028ecc        0xc ble/libble_uart.a(app_timer2.c.o)
  .rodata.str1.4
-                0x0000000000028fb4        0xa ble/libble_uart.a(app_timer2.c.o)
- *fill*         0x0000000000028fbe        0x2 
- .rodata        0x0000000000028fc0        0x4 ble/libble_uart.a(app_timer2.c.o)
+                0x0000000000028ed8        0xa ble/libble_uart.a(app_timer2.c.o)
+ *fill*         0x0000000000028ee2        0x2 
+ .rodata        0x0000000000028ee4        0x4 ble/libble_uart.a(app_timer2.c.o)
  .rodata.str1.4
-                0x0000000000028fc4        0x8 ble/libble_uart.a(ble_nus.c.o)
- .rodata        0x0000000000028fcc       0x10 ble/libble_uart.a(ble_nus.c.o)
+                0x0000000000028ee8        0x8 ble/libble_uart.a(ble_nus.c.o)
+ .rodata        0x0000000000028ef0       0x10 ble/libble_uart.a(ble_nus.c.o)
  .rodata.m_board_btn_list
-                0x0000000000028fdc        0x2 ble/libble_uart.a(boards.c.o)
- *fill*         0x0000000000028fde        0x2 
+                0x0000000000028f00        0x2 ble/libble_uart.a(boards.c.o)
+ *fill*         0x0000000000028f02        0x2 
  .rodata.m_board_led_list
-                0x0000000000028fe0        0xa ble/libble_uart.a(boards.c.o)
- *fill*         0x0000000000028fea        0x2 
+                0x0000000000028f04        0xa ble/libble_uart.a(boards.c.o)
+ *fill*         0x0000000000028f0e        0x2 
  .rodata.drv_rtc_init.str1.4
-                0x0000000000028fec       0x36 ble/libble_uart.a(drv_rtc.c.o)
- *fill*         0x0000000000029022        0xe 
+                0x0000000000028f10       0x36 ble/libble_uart.a(drv_rtc.c.o)
+ *fill*         0x0000000000028f46        0xa 
  .rodata.delay_machine_code.0
-                0x0000000000029030        0x6 ble/libble_uart.a(drv_rtc.c.o)
- *fill*         0x0000000000029036        0xa 
+                0x0000000000028f50        0x6 ble/libble_uart.a(drv_rtc.c.o)
+ *fill*         0x0000000000028f56        0xa 
  .rodata.delay_machine_code.0
-                0x0000000000029040        0x6 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
- *fill*         0x0000000000029046        0x2 
+                0x0000000000028f60        0x6 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
+ *fill*         0x0000000000028f66        0x2 
  .rodata.nrf_log_backend_rtt_api
-                0x0000000000029048        0xc ble/libble_uart.a(nrf_log_backend_rtt.c.o)
-                0x0000000000029048                nrf_log_backend_rtt_api
+                0x0000000000028f68        0xc ble/libble_uart.a(nrf_log_backend_rtt.c.o)
+                0x0000000000028f68                nrf_log_backend_rtt_api
  .rodata.prefix_process.constprop.0.str1.4
-                0x0000000000029054       0x36 ble/libble_uart.a(nrf_log_str_formatter.c.o)
- *fill*         0x000000000002908a        0x2 
+                0x0000000000028f74       0x36 ble/libble_uart.a(nrf_log_str_formatter.c.o)
+ *fill*         0x0000000000028faa        0x2 
  .rodata.nrf_log_std_entry_process.str1.4
-                0x000000000002908c        0x3 ble/libble_uart.a(nrf_log_str_formatter.c.o)
- *fill*         0x000000000002908f        0x1 
+                0x0000000000028fac        0x3 ble/libble_uart.a(nrf_log_str_formatter.c.o)
+ *fill*         0x0000000000028faf        0x1 
  .rodata.nrf_log_hexdump_entry_process.str1.4
-                0x0000000000029090       0x13 ble/libble_uart.a(nrf_log_str_formatter.c.o)
+                0x0000000000028fb0       0x13 ble/libble_uart.a(nrf_log_str_formatter.c.o)
                                          0x16 (size before relaxing)
- *fill*         0x00000000000290a3        0x1 
+ *fill*         0x0000000000028fc3        0x1 
  .rodata.str1.4
-                0x00000000000290a4       0x56 ble/libble_uart.a(nrf_log_str_formatter.c.o)
- *fill*         0x00000000000290fa        0x2 
+                0x0000000000028fc4       0x56 ble/libble_uart.a(nrf_log_str_formatter.c.o)
+ *fill*         0x000000000002901a        0x2 
  .rodata.m_colors
-                0x00000000000290fc       0x24 ble/libble_uart.a(nrf_log_str_formatter.c.o)
+                0x000000000002901c       0x24 ble/libble_uart.a(nrf_log_str_formatter.c.o)
  .rodata.severity_names
-                0x0000000000029120       0x14 ble/libble_uart.a(nrf_log_str_formatter.c.o)
+                0x0000000000029040       0x14 ble/libble_uart.a(nrf_log_str_formatter.c.o)
  .rodata.str1.4
-                0x0000000000029134        0x9 ble/libble_uart.a(nrf_sortlist.c.o)
- *fill*         0x000000000002913d        0x3 
+                0x0000000000029054        0x9 ble/libble_uart.a(nrf_sortlist.c.o)
+ *fill*         0x000000000002905d        0x3 
  .rodata.str1.4
-                0x0000000000029140        0x7 ble/libble_uart.a(nrfx_gpiote.c.o)
- *fill*         0x0000000000029147        0x1 
+                0x0000000000029060        0x7 ble/libble_uart.a(nrfx_gpiote.c.o)
+ *fill*         0x0000000000029067        0x1 
  .rodata.SEGGER_RTT_ReadNoLock.str1.4
-                0x0000000000029148       0x17 ble/libble_uart.a(SEGGER_RTT.c.o)
- *fill*         0x000000000002915f        0x1 
+                0x0000000000029068       0x17 ble/libble_uart.a(SEGGER_RTT.c.o)
+ *fill*         0x000000000002907f        0x1 
  .rodata._aV2C.0
-                0x0000000000029160       0x10 ble/libble_uart.a(nrf_fprintf_format.c.o)
+                0x0000000000029080       0x10 ble/libble_uart.a(nrf_fprintf_format.c.o)
  .rodata.svcRtxKernelGetInfo.str1.4
-                0x0000000000029170        0xb rtx/librtx.a(rtx_kernel.o)
- *fill*         0x000000000002917b        0x1 
- .rodata        0x000000000002917c       0xa8 rtx/librtx.a(rtx_lib.o)
-                0x000000000002917c                os_cb_sections
-                0x00000000000291b4                osRtxConfig
+                0x0000000000029090        0xb rtx/librtx.a(rtx_kernel.o)
+ *fill*         0x000000000002909b        0x1 
+ .rodata        0x000000000002909c       0xa8 rtx/librtx.a(rtx_lib.o)
+                0x000000000002909c                os_cb_sections
+                0x00000000000290d4                osRtxConfig
  .rodata.osRtxUserSVC
-                0x0000000000029224        0x4 rtx/librtx.a(rtx_lib.o)
-                0x0000000000029224                osRtxUserSVC
+                0x0000000000029144        0x4 rtx/librtx.a(rtx_lib.o)
+                0x0000000000029144                osRtxUserSVC
  .rodata.os_timer_mq_attr
-                0x0000000000029228       0x18 rtx/librtx.a(rtx_lib.o)
+                0x0000000000029148       0x18 rtx/librtx.a(rtx_lib.o)
  .rodata.os_timer_thread_attr
-                0x0000000000029240       0x24 rtx/librtx.a(rtx_lib.o)
+                0x0000000000029160       0x24 rtx/librtx.a(rtx_lib.o)
  .rodata.os_idle_thread_attr
-                0x0000000000029264       0x24 rtx/librtx.a(rtx_lib.o)
+                0x0000000000029184       0x24 rtx/librtx.a(rtx_lib.o)
  .rodata.atanlo
-                0x0000000000029288       0x20 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_atan.o)
+                0x00000000000291a8       0x20 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_atan.o)
  .rodata.atanhi
-                0x00000000000292a8       0x20 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_atan.o)
+                0x00000000000291c8       0x20 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_atan.o)
  .rodata.CSWTCH.9
-                0x00000000000292c8       0x18 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_atan2.o)
+                0x00000000000291e8       0x18 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_atan2.o)
  .rodata.CSWTCH.8
-                0x00000000000292e0       0x18 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_atan2.o)
+                0x0000000000029200       0x18 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_atan2.o)
  .rodata.npio2_hw
-                0x00000000000292f8       0x80 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_rem_pio2.o)
+                0x0000000000029218       0x80 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_rem_pio2.o)
  .rodata.two_over_pi
-                0x0000000000029378      0x108 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_rem_pio2.o)
- .rodata.PIo2   0x0000000000029480       0x40 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-k_rem_pio2.o)
+                0x0000000000029298      0x108 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_rem_pio2.o)
+ .rodata.PIo2   0x00000000000293a0       0x40 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-k_rem_pio2.o)
  .rodata.init_jk
-                0x00000000000294c0       0x10 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-k_rem_pio2.o)
+                0x00000000000293e0       0x10 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-k_rem_pio2.o)
  .rodata._ctype_
-                0x00000000000294d0      0x101 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-ctype_.o)
-                0x00000000000294d0                _ctype_
+                0x00000000000293f0      0x101 /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-ctype_.o)
+                0x00000000000293f0                _ctype_
  *(.eh_frame*)
 
-.glue_7         0x00000000000295d4        0x0
- .glue_7        0x00000000000295d4        0x0 linker stubs
+.glue_7         0x00000000000294f4        0x0
+ .glue_7        0x00000000000294f4        0x0 linker stubs
 
-.glue_7t        0x00000000000295d4        0x0
- .glue_7t       0x00000000000295d4        0x0 linker stubs
+.glue_7t        0x00000000000294f4        0x0
+ .glue_7t       0x00000000000294f4        0x0 linker stubs
 
-.vfp11_veneer   0x00000000000295d4        0x0
- .vfp11_veneer  0x00000000000295d4        0x0 linker stubs
+.vfp11_veneer   0x00000000000294f4        0x0
+ .vfp11_veneer  0x00000000000294f4        0x0 linker stubs
 
-.v4_bx          0x00000000000295d4        0x0
- .v4_bx         0x00000000000295d4        0x0 linker stubs
+.v4_bx          0x00000000000294f4        0x0
+ .v4_bx         0x00000000000294f4        0x0 linker stubs
 
-.iplt           0x00000000000295d4        0x0
- .iplt          0x00000000000295d4        0x0 main.o
+.iplt           0x00000000000294f4        0x0
+ .iplt          0x00000000000294f4        0x0 main.o
 
 .mem_section_dummy_rom
 
 .sdh_soc_observers
-                0x00000000000295d1        0x0
+                0x00000000000294f1        0x0
                 [!provide]                        PROVIDE (__start_sdh_soc_observers = .)
  *(SORT_BY_NAME(.sdh_soc_observers*))
                 [!provide]                        PROVIDE (__stop_sdh_soc_observers = .)
 
 .sdh_ble_observers
-                0x00000000000295d4       0x40
-                0x00000000000295d4                PROVIDE (__start_sdh_ble_observers = .)
+                0x00000000000294f4       0x40
+                0x00000000000294f4                PROVIDE (__start_sdh_ble_observers = .)
  *(SORT_BY_NAME(.sdh_ble_observers*))
  .sdh_ble_observers0
-                0x00000000000295d4        0x8 ble/libble_uart.a(ble_conn_state.c.o)
+                0x00000000000294f4        0x8 ble/libble_uart.a(ble_conn_state.c.o)
  .sdh_ble_observers1
-                0x00000000000295dc       0x10 ble/libble_uart.a(ble_uart.c.o)
+                0x00000000000294fc       0x10 ble/libble_uart.a(ble_uart.c.o)
  .sdh_ble_observers1
-                0x00000000000295ec        0x8 ble/libble_uart.a(bsp_btn_ble.c.o)
+                0x000000000002950c        0x8 ble/libble_uart.a(bsp_btn_ble.c.o)
  .sdh_ble_observers1
-                0x00000000000295f4        0x8 ble/libble_uart.a(ble_conn_params.c.o)
+                0x0000000000029514        0x8 ble/libble_uart.a(ble_conn_params.c.o)
  .sdh_ble_observers2
-                0x00000000000295fc       0x10 ble/libble_uart.a(ble_uart.c.o)
+                0x000000000002951c       0x10 ble/libble_uart.a(ble_uart.c.o)
  .sdh_ble_observers3
-                0x000000000002960c        0x8 ble/libble_uart.a(ble_uart.c.o)
-                0x0000000000029614                PROVIDE (__stop_sdh_ble_observers = .)
+                0x000000000002952c        0x8 ble/libble_uart.a(ble_uart.c.o)
+                0x0000000000029534                PROVIDE (__stop_sdh_ble_observers = .)
 
-.pwr_mgmt_data  0x0000000000029614        0x0
-                0x0000000000029614                PROVIDE (__start_pwr_mgmt_data = .)
+.pwr_mgmt_data  0x0000000000029534        0x0
+                0x0000000000029534                PROVIDE (__start_pwr_mgmt_data = .)
  *(SORT_BY_NAME(.pwr_mgmt_data*))
-                0x0000000000029614                PROVIDE (__stop_pwr_mgmt_data = .)
+                0x0000000000029534                PROVIDE (__stop_pwr_mgmt_data = .)
 
 .sdh_req_observers
-                0x0000000000029614        0x0
-                0x0000000000029614                PROVIDE (__start_sdh_req_observers = .)
+                0x0000000000029534        0x0
+                0x0000000000029534                PROVIDE (__start_sdh_req_observers = .)
  *(SORT_BY_NAME(.sdh_req_observers*))
-                0x0000000000029614                PROVIDE (__stop_sdh_req_observers = .)
+                0x0000000000029534                PROVIDE (__stop_sdh_req_observers = .)
 
 .sdh_state_observers
-                0x0000000000029614        0x0
-                0x0000000000029614                PROVIDE (__start_sdh_state_observers = .)
+                0x0000000000029534        0x0
+                0x0000000000029534                PROVIDE (__start_sdh_state_observers = .)
  *(SORT_BY_NAME(.sdh_state_observers*))
-                0x0000000000029614                PROVIDE (__stop_sdh_state_observers = .)
+                0x0000000000029534                PROVIDE (__stop_sdh_state_observers = .)
 
 .sdh_stack_observers
-                0x0000000000029614        0x8
-                0x0000000000029614                PROVIDE (__start_sdh_stack_observers = .)
+                0x0000000000029534        0x8
+                0x0000000000029534                PROVIDE (__start_sdh_stack_observers = .)
  *(SORT_BY_NAME(.sdh_stack_observers*))
  .sdh_stack_observers0
-                0x0000000000029614        0x8 ble/libble_uart.a(nrf_sdh_ble.c.o)
-                0x000000000002961c                PROVIDE (__stop_sdh_stack_observers = .)
+                0x0000000000029534        0x8 ble/libble_uart.a(nrf_sdh_ble.c.o)
+                0x000000000002953c                PROVIDE (__stop_sdh_stack_observers = .)
 
-.nrf_queue      0x000000000002961c        0x0
+.nrf_queue      0x000000000002953c        0x0
                 [!provide]                        PROVIDE (__start_nrf_queue = .)
  *(.nrf_queue)
                 [!provide]                        PROVIDE (__stop_nrf_queue = .)
 
-.nrf_balloc     0x000000000002961c       0x14
+.nrf_balloc     0x000000000002953c       0x14
                 [!provide]                        PROVIDE (__start_nrf_balloc = .)
  *(.nrf_balloc)
- .nrf_balloc    0x000000000002961c       0x14 ble/libble_uart.a(nrf_log_frontend.c.o)
-                0x000000000002961c                log_mempool
+ .nrf_balloc    0x000000000002953c       0x14 ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x000000000002953c                log_mempool
                 [!provide]                        PROVIDE (__stop_nrf_balloc = .)
 
-.cli_command    0x0000000000029630        0x0
+.cli_command    0x0000000000029550        0x0
                 [!provide]                        PROVIDE (__start_cli_command = .)
  *(.cli_command)
                 [!provide]                        PROVIDE (__stop_cli_command = .)
 
-.crypto_data    0x0000000000029630        0x0
+.crypto_data    0x0000000000029550        0x0
                 [!provide]                        PROVIDE (__start_crypto_data = .)
  *(SORT_BY_NAME(.crypto_data*))
                 [!provide]                        PROVIDE (__stop_crypto_data = .)
 
 .log_const_data
-                0x0000000000029630       0x50
-                0x0000000000029630                PROVIDE (__start_log_const_data = .)
+                0x0000000000029550       0x50
+                0x0000000000029550                PROVIDE (__start_log_const_data = .)
  *(SORT_BY_NAME(.log_const_data*))
  .log_const_data_GPIOTE
-                0x0000000000029630        0x8 ble/libble_uart.a(nrfx_gpiote.c.o)
-                0x0000000000029630                m_nrf_log_GPIOTE_logs_data_const
+                0x0000000000029550        0x8 ble/libble_uart.a(nrfx_gpiote.c.o)
+                0x0000000000029550                m_nrf_log_GPIOTE_logs_data_const
  .log_const_data_app
-                0x0000000000029638        0x8 ble/libble_uart.a(nrf_log_frontend.c.o)
-                0x0000000000029638                m_nrf_log_app_logs_data_const
+                0x0000000000029558        0x8 ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x0000000000029558                m_nrf_log_app_logs_data_const
  .log_const_data_app_button
-                0x0000000000029640        0x8 ble/libble_uart.a(app_button.c.o)
-                0x0000000000029640                m_nrf_log_app_button_logs_data_const
+                0x0000000000029560        0x8 ble/libble_uart.a(app_button.c.o)
+                0x0000000000029560                m_nrf_log_app_button_logs_data_const
  .log_const_data_app_timer
-                0x0000000000029648        0x8 ble/libble_uart.a(app_timer2.c.o)
-                0x0000000000029648                m_nrf_log_app_timer_logs_data_const
+                0x0000000000029568        0x8 ble/libble_uart.a(app_timer2.c.o)
+                0x0000000000029568                m_nrf_log_app_timer_logs_data_const
  .log_const_data_ble_nus
-                0x0000000000029650        0x8 ble/libble_uart.a(ble_nus.c.o)
-                0x0000000000029650                m_nrf_log_ble_nus_logs_data_const
+                0x0000000000029570        0x8 ble/libble_uart.a(ble_nus.c.o)
+                0x0000000000029570                m_nrf_log_ble_nus_logs_data_const
  .log_const_data_nrf_ble_gatt
-                0x0000000000029658        0x8 ble/libble_uart.a(nrf_ble_gatt.c.o)
-                0x0000000000029658                m_nrf_log_nrf_ble_gatt_logs_data_const
+                0x0000000000029578        0x8 ble/libble_uart.a(nrf_ble_gatt.c.o)
+                0x0000000000029578                m_nrf_log_nrf_ble_gatt_logs_data_const
  .log_const_data_nrf_sdh
-                0x0000000000029660        0x8 ble/libble_uart.a(nrf_sdh.c.o)
-                0x0000000000029660                m_nrf_log_nrf_sdh_logs_data_const
+                0x0000000000029580        0x8 ble/libble_uart.a(nrf_sdh.c.o)
+                0x0000000000029580                m_nrf_log_nrf_sdh_logs_data_const
  .log_const_data_nrf_sdh_ble
-                0x0000000000029668        0x8 ble/libble_uart.a(nrf_sdh_ble.c.o)
-                0x0000000000029668                m_nrf_log_nrf_sdh_ble_logs_data_const
+                0x0000000000029588        0x8 ble/libble_uart.a(nrf_sdh_ble.c.o)
+                0x0000000000029588                m_nrf_log_nrf_sdh_ble_logs_data_const
  .log_const_data_pwr_mgmt
-                0x0000000000029670        0x8 ble/libble_uart.a(nrf_pwr_mgmt.c.o)
-                0x0000000000029670                m_nrf_log_pwr_mgmt_logs_data_const
+                0x0000000000029590        0x8 ble/libble_uart.a(nrf_pwr_mgmt.c.o)
+                0x0000000000029590                m_nrf_log_pwr_mgmt_logs_data_const
  .log_const_data_sortlist
-                0x0000000000029678        0x8 ble/libble_uart.a(nrf_sortlist.c.o)
-                0x0000000000029678                m_nrf_log_sortlist_logs_data_const
-                0x0000000000029680                PROVIDE (__stop_log_const_data = .)
+                0x0000000000029598        0x8 ble/libble_uart.a(nrf_sortlist.c.o)
+                0x0000000000029598                m_nrf_log_sortlist_logs_data_const
+                0x00000000000295a0                PROVIDE (__stop_log_const_data = .)
 
-.log_backends   0x0000000000029680       0x10
+.log_backends   0x00000000000295a0       0x10
                 [!provide]                        PROVIDE (__start_log_backends = .)
  *(SORT_BY_NAME(.log_backends*))
- .log_backends  0x0000000000029680       0x10 ble/libble_uart.a(nrf_log_default_backends.c.o)
+ .log_backends  0x00000000000295a0       0x10 ble/libble_uart.a(nrf_log_default_backends.c.o)
                 [!provide]                        PROVIDE (__stop_log_backends = .)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000000029690                __exidx_start = .
+                0x00000000000295b0                __exidx_start = .
 
-.ARM.exidx      0x0000000000029690        0x8
+.ARM.exidx      0x00000000000295b0        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
  .ARM.exidx.text.__udivmoddi4
-                0x0000000000029690        0x8 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
-                0x0000000000029698                __exidx_end = .
+                0x00000000000295b0        0x8 /opt/arm-gcc/lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+                0x00000000000295b8                __exidx_end = .
 
-.rel.dyn        0x0000000000029698        0x0
- .rel.iplt      0x0000000000029698        0x0 main.o
-                0x0000000000029698                . = ALIGN (0x4)
-                0x0000000000029698                __etext = .
+.rel.dyn        0x00000000000295b8        0x0
+ .rel.iplt      0x00000000000295b8        0x0 main.o
+                0x00000000000295b8                . = ALIGN (0x4)
+                0x00000000000295b8                __etext = .
 
-.data           0x0000000020002608      0x164 load address 0x0000000000029698
+.data           0x0000000020002608      0x164 load address 0x00000000000295b8
                 0x0000000020002608                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -9563,7 +9559,7 @@ Linker script and memory map
                 0x000000002000276c                . = ALIGN (0x4)
                 0x000000002000276c                __data_end__ = .
 
-.igot.plt       0x000000002000276c        0x0 load address 0x00000000000297fc
+.igot.plt       0x000000002000276c        0x0 load address 0x000000000002971c
  .igot.plt      0x000000002000276c        0x0 main.o
                 0x000000002000276c                . = ALIGN (0x4)
 
@@ -9592,7 +9588,7 @@ Linker script and memory map
  *(SORT_BY_NAME(.log_filter_data*))
                 [!provide]                        PROVIDE (__stop_log_filter_data = .)
 
-.bss            0x0000000020002770     0x937c load address 0x0000000000029800
+.bss            0x0000000020002770     0x937c load address 0x0000000000029720
                 0x0000000020002770                . = ALIGN (0x4)
                 0x0000000020002770                __bss_start__ = .
  *(.bss*)
@@ -9793,8 +9789,8 @@ Linker script and memory map
                 [!provide]                        PROVIDE (__stack = __StackTop)
                 0x0000000000000001                ASSERT ((__StackLimit >= __HeapLimit), region RAM overflowed with stack)
                 0x0000000000000168                DataInitFlashUsed = (__bss_start__ - __data_start__)
-                0x000000000000d698                CodeFlashUsed = (__etext - ORIGIN (FLASH))
-                0x000000000000d800                TotalFlashUsed = (CodeFlashUsed + DataInitFlashUsed)
+                0x000000000000d5b8                CodeFlashUsed = (__etext - ORIGIN (FLASH))
+                0x000000000000d720                TotalFlashUsed = (CodeFlashUsed + DataInitFlashUsed)
                 0x0000000000000001                ASSERT ((TotalFlashUsed <= LENGTH (FLASH)), region FLASH overflowed with .data and user data)
 LOAD main.o
 LOAD bsp/libbsp.a
@@ -9807,150 +9803,150 @@ LOAD /opt/arm-gcc/arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a
 OUTPUT(app.out elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x0000000000000000    0x5baef
+.debug_info     0x0000000000000000    0x5ba1b
  .debug_info    0x0000000000000000     0x2880 main.o
  .debug_info    0x0000000000002880      0x2e9 bsp/libbsp.a(startup.o)
  .debug_info    0x0000000000002b69       0x75 bsp/libbsp.a(system.o)
  .debug_info    0x0000000000002bde     0x1502 bsp/libbsp.a(board.o)
- .debug_info    0x00000000000040e0      0x275 bsp/libbsp.a(servo.o)
- .debug_info    0x0000000000004355      0x1de bsp/libbsp.a(controller.o)
- .debug_info    0x0000000000004533      0x29d bsp/libbsp.a(serial.o)
- .debug_info    0x00000000000047d0      0x22b bsp/libbsp.a(gpio.o)
- .debug_info    0x00000000000049fb     0x1ad7 bsp/libbsp.a(lib.o)
- .debug_info    0x00000000000064d2      0x6f9 bsp/libbsp.a(audio.o)
- .debug_info    0x0000000000006bcb      0x105 bsp/libbsp.a(rng.o)
- .debug_info    0x0000000000006cd0     0x2075 bsp/libbsp.a(lsm303agr.o)
- .debug_info    0x0000000000008d45      0x165 bsp/libbsp.a(pwm.o)
- .debug_info    0x0000000000008eaa      0x19f bsp/libbsp.a(adc.o)
- .debug_info    0x0000000000009049      0x15f bsp/libbsp.a(i2c.o)
- .debug_info    0x00000000000091a8     0x4554 ble/libble_uart.a(ble_uart.c.o)
- .debug_info    0x000000000000d6fc     0x1c10 ble/libble_uart.a(bsp_btn_ble.c.o)
- .debug_info    0x000000000000f30c     0x14f9 ble/libble_uart.a(bsp.c.o)
- .debug_info    0x0000000000010805     0x26a7 ble/libble_uart.a(nrf_ble_gatt.c.o)
- .debug_info    0x0000000000012eac     0x1d2a ble/libble_uart.a(nrf_ble_qwr.c.o)
- .debug_info    0x0000000000014bd6      0x2fc ble/libble_uart.a(nrf_log_default_backends.c.o)
- .debug_info    0x0000000000014ed2     0x3b4f ble/libble_uart.a(nrf_log_frontend.c.o)
- .debug_info    0x0000000000018a21      0xb84 ble/libble_uart.a(nrf_memobj.c.o)
- .debug_info    0x00000000000195a5     0x12d4 ble/libble_uart.a(nrf_pwr_mgmt.c.o)
- .debug_info    0x000000000001a879      0x62d ble/libble_uart.a(nrf_ringbuf.c.o)
- .debug_info    0x000000000001aea6     0x28e9 ble/libble_uart.a(nrf_sdh_ble.c.o)
- .debug_info    0x000000000001d78f     0x1835 ble/libble_uart.a(nrf_sdh.c.o)
- .debug_info    0x000000000001efc4      0x19a ble/libble_uart.a(nrf_section_iter.c.o)
- .debug_info    0x000000000001f15e      0x275 ble/libble_uart.a(nrf_strerror.c.o)
- .debug_info    0x000000000001f3d3     0x12e0 ble/libble_uart.a(app_button.c.o)
- .debug_info    0x00000000000206b3      0x2be ble/libble_uart.a(app_error.c.o)
- .debug_info    0x0000000000020971      0x478 ble/libble_uart.a(app_error_weak.c.o)
- .debug_info    0x0000000000020de9     0x1958 ble/libble_uart.a(app_timer2.c.o)
- .debug_info    0x0000000000022741      0x9dc ble/libble_uart.a(app_util_platform.c.o)
- .debug_info    0x000000000002311d     0x2f9d ble/libble_uart.a(ble_advertising.c.o)
- .debug_info    0x00000000000260ba     0x292c ble/libble_uart.a(ble_conn_params.c.o)
- .debug_info    0x00000000000289e6     0x260a ble/libble_uart.a(ble_nus.c.o)
- .debug_info    0x000000000002aff0      0xd8f ble/libble_uart.a(ble_srv_common.c.o)
- .debug_info    0x000000000002bd7f      0xeb8 ble/libble_uart.a(boards.c.o)
- .debug_info    0x000000000002cc37     0x20c2 ble/libble_uart.a(drv_rtc.c.o)
- .debug_info    0x000000000002ecf9      0xb02 ble/libble_uart.a(nrf_atfifo.c.o)
- .debug_info    0x000000000002f7fb      0xa65 ble/libble_uart.a(nrf_atomic.c.o)
- .debug_info    0x0000000000030260      0x3d1 ble/libble_uart.a(nrf_balloc.c.o)
- .debug_info    0x0000000000030631      0x5a5 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
- .debug_info    0x0000000000030bd6      0x7c7 ble/libble_uart.a(nrf_log_backend_serial.c.o)
- .debug_info    0x000000000003139d      0x848 ble/libble_uart.a(nrf_log_str_formatter.c.o)
- .debug_info    0x0000000000031be5      0x3a9 ble/libble_uart.a(nrf_sortlist.c.o)
- .debug_info    0x0000000000031f8e     0x3cc1 ble/libble_uart.a(nrfx_gpiote.c.o)
- .debug_info    0x0000000000035c4f     0x2ff4 ble/libble_uart.a(SEGGER_RTT.c.o)
- .debug_info    0x0000000000038c43     0x1fb1 ble/libble_uart.a(ble_advdata.c.o)
- .debug_info    0x000000000003abf4      0x1b2 ble/libble_uart.a(ble_link_ctx_manager.c.o)
- .debug_info    0x000000000003ada6      0x250 ble/libble_uart.a(nrf_fprintf.c.o)
- .debug_info    0x000000000003aff6      0xc29 ble/libble_uart.a(nrf_fprintf_format.c.o)
- .debug_info    0x000000000003bc1f     0x2c73 ble/libble_uart.a(ble_conn_state.c.o)
- .debug_info    0x000000000003e892      0x71f ble/libble_uart.a(nrf_atflags.c.o)
- .debug_info    0x000000000003efb1     0x2e38 rtx/librtx.a(rtx_evflags.o)
- .debug_info    0x0000000000041de9     0x33f2 rtx/librtx.a(rtx_kernel.o)
- .debug_info    0x00000000000451db     0x1ecf rtx/librtx.a(rtx_evr.o)
- .debug_info    0x00000000000470aa      0xc38 rtx/librtx.a(rtx_lib.o)
- .debug_info    0x0000000000047ce2      0x639 rtx/librtx.a(rtx_memory.o)
- .debug_info    0x000000000004831b     0x34e0 rtx/librtx.a(rtx_mempool.o)
- .debug_info    0x000000000004b7fb     0x11fd rtx/librtx.a(rtx_system.o)
- .debug_info    0x000000000004c9f8     0x6adf rtx/librtx.a(rtx_thread.o)
- .debug_info    0x00000000000534d7     0x1fb6 rtx/librtx.a(rtx_timer.o)
- .debug_info    0x000000000005548d      0x453 rtx/librtx.a(os_systick.o)
- .debug_info    0x00000000000558e0      0x100 rtx/librtx.a(RTX_Config.o)
- .debug_info    0x00000000000559e0       0x45 rtx/librtx.a(irq_armv7m.o)
- .debug_info    0x0000000000055a25     0x41f0 rtx/librtx.a(rtx_msgqueue.o)
- .debug_info    0x0000000000059c15     0x1eda rtx/librtx.a(rtx_mutex.o)
+ .debug_info    0x00000000000040e0      0x1a1 bsp/libbsp.a(servo.o)
+ .debug_info    0x0000000000004281      0x1de bsp/libbsp.a(controller.o)
+ .debug_info    0x000000000000445f      0x29d bsp/libbsp.a(serial.o)
+ .debug_info    0x00000000000046fc      0x22b bsp/libbsp.a(gpio.o)
+ .debug_info    0x0000000000004927     0x1ad7 bsp/libbsp.a(lib.o)
+ .debug_info    0x00000000000063fe      0x6f9 bsp/libbsp.a(audio.o)
+ .debug_info    0x0000000000006af7      0x105 bsp/libbsp.a(rng.o)
+ .debug_info    0x0000000000006bfc     0x2075 bsp/libbsp.a(lsm303agr.o)
+ .debug_info    0x0000000000008c71      0x165 bsp/libbsp.a(pwm.o)
+ .debug_info    0x0000000000008dd6      0x19f bsp/libbsp.a(adc.o)
+ .debug_info    0x0000000000008f75      0x15f bsp/libbsp.a(i2c.o)
+ .debug_info    0x00000000000090d4     0x4554 ble/libble_uart.a(ble_uart.c.o)
+ .debug_info    0x000000000000d628     0x1c10 ble/libble_uart.a(bsp_btn_ble.c.o)
+ .debug_info    0x000000000000f238     0x14f9 ble/libble_uart.a(bsp.c.o)
+ .debug_info    0x0000000000010731     0x26a7 ble/libble_uart.a(nrf_ble_gatt.c.o)
+ .debug_info    0x0000000000012dd8     0x1d2a ble/libble_uart.a(nrf_ble_qwr.c.o)
+ .debug_info    0x0000000000014b02      0x2fc ble/libble_uart.a(nrf_log_default_backends.c.o)
+ .debug_info    0x0000000000014dfe     0x3b4f ble/libble_uart.a(nrf_log_frontend.c.o)
+ .debug_info    0x000000000001894d      0xb84 ble/libble_uart.a(nrf_memobj.c.o)
+ .debug_info    0x00000000000194d1     0x12d4 ble/libble_uart.a(nrf_pwr_mgmt.c.o)
+ .debug_info    0x000000000001a7a5      0x62d ble/libble_uart.a(nrf_ringbuf.c.o)
+ .debug_info    0x000000000001add2     0x28e9 ble/libble_uart.a(nrf_sdh_ble.c.o)
+ .debug_info    0x000000000001d6bb     0x1835 ble/libble_uart.a(nrf_sdh.c.o)
+ .debug_info    0x000000000001eef0      0x19a ble/libble_uart.a(nrf_section_iter.c.o)
+ .debug_info    0x000000000001f08a      0x275 ble/libble_uart.a(nrf_strerror.c.o)
+ .debug_info    0x000000000001f2ff     0x12e0 ble/libble_uart.a(app_button.c.o)
+ .debug_info    0x00000000000205df      0x2be ble/libble_uart.a(app_error.c.o)
+ .debug_info    0x000000000002089d      0x478 ble/libble_uart.a(app_error_weak.c.o)
+ .debug_info    0x0000000000020d15     0x1958 ble/libble_uart.a(app_timer2.c.o)
+ .debug_info    0x000000000002266d      0x9dc ble/libble_uart.a(app_util_platform.c.o)
+ .debug_info    0x0000000000023049     0x2f9d ble/libble_uart.a(ble_advertising.c.o)
+ .debug_info    0x0000000000025fe6     0x292c ble/libble_uart.a(ble_conn_params.c.o)
+ .debug_info    0x0000000000028912     0x260a ble/libble_uart.a(ble_nus.c.o)
+ .debug_info    0x000000000002af1c      0xd8f ble/libble_uart.a(ble_srv_common.c.o)
+ .debug_info    0x000000000002bcab      0xeb8 ble/libble_uart.a(boards.c.o)
+ .debug_info    0x000000000002cb63     0x20c2 ble/libble_uart.a(drv_rtc.c.o)
+ .debug_info    0x000000000002ec25      0xb02 ble/libble_uart.a(nrf_atfifo.c.o)
+ .debug_info    0x000000000002f727      0xa65 ble/libble_uart.a(nrf_atomic.c.o)
+ .debug_info    0x000000000003018c      0x3d1 ble/libble_uart.a(nrf_balloc.c.o)
+ .debug_info    0x000000000003055d      0x5a5 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
+ .debug_info    0x0000000000030b02      0x7c7 ble/libble_uart.a(nrf_log_backend_serial.c.o)
+ .debug_info    0x00000000000312c9      0x848 ble/libble_uart.a(nrf_log_str_formatter.c.o)
+ .debug_info    0x0000000000031b11      0x3a9 ble/libble_uart.a(nrf_sortlist.c.o)
+ .debug_info    0x0000000000031eba     0x3cc1 ble/libble_uart.a(nrfx_gpiote.c.o)
+ .debug_info    0x0000000000035b7b     0x2ff4 ble/libble_uart.a(SEGGER_RTT.c.o)
+ .debug_info    0x0000000000038b6f     0x1fb1 ble/libble_uart.a(ble_advdata.c.o)
+ .debug_info    0x000000000003ab20      0x1b2 ble/libble_uart.a(ble_link_ctx_manager.c.o)
+ .debug_info    0x000000000003acd2      0x250 ble/libble_uart.a(nrf_fprintf.c.o)
+ .debug_info    0x000000000003af22      0xc29 ble/libble_uart.a(nrf_fprintf_format.c.o)
+ .debug_info    0x000000000003bb4b     0x2c73 ble/libble_uart.a(ble_conn_state.c.o)
+ .debug_info    0x000000000003e7be      0x71f ble/libble_uart.a(nrf_atflags.c.o)
+ .debug_info    0x000000000003eedd     0x2e38 rtx/librtx.a(rtx_evflags.o)
+ .debug_info    0x0000000000041d15     0x33f2 rtx/librtx.a(rtx_kernel.o)
+ .debug_info    0x0000000000045107     0x1ecf rtx/librtx.a(rtx_evr.o)
+ .debug_info    0x0000000000046fd6      0xc38 rtx/librtx.a(rtx_lib.o)
+ .debug_info    0x0000000000047c0e      0x639 rtx/librtx.a(rtx_memory.o)
+ .debug_info    0x0000000000048247     0x34e0 rtx/librtx.a(rtx_mempool.o)
+ .debug_info    0x000000000004b727     0x11fd rtx/librtx.a(rtx_system.o)
+ .debug_info    0x000000000004c924     0x6adf rtx/librtx.a(rtx_thread.o)
+ .debug_info    0x0000000000053403     0x1fb6 rtx/librtx.a(rtx_timer.o)
+ .debug_info    0x00000000000553b9      0x453 rtx/librtx.a(os_systick.o)
+ .debug_info    0x000000000005580c      0x100 rtx/librtx.a(RTX_Config.o)
+ .debug_info    0x000000000005590c       0x45 rtx/librtx.a(irq_armv7m.o)
+ .debug_info    0x0000000000055951     0x41f0 rtx/librtx.a(rtx_msgqueue.o)
+ .debug_info    0x0000000000059b41     0x1eda rtx/librtx.a(rtx_mutex.o)
 
-.debug_abbrev   0x0000000000000000     0xcad5
+.debug_abbrev   0x0000000000000000     0xca7e
  .debug_abbrev  0x0000000000000000      0x417 main.o
  .debug_abbrev  0x0000000000000417      0x1d0 bsp/libbsp.a(startup.o)
  .debug_abbrev  0x00000000000005e7       0x74 bsp/libbsp.a(system.o)
  .debug_abbrev  0x000000000000065b      0x2d5 bsp/libbsp.a(board.o)
- .debug_abbrev  0x0000000000000930      0x13c bsp/libbsp.a(servo.o)
- .debug_abbrev  0x0000000000000a6c      0x11a bsp/libbsp.a(controller.o)
- .debug_abbrev  0x0000000000000b86      0x183 bsp/libbsp.a(serial.o)
- .debug_abbrev  0x0000000000000d09       0xef bsp/libbsp.a(gpio.o)
- .debug_abbrev  0x0000000000000df8      0x36f bsp/libbsp.a(lib.o)
- .debug_abbrev  0x0000000000001167      0x26c bsp/libbsp.a(audio.o)
- .debug_abbrev  0x00000000000013d3       0xd5 bsp/libbsp.a(rng.o)
- .debug_abbrev  0x00000000000014a8      0x367 bsp/libbsp.a(lsm303agr.o)
- .debug_abbrev  0x000000000000180f       0xcf bsp/libbsp.a(pwm.o)
- .debug_abbrev  0x00000000000018de      0x128 bsp/libbsp.a(adc.o)
- .debug_abbrev  0x0000000000001a06       0xdd bsp/libbsp.a(i2c.o)
- .debug_abbrev  0x0000000000001ae3      0x5b8 ble/libble_uart.a(ble_uart.c.o)
- .debug_abbrev  0x000000000000209b      0x328 ble/libble_uart.a(bsp_btn_ble.c.o)
- .debug_abbrev  0x00000000000023c3      0x4db ble/libble_uart.a(bsp.c.o)
- .debug_abbrev  0x000000000000289e      0x47e ble/libble_uart.a(nrf_ble_gatt.c.o)
- .debug_abbrev  0x0000000000002d1c      0x352 ble/libble_uart.a(nrf_ble_qwr.c.o)
- .debug_abbrev  0x000000000000306e      0x1a4 ble/libble_uart.a(nrf_log_default_backends.c.o)
- .debug_abbrev  0x0000000000003212      0x5d1 ble/libble_uart.a(nrf_log_frontend.c.o)
- .debug_abbrev  0x00000000000037e3      0x2b7 ble/libble_uart.a(nrf_memobj.c.o)
- .debug_abbrev  0x0000000000003a9a      0x4a8 ble/libble_uart.a(nrf_pwr_mgmt.c.o)
- .debug_abbrev  0x0000000000003f42      0x187 ble/libble_uart.a(nrf_ringbuf.c.o)
- .debug_abbrev  0x00000000000040c9      0x49a ble/libble_uart.a(nrf_sdh_ble.c.o)
- .debug_abbrev  0x0000000000004563      0x521 ble/libble_uart.a(nrf_sdh.c.o)
- .debug_abbrev  0x0000000000004a84       0xbc ble/libble_uart.a(nrf_section_iter.c.o)
- .debug_abbrev  0x0000000000004b40      0x15d ble/libble_uart.a(nrf_strerror.c.o)
- .debug_abbrev  0x0000000000004c9d      0x3e7 ble/libble_uart.a(app_button.c.o)
- .debug_abbrev  0x0000000000005084      0x147 ble/libble_uart.a(app_error.c.o)
- .debug_abbrev  0x00000000000051cb      0x23a ble/libble_uart.a(app_error_weak.c.o)
- .debug_abbrev  0x0000000000005405      0x551 ble/libble_uart.a(app_timer2.c.o)
- .debug_abbrev  0x0000000000005956      0x311 ble/libble_uart.a(app_util_platform.c.o)
- .debug_abbrev  0x0000000000005c67      0x4c8 ble/libble_uart.a(ble_advertising.c.o)
- .debug_abbrev  0x000000000000612f      0x537 ble/libble_uart.a(ble_conn_params.c.o)
- .debug_abbrev  0x0000000000006666      0x424 ble/libble_uart.a(ble_nus.c.o)
- .debug_abbrev  0x0000000000006a8a      0x2ae ble/libble_uart.a(ble_srv_common.c.o)
- .debug_abbrev  0x0000000000006d38      0x343 ble/libble_uart.a(boards.c.o)
- .debug_abbrev  0x000000000000707b      0x539 ble/libble_uart.a(drv_rtc.c.o)
- .debug_abbrev  0x00000000000075b4      0x2bf ble/libble_uart.a(nrf_atfifo.c.o)
- .debug_abbrev  0x0000000000007873      0x216 ble/libble_uart.a(nrf_atomic.c.o)
- .debug_abbrev  0x0000000000007a89      0x21d ble/libble_uart.a(nrf_balloc.c.o)
- .debug_abbrev  0x0000000000007ca6      0x2a6 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
- .debug_abbrev  0x0000000000007f4c      0x20c ble/libble_uart.a(nrf_log_backend_serial.c.o)
- .debug_abbrev  0x0000000000008158      0x23b ble/libble_uart.a(nrf_log_str_formatter.c.o)
- .debug_abbrev  0x0000000000008393      0x166 ble/libble_uart.a(nrf_sortlist.c.o)
- .debug_abbrev  0x00000000000084f9      0x50d ble/libble_uart.a(nrfx_gpiote.c.o)
- .debug_abbrev  0x0000000000008a06      0x34f ble/libble_uart.a(SEGGER_RTT.c.o)
- .debug_abbrev  0x0000000000008d55      0x401 ble/libble_uart.a(ble_advdata.c.o)
- .debug_abbrev  0x0000000000009156       0xe4 ble/libble_uart.a(ble_link_ctx_manager.c.o)
- .debug_abbrev  0x000000000000923a      0x13e ble/libble_uart.a(nrf_fprintf.c.o)
- .debug_abbrev  0x0000000000009378      0x2dd ble/libble_uart.a(nrf_fprintf_format.c.o)
- .debug_abbrev  0x0000000000009655      0x545 ble/libble_uart.a(ble_conn_state.c.o)
- .debug_abbrev  0x0000000000009b9a      0x238 ble/libble_uart.a(nrf_atflags.c.o)
- .debug_abbrev  0x0000000000009dd2      0x480 rtx/librtx.a(rtx_evflags.o)
- .debug_abbrev  0x000000000000a252      0x52e rtx/librtx.a(rtx_kernel.o)
- .debug_abbrev  0x000000000000a780      0x215 rtx/librtx.a(rtx_evr.o)
- .debug_abbrev  0x000000000000a995      0x20b rtx/librtx.a(rtx_lib.o)
- .debug_abbrev  0x000000000000aba0      0x1e8 rtx/librtx.a(rtx_memory.o)
- .debug_abbrev  0x000000000000ad88      0x4ac rtx/librtx.a(rtx_mempool.o)
- .debug_abbrev  0x000000000000b234      0x364 rtx/librtx.a(rtx_system.o)
- .debug_abbrev  0x000000000000b598      0x56e rtx/librtx.a(rtx_thread.o)
- .debug_abbrev  0x000000000000bb06      0x48f rtx/librtx.a(rtx_timer.o)
- .debug_abbrev  0x000000000000bf95      0x1ae rtx/librtx.a(os_systick.o)
- .debug_abbrev  0x000000000000c143       0x90 rtx/librtx.a(RTX_Config.o)
- .debug_abbrev  0x000000000000c1d3       0x21 rtx/librtx.a(irq_armv7m.o)
- .debug_abbrev  0x000000000000c1f4      0x4c1 rtx/librtx.a(rtx_msgqueue.o)
- .debug_abbrev  0x000000000000c6b5      0x420 rtx/librtx.a(rtx_mutex.o)
+ .debug_abbrev  0x0000000000000930       0xe5 bsp/libbsp.a(servo.o)
+ .debug_abbrev  0x0000000000000a15      0x11a bsp/libbsp.a(controller.o)
+ .debug_abbrev  0x0000000000000b2f      0x183 bsp/libbsp.a(serial.o)
+ .debug_abbrev  0x0000000000000cb2       0xef bsp/libbsp.a(gpio.o)
+ .debug_abbrev  0x0000000000000da1      0x36f bsp/libbsp.a(lib.o)
+ .debug_abbrev  0x0000000000001110      0x26c bsp/libbsp.a(audio.o)
+ .debug_abbrev  0x000000000000137c       0xd5 bsp/libbsp.a(rng.o)
+ .debug_abbrev  0x0000000000001451      0x367 bsp/libbsp.a(lsm303agr.o)
+ .debug_abbrev  0x00000000000017b8       0xcf bsp/libbsp.a(pwm.o)
+ .debug_abbrev  0x0000000000001887      0x128 bsp/libbsp.a(adc.o)
+ .debug_abbrev  0x00000000000019af       0xdd bsp/libbsp.a(i2c.o)
+ .debug_abbrev  0x0000000000001a8c      0x5b8 ble/libble_uart.a(ble_uart.c.o)
+ .debug_abbrev  0x0000000000002044      0x328 ble/libble_uart.a(bsp_btn_ble.c.o)
+ .debug_abbrev  0x000000000000236c      0x4db ble/libble_uart.a(bsp.c.o)
+ .debug_abbrev  0x0000000000002847      0x47e ble/libble_uart.a(nrf_ble_gatt.c.o)
+ .debug_abbrev  0x0000000000002cc5      0x352 ble/libble_uart.a(nrf_ble_qwr.c.o)
+ .debug_abbrev  0x0000000000003017      0x1a4 ble/libble_uart.a(nrf_log_default_backends.c.o)
+ .debug_abbrev  0x00000000000031bb      0x5d1 ble/libble_uart.a(nrf_log_frontend.c.o)
+ .debug_abbrev  0x000000000000378c      0x2b7 ble/libble_uart.a(nrf_memobj.c.o)
+ .debug_abbrev  0x0000000000003a43      0x4a8 ble/libble_uart.a(nrf_pwr_mgmt.c.o)
+ .debug_abbrev  0x0000000000003eeb      0x187 ble/libble_uart.a(nrf_ringbuf.c.o)
+ .debug_abbrev  0x0000000000004072      0x49a ble/libble_uart.a(nrf_sdh_ble.c.o)
+ .debug_abbrev  0x000000000000450c      0x521 ble/libble_uart.a(nrf_sdh.c.o)
+ .debug_abbrev  0x0000000000004a2d       0xbc ble/libble_uart.a(nrf_section_iter.c.o)
+ .debug_abbrev  0x0000000000004ae9      0x15d ble/libble_uart.a(nrf_strerror.c.o)
+ .debug_abbrev  0x0000000000004c46      0x3e7 ble/libble_uart.a(app_button.c.o)
+ .debug_abbrev  0x000000000000502d      0x147 ble/libble_uart.a(app_error.c.o)
+ .debug_abbrev  0x0000000000005174      0x23a ble/libble_uart.a(app_error_weak.c.o)
+ .debug_abbrev  0x00000000000053ae      0x551 ble/libble_uart.a(app_timer2.c.o)
+ .debug_abbrev  0x00000000000058ff      0x311 ble/libble_uart.a(app_util_platform.c.o)
+ .debug_abbrev  0x0000000000005c10      0x4c8 ble/libble_uart.a(ble_advertising.c.o)
+ .debug_abbrev  0x00000000000060d8      0x537 ble/libble_uart.a(ble_conn_params.c.o)
+ .debug_abbrev  0x000000000000660f      0x424 ble/libble_uart.a(ble_nus.c.o)
+ .debug_abbrev  0x0000000000006a33      0x2ae ble/libble_uart.a(ble_srv_common.c.o)
+ .debug_abbrev  0x0000000000006ce1      0x343 ble/libble_uart.a(boards.c.o)
+ .debug_abbrev  0x0000000000007024      0x539 ble/libble_uart.a(drv_rtc.c.o)
+ .debug_abbrev  0x000000000000755d      0x2bf ble/libble_uart.a(nrf_atfifo.c.o)
+ .debug_abbrev  0x000000000000781c      0x216 ble/libble_uart.a(nrf_atomic.c.o)
+ .debug_abbrev  0x0000000000007a32      0x21d ble/libble_uart.a(nrf_balloc.c.o)
+ .debug_abbrev  0x0000000000007c4f      0x2a6 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
+ .debug_abbrev  0x0000000000007ef5      0x20c ble/libble_uart.a(nrf_log_backend_serial.c.o)
+ .debug_abbrev  0x0000000000008101      0x23b ble/libble_uart.a(nrf_log_str_formatter.c.o)
+ .debug_abbrev  0x000000000000833c      0x166 ble/libble_uart.a(nrf_sortlist.c.o)
+ .debug_abbrev  0x00000000000084a2      0x50d ble/libble_uart.a(nrfx_gpiote.c.o)
+ .debug_abbrev  0x00000000000089af      0x34f ble/libble_uart.a(SEGGER_RTT.c.o)
+ .debug_abbrev  0x0000000000008cfe      0x401 ble/libble_uart.a(ble_advdata.c.o)
+ .debug_abbrev  0x00000000000090ff       0xe4 ble/libble_uart.a(ble_link_ctx_manager.c.o)
+ .debug_abbrev  0x00000000000091e3      0x13e ble/libble_uart.a(nrf_fprintf.c.o)
+ .debug_abbrev  0x0000000000009321      0x2dd ble/libble_uart.a(nrf_fprintf_format.c.o)
+ .debug_abbrev  0x00000000000095fe      0x545 ble/libble_uart.a(ble_conn_state.c.o)
+ .debug_abbrev  0x0000000000009b43      0x238 ble/libble_uart.a(nrf_atflags.c.o)
+ .debug_abbrev  0x0000000000009d7b      0x480 rtx/librtx.a(rtx_evflags.o)
+ .debug_abbrev  0x000000000000a1fb      0x52e rtx/librtx.a(rtx_kernel.o)
+ .debug_abbrev  0x000000000000a729      0x215 rtx/librtx.a(rtx_evr.o)
+ .debug_abbrev  0x000000000000a93e      0x20b rtx/librtx.a(rtx_lib.o)
+ .debug_abbrev  0x000000000000ab49      0x1e8 rtx/librtx.a(rtx_memory.o)
+ .debug_abbrev  0x000000000000ad31      0x4ac rtx/librtx.a(rtx_mempool.o)
+ .debug_abbrev  0x000000000000b1dd      0x364 rtx/librtx.a(rtx_system.o)
+ .debug_abbrev  0x000000000000b541      0x56e rtx/librtx.a(rtx_thread.o)
+ .debug_abbrev  0x000000000000baaf      0x48f rtx/librtx.a(rtx_timer.o)
+ .debug_abbrev  0x000000000000bf3e      0x1ae rtx/librtx.a(os_systick.o)
+ .debug_abbrev  0x000000000000c0ec       0x90 rtx/librtx.a(RTX_Config.o)
+ .debug_abbrev  0x000000000000c17c       0x21 rtx/librtx.a(irq_armv7m.o)
+ .debug_abbrev  0x000000000000c19d      0x4c1 rtx/librtx.a(rtx_msgqueue.o)
+ .debug_abbrev  0x000000000000c65e      0x420 rtx/librtx.a(rtx_mutex.o)
 
 .debug_loclists
-                0x0000000000000000    0x223d3
+                0x0000000000000000    0x22357
  .debug_loclists
                 0x0000000000000000     0x134a main.o
  .debug_loclists
@@ -9958,127 +9954,127 @@ LOAD linker stubs
  .debug_loclists
                 0x0000000000001382      0x448 bsp/libbsp.a(board.o)
  .debug_loclists
-                0x00000000000017ca      0x1c0 bsp/libbsp.a(servo.o)
+                0x00000000000017ca      0x144 bsp/libbsp.a(servo.o)
  .debug_loclists
-                0x000000000000198a       0x5e bsp/libbsp.a(controller.o)
+                0x000000000000190e       0x5e bsp/libbsp.a(controller.o)
  .debug_loclists
-                0x00000000000019e8      0x147 bsp/libbsp.a(serial.o)
+                0x000000000000196c      0x147 bsp/libbsp.a(serial.o)
  .debug_loclists
-                0x0000000000001b2f      0x119 bsp/libbsp.a(gpio.o)
+                0x0000000000001ab3      0x119 bsp/libbsp.a(gpio.o)
  .debug_loclists
-                0x0000000000001c48     0x15f3 bsp/libbsp.a(lib.o)
+                0x0000000000001bcc     0x15f3 bsp/libbsp.a(lib.o)
  .debug_loclists
-                0x000000000000323b      0x3e2 bsp/libbsp.a(audio.o)
+                0x00000000000031bf      0x3e2 bsp/libbsp.a(audio.o)
  .debug_loclists
-                0x000000000000361d       0x2e bsp/libbsp.a(rng.o)
+                0x00000000000035a1       0x2e bsp/libbsp.a(rng.o)
  .debug_loclists
-                0x000000000000364b      0xf58 bsp/libbsp.a(lsm303agr.o)
+                0x00000000000035cf      0xf58 bsp/libbsp.a(lsm303agr.o)
  .debug_loclists
-                0x00000000000045a3       0xb4 bsp/libbsp.a(pwm.o)
+                0x0000000000004527       0xb4 bsp/libbsp.a(pwm.o)
  .debug_loclists
-                0x0000000000004657       0x44 bsp/libbsp.a(adc.o)
+                0x00000000000045db       0x44 bsp/libbsp.a(adc.o)
  .debug_loclists
-                0x000000000000469b       0x9c bsp/libbsp.a(i2c.o)
+                0x000000000000461f       0x9c bsp/libbsp.a(i2c.o)
  .debug_loclists
-                0x0000000000004737      0x85a ble/libble_uart.a(ble_uart.c.o)
+                0x00000000000046bb      0x85a ble/libble_uart.a(ble_uart.c.o)
  .debug_loclists
-                0x0000000000004f91      0x182 ble/libble_uart.a(bsp_btn_ble.c.o)
+                0x0000000000004f15      0x182 ble/libble_uart.a(bsp_btn_ble.c.o)
  .debug_loclists
-                0x0000000000005113      0x813 ble/libble_uart.a(bsp.c.o)
+                0x0000000000005097      0x813 ble/libble_uart.a(bsp.c.o)
  .debug_loclists
-                0x0000000000005926      0x82f ble/libble_uart.a(nrf_ble_gatt.c.o)
+                0x00000000000058aa      0x82f ble/libble_uart.a(nrf_ble_gatt.c.o)
  .debug_loclists
-                0x0000000000006155      0x330 ble/libble_uart.a(nrf_ble_qwr.c.o)
+                0x00000000000060d9      0x330 ble/libble_uart.a(nrf_ble_qwr.c.o)
  .debug_loclists
-                0x0000000000006485       0x29 ble/libble_uart.a(nrf_log_default_backends.c.o)
+                0x0000000000006409       0x29 ble/libble_uart.a(nrf_log_default_backends.c.o)
  .debug_loclists
-                0x00000000000064ae     0x33bb ble/libble_uart.a(nrf_log_frontend.c.o)
+                0x0000000000006432     0x33bb ble/libble_uart.a(nrf_log_frontend.c.o)
  .debug_loclists
-                0x0000000000009869      0x959 ble/libble_uart.a(nrf_memobj.c.o)
+                0x00000000000097ed      0x959 ble/libble_uart.a(nrf_memobj.c.o)
  .debug_loclists
-                0x000000000000a1c2       0xca ble/libble_uart.a(nrf_pwr_mgmt.c.o)
+                0x000000000000a146       0xca ble/libble_uart.a(nrf_pwr_mgmt.c.o)
  .debug_loclists
-                0x000000000000a28c      0x412 ble/libble_uart.a(nrf_ringbuf.c.o)
+                0x000000000000a210      0x412 ble/libble_uart.a(nrf_ringbuf.c.o)
  .debug_loclists
-                0x000000000000a69e      0x24e ble/libble_uart.a(nrf_sdh_ble.c.o)
+                0x000000000000a622      0x24e ble/libble_uart.a(nrf_sdh_ble.c.o)
  .debug_loclists
-                0x000000000000a8ec      0x330 ble/libble_uart.a(nrf_sdh.c.o)
+                0x000000000000a870      0x330 ble/libble_uart.a(nrf_sdh.c.o)
  .debug_loclists
-                0x000000000000ac1c      0x145 ble/libble_uart.a(nrf_strerror.c.o)
+                0x000000000000aba0      0x145 ble/libble_uart.a(nrf_strerror.c.o)
  .debug_loclists
-                0x000000000000ad61      0x996 ble/libble_uart.a(app_button.c.o)
+                0x000000000000ace5      0x996 ble/libble_uart.a(app_button.c.o)
  .debug_loclists
-                0x000000000000b6f7       0x86 ble/libble_uart.a(app_error.c.o)
+                0x000000000000b67b       0x86 ble/libble_uart.a(app_error.c.o)
  .debug_loclists
-                0x000000000000b77d       0x51 ble/libble_uart.a(app_error_weak.c.o)
+                0x000000000000b701       0x51 ble/libble_uart.a(app_error_weak.c.o)
  .debug_loclists
-                0x000000000000b7ce      0x599 ble/libble_uart.a(app_timer2.c.o)
+                0x000000000000b752      0x599 ble/libble_uart.a(app_timer2.c.o)
  .debug_loclists
-                0x000000000000bd67      0x129 ble/libble_uart.a(app_util_platform.c.o)
+                0x000000000000bceb      0x129 ble/libble_uart.a(app_util_platform.c.o)
  .debug_loclists
-                0x000000000000be90      0x82f ble/libble_uart.a(ble_advertising.c.o)
+                0x000000000000be14      0x82f ble/libble_uart.a(ble_advertising.c.o)
  .debug_loclists
-                0x000000000000c6bf      0x8c3 ble/libble_uart.a(ble_conn_params.c.o)
+                0x000000000000c643      0x8c3 ble/libble_uart.a(ble_conn_params.c.o)
  .debug_loclists
-                0x000000000000cf82      0x3c5 ble/libble_uart.a(ble_nus.c.o)
+                0x000000000000cf06      0x3c5 ble/libble_uart.a(ble_nus.c.o)
  .debug_loclists
-                0x000000000000d347      0x38a ble/libble_uart.a(ble_srv_common.c.o)
+                0x000000000000d2cb      0x38a ble/libble_uart.a(ble_srv_common.c.o)
  .debug_loclists
-                0x000000000000d6d1     0x109a ble/libble_uart.a(boards.c.o)
+                0x000000000000d655     0x109a ble/libble_uart.a(boards.c.o)
  .debug_loclists
-                0x000000000000e76b      0xb46 ble/libble_uart.a(drv_rtc.c.o)
+                0x000000000000e6ef      0xb46 ble/libble_uart.a(drv_rtc.c.o)
  .debug_loclists
-                0x000000000000f2b1      0x430 ble/libble_uart.a(nrf_atfifo.c.o)
+                0x000000000000f235      0x430 ble/libble_uart.a(nrf_atfifo.c.o)
  .debug_loclists
-                0x000000000000f6e1      0x330 ble/libble_uart.a(nrf_atomic.c.o)
+                0x000000000000f665      0x330 ble/libble_uart.a(nrf_atomic.c.o)
  .debug_loclists
-                0x000000000000fa11      0x10e ble/libble_uart.a(nrf_balloc.c.o)
+                0x000000000000f995      0x10e ble/libble_uart.a(nrf_balloc.c.o)
  .debug_loclists
-                0x000000000000fb1f      0x189 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
+                0x000000000000faa3      0x189 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
  .debug_loclists
-                0x000000000000fca8      0x11f ble/libble_uart.a(nrf_log_backend_serial.c.o)
+                0x000000000000fc2c      0x11f ble/libble_uart.a(nrf_log_backend_serial.c.o)
  .debug_loclists
-                0x000000000000fdc7      0x2a7 ble/libble_uart.a(nrf_log_str_formatter.c.o)
+                0x000000000000fd4b      0x2a7 ble/libble_uart.a(nrf_log_str_formatter.c.o)
  .debug_loclists
-                0x000000000001006e       0xe9 ble/libble_uart.a(nrf_sortlist.c.o)
+                0x000000000000fff2       0xe9 ble/libble_uart.a(nrf_sortlist.c.o)
  .debug_loclists
-                0x0000000000010157     0x2809 ble/libble_uart.a(nrfx_gpiote.c.o)
+                0x00000000000100db     0x2809 ble/libble_uart.a(nrfx_gpiote.c.o)
  .debug_loclists
-                0x0000000000012960     0x3821 ble/libble_uart.a(SEGGER_RTT.c.o)
+                0x00000000000128e4     0x3821 ble/libble_uart.a(SEGGER_RTT.c.o)
  .debug_loclists
-                0x0000000000016181     0x1015 ble/libble_uart.a(ble_advdata.c.o)
+                0x0000000000016105     0x1015 ble/libble_uart.a(ble_advdata.c.o)
  .debug_loclists
-                0x0000000000017196       0xc0 ble/libble_uart.a(ble_link_ctx_manager.c.o)
+                0x000000000001711a       0xc0 ble/libble_uart.a(ble_link_ctx_manager.c.o)
  .debug_loclists
-                0x0000000000017256       0x3e ble/libble_uart.a(nrf_fprintf.c.o)
+                0x00000000000171da       0x3e ble/libble_uart.a(nrf_fprintf.c.o)
  .debug_loclists
-                0x0000000000017294      0xb25 ble/libble_uart.a(nrf_fprintf_format.c.o)
+                0x0000000000017218      0xb25 ble/libble_uart.a(nrf_fprintf_format.c.o)
  .debug_loclists
-                0x0000000000017db9      0xb3c ble/libble_uart.a(ble_conn_state.c.o)
+                0x0000000000017d3d      0xb3c ble/libble_uart.a(ble_conn_state.c.o)
  .debug_loclists
-                0x00000000000188f5      0x366 ble/libble_uart.a(nrf_atflags.c.o)
+                0x0000000000018879      0x366 ble/libble_uart.a(nrf_atflags.c.o)
  .debug_loclists
-                0x0000000000018c5b     0x1226 rtx/librtx.a(rtx_evflags.o)
+                0x0000000000018bdf     0x1226 rtx/librtx.a(rtx_evflags.o)
  .debug_loclists
-                0x0000000000019e81      0x8e6 rtx/librtx.a(rtx_kernel.o)
+                0x0000000000019e05      0x8e6 rtx/librtx.a(rtx_kernel.o)
  .debug_loclists
-                0x000000000001a767      0x474 rtx/librtx.a(rtx_memory.o)
+                0x000000000001a6eb      0x474 rtx/librtx.a(rtx_memory.o)
  .debug_loclists
-                0x000000000001abdb     0x1550 rtx/librtx.a(rtx_mempool.o)
+                0x000000000001ab5f     0x1550 rtx/librtx.a(rtx_mempool.o)
  .debug_loclists
-                0x000000000001c12b      0x162 rtx/librtx.a(rtx_system.o)
+                0x000000000001c0af      0x162 rtx/librtx.a(rtx_system.o)
  .debug_loclists
-                0x000000000001c28d     0x33b1 rtx/librtx.a(rtx_thread.o)
+                0x000000000001c211     0x33b1 rtx/librtx.a(rtx_thread.o)
  .debug_loclists
-                0x000000000001f63e      0x9c4 rtx/librtx.a(rtx_timer.o)
+                0x000000000001f5c2      0x9c4 rtx/librtx.a(rtx_timer.o)
  .debug_loclists
-                0x0000000000020002       0x73 rtx/librtx.a(os_systick.o)
+                0x000000000001ff86       0x73 rtx/librtx.a(os_systick.o)
  .debug_loclists
-                0x0000000000020075       0x2d rtx/librtx.a(RTX_Config.o)
+                0x000000000001fff9       0x2d rtx/librtx.a(RTX_Config.o)
  .debug_loclists
-                0x00000000000200a2     0x1abb rtx/librtx.a(rtx_msgqueue.o)
+                0x0000000000020026     0x1abb rtx/librtx.a(rtx_msgqueue.o)
  .debug_loclists
-                0x0000000000021b5d      0x876 rtx/librtx.a(rtx_mutex.o)
+                0x0000000000021ae1      0x876 rtx/librtx.a(rtx_mutex.o)
 
 .debug_aranges  0x0000000000000000     0x2018
  .debug_aranges
@@ -10623,76 +10619,76 @@ LOAD linker stubs
  .debug_macro   0x0000000000029be2      0x1f1 rtx/librtx.a(rtx_msgqueue.o)
  .debug_macro   0x0000000000029dd3      0x1f1 rtx/librtx.a(rtx_mutex.o)
 
-.debug_line     0x0000000000000000    0x3b174
+.debug_line     0x0000000000000000    0x3b145
  .debug_line    0x0000000000000000     0x1424 main.o
  .debug_line    0x0000000000001424      0x33d bsp/libbsp.a(startup.o)
  .debug_line    0x0000000000001761       0x77 bsp/libbsp.a(system.o)
  .debug_line    0x00000000000017d8      0xd23 bsp/libbsp.a(board.o)
- .debug_line    0x00000000000024fb      0x4fb bsp/libbsp.a(servo.o)
- .debug_line    0x00000000000029f6      0x311 bsp/libbsp.a(controller.o)
- .debug_line    0x0000000000002d07      0x42a bsp/libbsp.a(serial.o)
- .debug_line    0x0000000000003131      0x3d0 bsp/libbsp.a(gpio.o)
- .debug_line    0x0000000000003501      0xf23 bsp/libbsp.a(lib.o)
- .debug_line    0x0000000000004424      0x66a bsp/libbsp.a(audio.o)
- .debug_line    0x0000000000004a8e      0x25a bsp/libbsp.a(rng.o)
- .debug_line    0x0000000000004ce8      0xef4 bsp/libbsp.a(lsm303agr.o)
- .debug_line    0x0000000000005bdc      0x3ad bsp/libbsp.a(pwm.o)
- .debug_line    0x0000000000005f89      0x3b1 bsp/libbsp.a(adc.o)
- .debug_line    0x000000000000633a      0x3b9 bsp/libbsp.a(i2c.o)
- .debug_line    0x00000000000066f3     0x19cd ble/libble_uart.a(ble_uart.c.o)
- .debug_line    0x00000000000080c0      0xbe1 ble/libble_uart.a(bsp_btn_ble.c.o)
- .debug_line    0x0000000000008ca1     0x122c ble/libble_uart.a(bsp.c.o)
- .debug_line    0x0000000000009ecd      0xe77 ble/libble_uart.a(nrf_ble_gatt.c.o)
- .debug_line    0x000000000000ad44      0x915 ble/libble_uart.a(nrf_ble_qwr.c.o)
- .debug_line    0x000000000000b659      0x82a ble/libble_uart.a(nrf_log_default_backends.c.o)
- .debug_line    0x000000000000be83     0x2d25 ble/libble_uart.a(nrf_log_frontend.c.o)
- .debug_line    0x000000000000eba8      0xbf9 ble/libble_uart.a(nrf_memobj.c.o)
- .debug_line    0x000000000000f7a1      0xf73 ble/libble_uart.a(nrf_pwr_mgmt.c.o)
- .debug_line    0x0000000000010714      0xa5f ble/libble_uart.a(nrf_ringbuf.c.o)
- .debug_line    0x0000000000011173      0xc33 ble/libble_uart.a(nrf_sdh_ble.c.o)
- .debug_line    0x0000000000011da6     0x106a ble/libble_uart.a(nrf_sdh.c.o)
- .debug_line    0x0000000000012e10      0x61e ble/libble_uart.a(nrf_section_iter.c.o)
- .debug_line    0x000000000001342e      0x669 ble/libble_uart.a(nrf_strerror.c.o)
- .debug_line    0x0000000000013a97     0x1361 ble/libble_uart.a(app_button.c.o)
- .debug_line    0x0000000000014df8      0x59d ble/libble_uart.a(app_error.c.o)
- .debug_line    0x0000000000015395      0x939 ble/libble_uart.a(app_error_weak.c.o)
- .debug_line    0x0000000000015cce     0x12ef ble/libble_uart.a(app_timer2.c.o)
- .debug_line    0x0000000000016fbd      0x7e6 ble/libble_uart.a(app_util_platform.c.o)
- .debug_line    0x00000000000177a3     0x1306 ble/libble_uart.a(ble_advertising.c.o)
- .debug_line    0x0000000000018aa9      0xfcb ble/libble_uart.a(ble_conn_params.c.o)
- .debug_line    0x0000000000019a74      0xd8d ble/libble_uart.a(ble_nus.c.o)
- .debug_line    0x000000000001a801      0xa7a ble/libble_uart.a(ble_srv_common.c.o)
- .debug_line    0x000000000001b27b     0x165c ble/libble_uart.a(boards.c.o)
- .debug_line    0x000000000001c8d7     0x164c ble/libble_uart.a(drv_rtc.c.o)
- .debug_line    0x000000000001df23      0xb10 ble/libble_uart.a(nrf_atfifo.c.o)
- .debug_line    0x000000000001ea33      0x93f ble/libble_uart.a(nrf_atomic.c.o)
- .debug_line    0x000000000001f372      0x97e ble/libble_uart.a(nrf_balloc.c.o)
- .debug_line    0x000000000001fcf0      0xc02 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
- .debug_line    0x00000000000208f2      0x940 ble/libble_uart.a(nrf_log_backend_serial.c.o)
- .debug_line    0x0000000000021232      0xa76 ble/libble_uart.a(nrf_log_str_formatter.c.o)
- .debug_line    0x0000000000021ca8      0x835 ble/libble_uart.a(nrf_sortlist.c.o)
- .debug_line    0x00000000000224dd     0x31ea ble/libble_uart.a(nrfx_gpiote.c.o)
- .debug_line    0x00000000000256c7     0x2f34 ble/libble_uart.a(SEGGER_RTT.c.o)
- .debug_line    0x00000000000285fb     0x1423 ble/libble_uart.a(ble_advdata.c.o)
- .debug_line    0x0000000000029a1e      0x764 ble/libble_uart.a(ble_link_ctx_manager.c.o)
- .debug_line    0x000000000002a182      0x60d ble/libble_uart.a(nrf_fprintf.c.o)
- .debug_line    0x000000000002a78f     0x10da ble/libble_uart.a(nrf_fprintf_format.c.o)
- .debug_line    0x000000000002b869     0x11f4 ble/libble_uart.a(ble_conn_state.c.o)
- .debug_line    0x000000000002ca5d      0x93a ble/libble_uart.a(nrf_atflags.c.o)
- .debug_line    0x000000000002d397     0x111a rtx/librtx.a(rtx_evflags.o)
- .debug_line    0x000000000002e4b1     0x168f rtx/librtx.a(rtx_kernel.o)
- .debug_line    0x000000000002fb40      0xfdd rtx/librtx.a(rtx_evr.o)
- .debug_line    0x0000000000030b1d      0x270 rtx/librtx.a(rtx_lib.o)
- .debug_line    0x0000000000030d8d      0x690 rtx/librtx.a(rtx_memory.o)
- .debug_line    0x000000000003141d     0x15b6 rtx/librtx.a(rtx_mempool.o)
- .debug_line    0x00000000000329d3      0x61c rtx/librtx.a(rtx_system.o)
- .debug_line    0x0000000000032fef     0x3e7a rtx/librtx.a(rtx_thread.o)
- .debug_line    0x0000000000036e69      0xee9 rtx/librtx.a(rtx_timer.o)
- .debug_line    0x0000000000037d52      0x443 rtx/librtx.a(os_systick.o)
- .debug_line    0x0000000000038195      0x2a0 rtx/librtx.a(RTX_Config.o)
- .debug_line    0x0000000000038435       0x94 rtx/librtx.a(irq_armv7m.o)
- .debug_line    0x00000000000384c9     0x1e15 rtx/librtx.a(rtx_msgqueue.o)
- .debug_line    0x000000000003a2de      0xe96 rtx/librtx.a(rtx_mutex.o)
+ .debug_line    0x00000000000024fb      0x4cc bsp/libbsp.a(servo.o)
+ .debug_line    0x00000000000029c7      0x311 bsp/libbsp.a(controller.o)
+ .debug_line    0x0000000000002cd8      0x42a bsp/libbsp.a(serial.o)
+ .debug_line    0x0000000000003102      0x3d0 bsp/libbsp.a(gpio.o)
+ .debug_line    0x00000000000034d2      0xf23 bsp/libbsp.a(lib.o)
+ .debug_line    0x00000000000043f5      0x66a bsp/libbsp.a(audio.o)
+ .debug_line    0x0000000000004a5f      0x25a bsp/libbsp.a(rng.o)
+ .debug_line    0x0000000000004cb9      0xef4 bsp/libbsp.a(lsm303agr.o)
+ .debug_line    0x0000000000005bad      0x3ad bsp/libbsp.a(pwm.o)
+ .debug_line    0x0000000000005f5a      0x3b1 bsp/libbsp.a(adc.o)
+ .debug_line    0x000000000000630b      0x3b9 bsp/libbsp.a(i2c.o)
+ .debug_line    0x00000000000066c4     0x19cd ble/libble_uart.a(ble_uart.c.o)
+ .debug_line    0x0000000000008091      0xbe1 ble/libble_uart.a(bsp_btn_ble.c.o)
+ .debug_line    0x0000000000008c72     0x122c ble/libble_uart.a(bsp.c.o)
+ .debug_line    0x0000000000009e9e      0xe77 ble/libble_uart.a(nrf_ble_gatt.c.o)
+ .debug_line    0x000000000000ad15      0x915 ble/libble_uart.a(nrf_ble_qwr.c.o)
+ .debug_line    0x000000000000b62a      0x82a ble/libble_uart.a(nrf_log_default_backends.c.o)
+ .debug_line    0x000000000000be54     0x2d25 ble/libble_uart.a(nrf_log_frontend.c.o)
+ .debug_line    0x000000000000eb79      0xbf9 ble/libble_uart.a(nrf_memobj.c.o)
+ .debug_line    0x000000000000f772      0xf73 ble/libble_uart.a(nrf_pwr_mgmt.c.o)
+ .debug_line    0x00000000000106e5      0xa5f ble/libble_uart.a(nrf_ringbuf.c.o)
+ .debug_line    0x0000000000011144      0xc33 ble/libble_uart.a(nrf_sdh_ble.c.o)
+ .debug_line    0x0000000000011d77     0x106a ble/libble_uart.a(nrf_sdh.c.o)
+ .debug_line    0x0000000000012de1      0x61e ble/libble_uart.a(nrf_section_iter.c.o)
+ .debug_line    0x00000000000133ff      0x669 ble/libble_uart.a(nrf_strerror.c.o)
+ .debug_line    0x0000000000013a68     0x1361 ble/libble_uart.a(app_button.c.o)
+ .debug_line    0x0000000000014dc9      0x59d ble/libble_uart.a(app_error.c.o)
+ .debug_line    0x0000000000015366      0x939 ble/libble_uart.a(app_error_weak.c.o)
+ .debug_line    0x0000000000015c9f     0x12ef ble/libble_uart.a(app_timer2.c.o)
+ .debug_line    0x0000000000016f8e      0x7e6 ble/libble_uart.a(app_util_platform.c.o)
+ .debug_line    0x0000000000017774     0x1306 ble/libble_uart.a(ble_advertising.c.o)
+ .debug_line    0x0000000000018a7a      0xfcb ble/libble_uart.a(ble_conn_params.c.o)
+ .debug_line    0x0000000000019a45      0xd8d ble/libble_uart.a(ble_nus.c.o)
+ .debug_line    0x000000000001a7d2      0xa7a ble/libble_uart.a(ble_srv_common.c.o)
+ .debug_line    0x000000000001b24c     0x165c ble/libble_uart.a(boards.c.o)
+ .debug_line    0x000000000001c8a8     0x164c ble/libble_uart.a(drv_rtc.c.o)
+ .debug_line    0x000000000001def4      0xb10 ble/libble_uart.a(nrf_atfifo.c.o)
+ .debug_line    0x000000000001ea04      0x93f ble/libble_uart.a(nrf_atomic.c.o)
+ .debug_line    0x000000000001f343      0x97e ble/libble_uart.a(nrf_balloc.c.o)
+ .debug_line    0x000000000001fcc1      0xc02 ble/libble_uart.a(nrf_log_backend_rtt.c.o)
+ .debug_line    0x00000000000208c3      0x940 ble/libble_uart.a(nrf_log_backend_serial.c.o)
+ .debug_line    0x0000000000021203      0xa76 ble/libble_uart.a(nrf_log_str_formatter.c.o)
+ .debug_line    0x0000000000021c79      0x835 ble/libble_uart.a(nrf_sortlist.c.o)
+ .debug_line    0x00000000000224ae     0x31ea ble/libble_uart.a(nrfx_gpiote.c.o)
+ .debug_line    0x0000000000025698     0x2f34 ble/libble_uart.a(SEGGER_RTT.c.o)
+ .debug_line    0x00000000000285cc     0x1423 ble/libble_uart.a(ble_advdata.c.o)
+ .debug_line    0x00000000000299ef      0x764 ble/libble_uart.a(ble_link_ctx_manager.c.o)
+ .debug_line    0x000000000002a153      0x60d ble/libble_uart.a(nrf_fprintf.c.o)
+ .debug_line    0x000000000002a760     0x10da ble/libble_uart.a(nrf_fprintf_format.c.o)
+ .debug_line    0x000000000002b83a     0x11f4 ble/libble_uart.a(ble_conn_state.c.o)
+ .debug_line    0x000000000002ca2e      0x93a ble/libble_uart.a(nrf_atflags.c.o)
+ .debug_line    0x000000000002d368     0x111a rtx/librtx.a(rtx_evflags.o)
+ .debug_line    0x000000000002e482     0x168f rtx/librtx.a(rtx_kernel.o)
+ .debug_line    0x000000000002fb11      0xfdd rtx/librtx.a(rtx_evr.o)
+ .debug_line    0x0000000000030aee      0x270 rtx/librtx.a(rtx_lib.o)
+ .debug_line    0x0000000000030d5e      0x690 rtx/librtx.a(rtx_memory.o)
+ .debug_line    0x00000000000313ee     0x15b6 rtx/librtx.a(rtx_mempool.o)
+ .debug_line    0x00000000000329a4      0x61c rtx/librtx.a(rtx_system.o)
+ .debug_line    0x0000000000032fc0     0x3e7a rtx/librtx.a(rtx_thread.o)
+ .debug_line    0x0000000000036e3a      0xee9 rtx/librtx.a(rtx_timer.o)
+ .debug_line    0x0000000000037d23      0x443 rtx/librtx.a(os_systick.o)
+ .debug_line    0x0000000000038166      0x2a0 rtx/librtx.a(RTX_Config.o)
+ .debug_line    0x0000000000038406       0x94 rtx/librtx.a(irq_armv7m.o)
+ .debug_line    0x000000000003849a     0x1e15 rtx/librtx.a(rtx_msgqueue.o)
+ .debug_line    0x000000000003a2af      0xe96 rtx/librtx.a(rtx_mutex.o)
 
 .debug_str      0x0000000000000000    0xbb1b5
  .debug_str     0x0000000000000000     0x8697 main.o
@@ -10704,7 +10700,7 @@ LOAD linker stubs
  .debug_str     0x0000000000008875      0x3a3 bsp/libbsp.a(board.o)
                                        0x4bb8 (size before relaxing)
  .debug_str     0x0000000000008c18      0xb78 bsp/libbsp.a(servo.o)
-                                       0x776f (size before relaxing)
+                                       0x7768 (size before relaxing)
  .debug_str     0x0000000000009790       0xfd bsp/libbsp.a(controller.o)
                                        0x7352 (size before relaxing)
  .debug_str     0x000000000000988d      0x244 bsp/libbsp.a(serial.o)

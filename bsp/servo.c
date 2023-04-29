@@ -106,31 +106,31 @@ void servo_out(int traj, int dirn, int speed ){
     if(dirn == 0){
         seqB = mid_counter; seqA = mid_counter; //Stop
         // seqB = countertop; seqA = countertop; //Stop
-        printf("[SERVO] [FORWARD] seqA = %d, seqB = %d", seqA, seqB);
+        // printf("[SERVO] [FORWARD] seqA = %d, seqB = %d", seqA, seqB);
     }
     else{
         if(traj == 1){
             if(dirn==1){    // Frwd
                 seqB = base + speed*diff;
                 seqA = seqB + mid_counter; 
-                printf("[SERVO] [FORWARD] seqA = %d, seqB = %d", seqA, seqB);
+                // printf("[SERVO] [FORWARD] seqA = %d, seqB = %d", seqA, seqB);
             }
             else{   //bwd
                 seqA = base + speed*diff;
                 seqB = seqA + mid_counter; 
-                printf("[SERVO] [REVERSE] seqA = %d, seqB = %d", seqA, seqB);
+                // printf("[SERVO] [REVERSE] seqA = %d, seqB = %d", seqA, seqB);
             }
         }
         else if(traj==0){
             if(dirn==1){    // CCW
                 seqB = base + speed*diff ;
                 seqA = seqB; 
-                printf("[SERVO] [LEFT] seqA = %d, seqB = %d", seqA, seqB);
+                // printf("[SERVO] [LEFT] seqA = %d, seqB = %d", seqA, seqB);
             }
             else{   //CW
                 seqB = base + speed*diff +mid_counter;
                 seqA = seqB; 
-                printf("[SERVO] [RIGHT] seqA = %d, seqB = %d", seqA, seqB);
+                // printf("[SERVO] [RIGHT] seqA = %d, seqB = %d", seqA, seqB);
             }
         }
         else{
