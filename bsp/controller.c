@@ -1,8 +1,8 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "controller.h"
-#include "servo.h"
 
 /* 
 Done: move straight(dirn, speed), rotate abt center(dirn,speed)
@@ -23,11 +23,11 @@ void turn_ctrlr(float ang_des, float ang_curr){ // Only turning
     float tolr = 3.0;
 
     if(abs(ang_des - ang_curr) >= tolr){
-        servo_out(0,1,4);
+        servo_out(0,1,3);
     }
     else{
         printf("stopping");
-        servo_out(0,0,4);
+        servo_out(0,0,3);
     }
 }
 

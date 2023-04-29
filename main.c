@@ -5,8 +5,6 @@
 #include "ble_uart.h"
 #include "board.h"
 #include "lib.h"
-#include "servo.h"
-#include "controller.h"
 #include "estimator.h"
 #include "lsm303agr.h"
 
@@ -196,6 +194,7 @@ int main(void)
     osThreadId_t tid_ctrl;
     /* BSP initializations before BLE because we are using printf from BSP */
     board_init();
+    servo_init();
     ble_init(ble_recv_handler);
 
     /* Greetings */

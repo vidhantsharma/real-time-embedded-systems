@@ -54,7 +54,7 @@
 #define SEQ0ENDDELAY_PWM_B       IOREG32(0x4002252C)     // additional pwm cycles at the end
 #define DECODER_PWM_B            IOREG32(0x40022510)     
 
-#define   PRESCALER_DIV16   4                       // 0.5MHz clock
+#define   PRESCALER_DIV16   4                       // 1MHz clock
 #define PWM_CLK 1000000
 
 // static uint16_t s_sequenceA[2], s_sequenceB[2];
@@ -75,13 +75,11 @@ void servo_init(void){
     PSEL_PWM_A = A_PIN;   //Connect the port to the pin
     PSEL_PWM_B = B_PIN;    
 }
-/**
- * traj=1 => straight; 
- * dirn=1 => frwd; dirn=-1 => bwd;
- * traj=0 => circle; dirn=1 => CCW;
- *  dirn=-1 => CW;
- * dirn=0 => stop
- * speed levels limited to 6
+/*
+traj=1 => straight; dirn=1 => frwd; dirn=-1 => bwd;
+traj=0 => circle; dirn=1 => CCW; dirn=-1 => CW;
+dirn=0 => stop
+speed levels limited to 6
 */ 
 void servo_out(int traj, int dirn, int speed ){
     // printf("Start\n");
@@ -106,35 +104,30 @@ void servo_out(int traj, int dirn, int speed ){
     if(dirn == 0){
         seqB = mid_counter; seqA = mid_counter; //Stop
         // seqB = countertop; seqA = countertop; //Stop
-        // printf("[SERVO] [FORWARD] seqA = %d, seqB = %d", seqA, seqB);
     }
     else{
         if(traj == 1){
             if(dirn==1){    // Frwd
                 seqB = base + speed*diff;
                 seqA = seqB + mid_counter; 
-                // printf("[SERVO] [FORWARD] seqA = %d, seqB = %d", seqA, seqB);
             }
             else{   //bwd
-                seqA = base + speed*diff;
-                seqB = seqA + mid_counter; 
-                // printf("[SERVO] [REVERSE] seqA = %d, seqB = %d", seqA, seqB);
+                seqB = base + speed*diff +mid_counter;
+                seqA = seqB -mid_counter; 
             }
         }
         else if(traj==0){
             if(dirn==1){    // CCW
                 seqB = base + speed*diff ;
                 seqA = seqB; 
-                // printf("[SERVO] [LEFT] seqA = %d, seqB = %d", seqA, seqB);
             }
             else{   //CW
                 seqB = base + speed*diff +mid_counter;
                 seqA = seqB; 
-                // printf("[SERVO] [RIGHT] seqA = %d, seqB = %d", seqA, seqB);
             }
         }
         else{
-            seqB = countertop; seqA = countertop;   //Stop
+            seqB = mid_counter; seqA = mid_counter;   //Stop
         }
     }
     
@@ -151,23 +144,21 @@ void servo_out(int traj, int dirn, int speed ){
 
     /* Wait for the sequence to complete */
     while (EVENTS_SEQ0END_PWM_A == 0 || EVENTS_SEQ0END_PWM_B == 0){
-        // printf("[Servo out] COUNTERTOP_PWM_A = %d, COUNTERTOP_PWM_B = %dEVENTS_SEQ0END_PWM_A = %d, EVENTS_SEQ0END_PWM_B = %d \n", 
-        //         (int) COUNTERTOP_PWM_A, (int) COUNTERTOP_PWM_B, (int) EVENTS_SEQ0END_PWM_A,  (int) EVENTS_SEQ0END_PWM_B);
+        // printf("[servo_out] inside seqEnd");
         ;
     }
+
     EVENTS_SEQ0END_PWM_A = 0;
     EVENTS_SEQ0END_PWM_B = 0;
 
     STOP_PWM_A = 1;
     STOP_PWM_B = 1;
-    // printf("[Servo out] I am out of Sequence...\n");
     while (EVENTS_STOPPED_PWM_A == 0 || EVENTS_STOPPED_PWM_B == 0){
-        // printf("[Servo out] I am Event...\n");
-        ;
+        // printf("[servo_out] inside Stop");   
+        ;     
     }
     EVENTS_STOPPED_PWM_A = 0;
     EVENTS_STOPPED_PWM_B = 0;
 
-    // printf("[Servo out] I am  done here...\n");
-
+    // printf("End\n");
 }
