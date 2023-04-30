@@ -58,29 +58,7 @@ static void ble_recv_handler(const uint8_t s[], uint32_t len)
 
     /* Signal the waiting task. */
     osThreadFlagsSet(ble_task, 1); 
-}
-
-void task_imu(void *arg){
-    float accData[3];
-    float magData[3];
-    float angles[3];
-    print_task("imu","hello, task_imu!!!!");
-    while (1){
-        accReadXYZ(accData);
-        magReadXYZ(magData);
-        heading = estimate_heading(accData, magData, angles);
-        val = movAvg(heading);
-        // printf("\n AVG:");
-        // print_float(val,4);
-        
-        count++;
-        if (count == MAX_COUNT)
-        {
-            count = 0;
-            osThreadYield();
-        }
-    }
-}
+}       
 
 void task_cmd(void *arg){   // Only turning
     print_task("task_cmd", "I am here");
@@ -177,12 +155,7 @@ void bluetooth(void *arg){
 
 void task_ctrl(void *arg)
 {
-
-    osThreadId_t tid1;
     osThreadId_t tid2;
-
-    tid1 = osThreadNew(task_imu, NULL, NULL);
-    osThreadSetPriority(tid1, osPriorityNormal);
     
     ble_task = osThreadNew(bluetooth, NULL, NULL);
     osThreadSetPriority(ble_task, osPriorityNormal);
