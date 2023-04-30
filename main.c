@@ -9,11 +9,17 @@
 
 #define FLAGS_MSK1 0x00000001U
 #define FLAGS_MSK2 0x00000002U
+#define FLAGS_MSK3 0x00000003U
 
 /* OS objects */
 osThreadId_t ble_task;
 osEventFlagsId_t evt_frwd, evt_bwd, evt_left, evt_ryt, evt_stop;
 extern osEventFlagsId_t evt_clap;
+extern osEventFlagsId_t sid;
+osTimerId_t timer_clap;
+osThreadId_t tid1, tid2;
+// extern osSemaphoreId_t sid_killswitch;  
+// extern osMutexId_t mid_killswitch;
 
 /* Buffer to hold the command received from UART or BLE
  * We use single buffer assuming command-response protocol,
@@ -73,6 +79,25 @@ static void ble_recv_handler(const uint8_t s[], uint32_t len)
 
     /* Signal the waiting task. */
     osThreadFlagsSet(ble_task, 1); 
+}
+
+void KILLSWITCH(void *arg){
+    print_task("KILLSWITCH", "killing process begin ...");
+    while (1){
+        osEventFlagsWait(sid, FLAGS_MSK3, osFlagsWaitAny, osWaitForever);
+        // osSemaphoreAcquire(sid_killswitch ,1U);
+        // osMutexAcquire(mid_killswitch, osWaitForever);
+        // uint32_t val = osSemaphoreGetCount (sid_killswitch);
+        printf("[KILLSWITCH] AFTER... = %d\n", val);
+        // stop the motors
+        stop();
+        // osMutexRelease(mid_killswitch);
+        // osSemaphoreRelease(sid_killswitch);
+        osTimerStop(timer_clap);
+        osThreadSuspend(tid2);
+        osThreadSuspend(ble_task);
+
+    }
 }
 
 void task_cmd(void *arg){   
@@ -181,10 +206,24 @@ void timer_callback_clap(void *arg)
     }
 }
 
+/* Mutex Definition*/
+ 
+const osMutexAttr_t kill_switch_thread_mu = {
+  "killswitch_mutex",     // human readable mutex name
+  osMutexPrioInherit,    // attr_bits
+  NULL,                // memory for control block   
+  0U                   // size for control block
+};
+
 void task_ctrl(void *arg)
 {
-    osThreadId_t tid2;
-    osTimerId_t timer_clap;
+    // osTimerId_t timer_clap;
+
+    // kill switch
+    tid1 = osThreadNew(KILLSWITCH, NULL, NULL);
+    osThreadSetPriority(tid1, osPriorityNormal);
+    // sid_killswitch = osSemaphoreNew(1U, 0U, NULL);
+    // mid_killswitch = osMutexNew(&kill_switch_thread_mu);
     
     ble_task = osThreadNew(bluetooth, NULL, NULL);
     osThreadSetPriority(ble_task, osPriorityNormal);
@@ -198,6 +237,8 @@ void task_ctrl(void *arg)
     evt_frwd = osEventFlagsNew(NULL); evt_bwd = osEventFlagsNew(NULL);
     evt_left = osEventFlagsNew(NULL); evt_ryt = osEventFlagsNew(NULL); evt_stop = osEventFlagsNew(NULL);
     evt_clap = osEventFlagsNew(NULL);
+    sid = osEventFlagsNew(NULL);
+
 }
 
 int main(void)

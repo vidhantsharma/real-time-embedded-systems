@@ -2,7 +2,12 @@
 #include "gpio.h"
 #include "board.h"
 #include "lib.h"
+#include "../rtx/cmsis_os2.h"
 
+// osSemaphoreId_t sid_killswitch;
+// osMutexId_t mid_killswitch;  
+osEventFlagsId_t sid;
+#define FLAGS_MSK3 0x00000003U
 #ifndef IOREG32
 #define IOREG32(addr)   (*((volatile long *) (addr)))
 #endif
@@ -130,13 +135,17 @@ static pfn_t event_callbacks[8];
 void button0_callback(void)
 {
     // release semaphore here for kill task
-    ;
+    osEventFlagsSet(sid, FLAGS_MSK3);
+    // osSemaphoreRelease(sid_killswitch);
+    // osMutexRelease(mid_killswitch);
 }
 
 void button1_callback(void)
 {
     // release semaphore here for kill task
-    ;
+    osEventFlagsSet(sid, FLAGS_MSK3);
+    // osSemaphoreRelease(sid_killswitch);
+    // osMutexRelease(mid_killswitch);
 }
 
 void gpio_inten(uint32_t pin, uint32_t event_no, uint32_t edge, pfn_t callback)
