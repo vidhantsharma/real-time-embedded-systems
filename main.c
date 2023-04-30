@@ -88,28 +88,33 @@ void task_cmd(void *arg){   // Only turning
         
         if(osEventFlagsGet(evt_frwd)){
             print_task("task_cmd","forward");
-            move_ctrlr(1);
+            // move_ctrlr(1);
+            forward(1);
             print_task("task_cmd", "forward done!");
         }
         else if(osEventFlagsGet(evt_bwd)){
             print_task("task_cmd", "reverse");
-            move_ctrlr(-1);
+            // move_ctrlr(-1);
+            reverse(1);
             print_task("task_cmd", "reverse done!!!");
         }
 
         else if(osEventFlagsGet(evt_left)){
             print_task("task_cmd", "Left");
-            turn_ctrlr(ang_des, val);
+            // turn_ctrlr(ang_des, val);
+            turn_left(1);
             print_task("task_cmd", "left done!!");
         }
         else if(osEventFlagsGet(evt_ryt)){
             print_task("task_cmd", "right");
-            turn_ctrlr(ang_des, val); 
+            // turn_ctrlr(ang_des, val); 
+            turn_right(1);
             print_task("task_cmd", "right done!!!");
         }
         else if(osEventFlagsGet(evt_stop)){
             print_task("task_cmd", "stop");
-            move_ctrlr(0);
+            // move_ctrlr(0);
+            stop();
             print_task("task_cmd", "stop done!!!");
         }
         count++;
