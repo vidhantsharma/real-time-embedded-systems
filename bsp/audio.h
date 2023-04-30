@@ -2,6 +2,12 @@
 #define AUDIO_H
 #include <stdint.h>
 
+#define CLAP_WINDOW 1  // 20 ms window to collect samples
+#define CLAP_FRAMELEN   ((CLAP_WINDOW * MIC_SAMPLE_RATE) / 1000)
+
+// #define CLAP_THRESHOLD  0x100000    // by trial and error
+#define CLAP_THRESHOLD  0x100000    // by trial and error
+
 /* Audio */
 void audio_init(uint32_t speaker_pin, uint32_t mic_pin, uint32_t run_mic_pin);
 void audio_beep(int freq, int duration_ms);

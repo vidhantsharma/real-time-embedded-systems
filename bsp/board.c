@@ -10,6 +10,9 @@ const uint8_t led_cols[] =
     { LED_COL1, LED_COL2, LED_COL3, LED_COL4, LED_COL5 };
 static const uint8_t btn_list[] = { BUTTON_0, BUTTON_1 };
 
+extern void button0_callback(void);
+extern void button1_callback(void);
+
 void board_init(void)
 {
     leds_init();
@@ -89,6 +92,9 @@ void buttons_init(void)
     {
         gpio_in(btn_list[i], PULLUP);
     }
+    delay_ms(5);
+    gpio_inten(BUTTON_0, 0, GPIO_FALLINGEDGE, button0_callback);
+    gpio_inten(BUTTON_1, 1, GPIO_FALLINGEDGE, button1_callback);
 }
 
 /* Get button state */

@@ -30,6 +30,9 @@
 #define PORT(pin)   (((pin) < 32) ? (GPIO0) : (GPIO1))
 #define PIN(pin)    (((pin) < 32) ? (pin) : (pin - 32))
 
+// extern void button0_callback(void);
+// extern void button1_callback(void);
+
 /* Set the specific pin as a digital input pin. */
 void gpio_in(uint32_t pin, uint32_t pull)
 {
@@ -104,4 +107,69 @@ uint32_t gpio_read(uint32_t pin)
     pin = PIN(pin);
 
     return ((IOREG32(baseaddr + GPIO_IN) >> pin) & 1UL);
+}
+
+/* Interrupt related configuration */
+
+/* GPIOTE registers */
+#define GPIOTE_EVENTSIN(i)  IOREG32(0x40006100 + 4*(i))
+#define GPIOTE_INTENSET     IOREG32(0x40006304)
+#define GPIOTE_INTENCLR       IOREG32(0x40006308)
+#define GPIOTE_CONFIG(i)    IOREG32(0x40006510 + 4*(i))
+#define     GPIOTE_MODEEVENT    (1)
+
+/* NVIC registers */
+#define NVIC_ISER           IOREG32(0xE000E100)
+#define GPIOTE_ID           6               // peripheral ID
+
+#define NVIC_PRI1       (*(volatile unsigned long *)(0xE000E404))
+
+typedef void (*pfn_t)(void);
+static pfn_t event_callbacks[8];
+
+void button0_callback(void)
+{
+    // release semaphore here for kill task
+}
+
+void button1_callback(void)
+{
+    // release semaphore here for kill task
+}
+
+void gpio_inten(uint32_t pin, uint32_t event_no, uint32_t edge, pfn_t callback)
+{
+   /* function to call back when the event occurs */
+   event_callbacks[event_no] = callback;
+
+    /* GPIOTE has 8 registers, each can be configured for event i (i = 0 to 7) 
+     * along with the pin number and event type associated with the event.
+     */
+   GPIOTE_CONFIG(event_no)
+        = ((GPIOTE_MODEEVENT) | (pin << 8) | (edge << 16));
+
+   /* Generate an interrupt when the specified event occurs. */
+   GPIOTE_INTENSET |= (1 << event_no);
+
+    /* Enable GPIOTE interrupts in the interrupt controller */
+    NVIC_ISER |= (1 << GPIOTE_ID);
+
+    NVIC_PRI1 |= ((0x2 << 5) << 16);
+}
+
+void GPIOTE_IRQHandler_MicroBit(void)
+{
+    if (GPIOTE_EVENTSIN(0))
+    {
+        button0_callback();
+        GPIOTE_EVENTSIN(0) = 0;
+    }
+    else if(GPIOTE_EVENTSIN(1))
+    {
+        button1_callback();
+        GPIOTE_EVENTSIN(1) = 0;
+    }
+    /*disable button interrupts*/
+    GPIOTE_INTENCLR |= (1 << 0);
+    GPIOTE_INTENCLR |= (1 << 1);
 }

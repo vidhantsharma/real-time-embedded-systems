@@ -9,10 +9,12 @@
 #include "lsm303agr.h"
 
 #define FLAGS_MSK1 0x00000001U
+#define FLAGS_MSK2 0x00000002U
 
 /* OS objects */
 osThreadId_t ble_task;
 osEventFlagsId_t evt_frwd, evt_bwd, evt_left, evt_ryt, evt_stop;
+extern osEventFlagsId_t evt_clap;
 
 /* Buffer to hold the command received from UART or BLE
  * We use single buffer assuming command-response protocol,
@@ -23,6 +25,10 @@ uint8_t cmd_buf[256];
 uint32_t cmd_len;
 float heading, val;
 float ang_des;
+
+uint16_t samples[CLAP_FRAMELEN];     // to collect the ADC samples
+
+volatile extern int clap_flag;
 
 uint8_t frame_buffer[LED_NUM_ROWS][LED_NUM_COLS] =
 {
@@ -38,6 +44,16 @@ static int count;
 
 uint32_t r, c;
 uint32_t r0, c0;
+
+/* Debug counters */
+int b0d, b0p;
+
+/* button-press routine is called by the GPIO interrupt. We may
+ * get multiple interrupts in the beginning or end of a button-press.
+ * Hence, we start a timer and check if the button was still pressed
+ * after the delay to debounce.
+ */
+
 /* Function prototype for printing to serial from the given task*/
 void print_task(char* task_name, char* val){
     printf("[%s] ",task_name);
@@ -58,42 +74,62 @@ static void ble_recv_handler(const uint8_t s[], uint32_t len)
 
     /* Signal the waiting task. */
     osThreadFlagsSet(ble_task, 1); 
-}       
+}
+
+void task_imu(void *arg){
+    float accData[3];
+    float magData[3];
+    float angles[3];
+    print_task("imu","hello, task_imu!!!!");
+    while (1){
+        accReadXYZ(accData);
+        magReadXYZ(magData);
+        heading = estimate_heading(accData, magData, angles);
+        val = movAvg(heading);
+        // printf("\n AVG:");
+        // print_float(val,4);
+        
+        count++;
+        if (count == MAX_COUNT)
+        {
+            count = 0;
+            osThreadYield();
+        }
+    }
+}
 
 void task_cmd(void *arg){   // Only turning
     print_task("task_cmd", "I am here");
     while(1){
-        
-        if(osEventFlagsGet(evt_frwd)){
+        if(osEventFlagsGet(evt_clap)){
+            print_task("task_cmd_clap", "stop");
+            move_ctrlr(0);
+            print_task("task_cmd_clap", "stop done!!!");
+        }
+        else if(osEventFlagsGet(evt_stop)){
+            print_task("task_cmd", "stop");
+            move_ctrlr(0);
+            print_task("task_cmd", "stop done!!!");
+        }
+        else if(osEventFlagsGet(evt_frwd)){
             print_task("task_cmd","forward");
-            // move_ctrlr(1);
-            forward(1);
+            move_ctrlr(1);
             print_task("task_cmd", "forward done!");
         }
         else if(osEventFlagsGet(evt_bwd)){
             print_task("task_cmd", "reverse");
-            // move_ctrlr(-1);
-            reverse(1);
+            move_ctrlr(-1);
             print_task("task_cmd", "reverse done!!!");
         }
-
         else if(osEventFlagsGet(evt_left)){
             print_task("task_cmd", "Left");
-            // turn_ctrlr(ang_des, val);
-            turn_left(1);
+            turn_ctrlr(ang_des, val);
             print_task("task_cmd", "left done!!");
         }
         else if(osEventFlagsGet(evt_ryt)){
             print_task("task_cmd", "right");
-            // turn_ctrlr(ang_des, val); 
-            turn_right(1);
+            turn_ctrlr(ang_des, val); 
             print_task("task_cmd", "right done!!!");
-        }
-        else if(osEventFlagsGet(evt_stop)){
-            print_task("task_cmd", "stop");
-            // move_ctrlr(0);
-            stop();
-            print_task("task_cmd", "stop done!!!");
         }
         count++;
         if (count == MAX_COUNT)
@@ -112,6 +148,7 @@ void bluetooth(void *arg){
 
         osEventFlagsClear(evt_frwd, FLAGS_MSK1); osEventFlagsClear(evt_bwd, FLAGS_MSK1);
         osEventFlagsClear(evt_left, FLAGS_MSK1); osEventFlagsClear(evt_ryt, FLAGS_MSK1); osEventFlagsClear(evt_stop, FLAGS_MSK1);
+        osEventFlagsClear(evt_clap, FLAGS_MSK2);
         
         /* Echo on UART */
         print_task("bluetooth", (char* ) cmd_buf);
@@ -147,15 +184,34 @@ void bluetooth(void *arg){
                 osEventFlagsSet(evt_stop, FLAGS_MSK1);
                 break;
             default:
+                print_task("bluetooth", "STOP!!");
+                osEventFlagsSet(evt_stop, FLAGS_MSK1);
                 break;
             }
         } 
     }
 }
 
+void timer_callback_clap(void *arg)
+{
+    printf("reading ADC Sample\n");
+    adc_read(samples,CLAP_FRAMELEN);
+    if(clap_flag==1)
+    {
+        printf("clap is detected");
+        clap_flag = 0;
+        // osEventFlagsSet(evt_clap, FLAGS_MSK2);
+    }
+}
+
 void task_ctrl(void *arg)
 {
+    osThreadId_t tid1;
     osThreadId_t tid2;
+    osTimerId_t timer_clap;
+
+    tid1 = osThreadNew(task_imu, NULL, NULL);
+    osThreadSetPriority(tid1, osPriorityNormal);
     
     ble_task = osThreadNew(bluetooth, NULL, NULL);
     osThreadSetPriority(ble_task, osPriorityNormal);
@@ -163,8 +219,12 @@ void task_ctrl(void *arg)
     tid2 = osThreadNew(task_cmd, NULL, NULL);
     osThreadSetPriority(tid2, osPriorityNormal);
 
+    timer_clap = osTimerNew (timer_callback_clap, osTimerPeriodic, NULL, NULL);
+    osTimerStart (timer_clap, 100);
+
     evt_frwd = osEventFlagsNew(NULL); evt_bwd = osEventFlagsNew(NULL);
     evt_left = osEventFlagsNew(NULL); evt_ryt = osEventFlagsNew(NULL); evt_stop = osEventFlagsNew(NULL);
+    evt_clap = osEventFlagsNew(NULL);
 }
 
 int main(void)

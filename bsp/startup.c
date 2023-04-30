@@ -11,9 +11,10 @@ static void UsageFaultHandler(void);
 void SysTick_Handler(void);
 void SVC_Handler(void);
 void PendSV_Handler(void);
-void GPIOTE_IRQHandler(void);
+void GPIOTE_IRQHandler_MicroBit(void);
 void RTC1_IRQHandler(void);
 void SWI2_EGU2_IRQHandler(void);
+void ADC_Handler_Microbit(void);
 static void IntDefaultHandler(void);
 
 //*****************************************************************************
@@ -70,8 +71,8 @@ pfn_t vector_table[] =
     IntDefaultHandler,                      // SPIM0_SPIS0_TWIM0_TWIS0_SPI0_TWI0_IRQHandler
     IntDefaultHandler,                      // SPIM1_SPIS1_TWIM1_TWIS1_SPI1_TWI1_IRQHandler
     IntDefaultHandler,                      // NFCT_IRQHandler
-    GPIOTE_IRQHandler,                      // GPIOTE_IRQHandler
-    IntDefaultHandler,                      // SAADC_IRQHandler
+    GPIOTE_IRQHandler_MicroBit,             // GPIOTE_IRQHandler
+    ADC_Handler_Microbit,                   // SAADC_IRQHandler
     IntDefaultHandler,                      // TIMER0_IRQHandler
     IntDefaultHandler,                      // TIMER1_IRQHandler
     IntDefaultHandler,                      // TIMER2_IRQHandler
@@ -216,7 +217,8 @@ static void UsageFaultHandler(void) { led_blink(4, 2, BLINK_FOREVER); }
 void __attribute__((weak)) SysTick_Handler(void) { IntDefaultHandler(); }
 void __attribute__((weak)) SVC_Handler(void) { IntDefaultHandler(); }
 void __attribute__((weak)) PendSV_Handler(void) { IntDefaultHandler(); }
-void __attribute__((weak)) GPIOTE_IRQHandler(void) { IntDefaultHandler(); }
+void __attribute__((weak)) GPIOTE_IRQHandler_MicroBit(void) { IntDefaultHandler(); }
 void __attribute__((weak)) RTC1_IRQHandler(void) { IntDefaultHandler(); }
 void __attribute__((weak)) SWI2_EGU2_IRQHandler(void) { IntDefaultHandler(); }
+void __attribute__((weak)) ADC_Handler_Microbit(void) {IntDefaultHandler();}
 static void IntDefaultHandler(void) { led_blink(4, 4, BLINK_FOREVER); }

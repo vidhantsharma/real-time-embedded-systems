@@ -6,8 +6,14 @@
 #include "pwm.h"
 #include "adc.h"
 #include "lib.h"
+#include "../rtx/cmsis_os2.h"
+
+osEventFlagsId_t evt_clap;
+#define FLAGS_MSK2 0x00000002U
 
 void delay_ms(uint32_t ms);
+
+volatile int clap_flag;
 
 /* Initialize speaker and mic */
 void audio_init(uint32_t speaker_pin, uint32_t mic_pin, uint32_t run_mic_pin)
@@ -171,12 +177,8 @@ void music_play(char tunes[])
  * Also it's just an energy-based algorithm. Hence, all pulse-like noises
  * are detected as clap.
  */
-#define CLAP_WINDOW 20  // 20 ms window to collect samples
-#define CLAP_FRAMELEN   ((CLAP_WINDOW * MIC_SAMPLE_RATE) / 1000)
 
-#define CLAP_THRESHOLD  0x100000    // by trial and error
-
-static uint16_t samples[CLAP_FRAMELEN];     // to collect the samples
+extern uint16_t samples[CLAP_FRAMELEN];     // to collect the samples
 
 uint32_t clap_detect(void)
 {
@@ -193,7 +195,7 @@ uint32_t clap_detect(void)
     int i;
 
     /* Read a buffer of samples from the mic */
-    adc_read(samples, CLAP_FRAMELEN);
+    // adc_read(samples, CLAP_FRAMELEN);
 
     /* printf("%x\n", adc_in()); */
 
@@ -229,4 +231,17 @@ uint32_t clap_detect(void)
     prev[0] = current;
 
     return clap;
+}
+
+void ADC_Handler_Microbit(void) 
+{
+    // ADC_INTEN = 0;
+    // printf("loud sound in interrupt\n");
+    /*reset event generated previously*/
+    ADC_EVENT_CH_LIMITH(0) = 0;
+    /*set event flag*/
+    osEventFlagsSet(evt_clap, FLAGS_MSK2);
+    clap_flag = 1; // for debugging
+    /*enable interrupt*/
+    // ADC_INTEN = (1<<6);
 }

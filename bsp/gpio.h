@@ -16,4 +16,10 @@ extern void gpio_set(uint32_t pin);
 extern void gpio_clear(uint32_t pin);
 extern uint32_t gpio_read(uint32_t pin);
 
+typedef void (* pfn_t)(void);
+void gpio_inten(uint32_t pin, uint32_t event_no, uint32_t edge, pfn_t callback);
+#define GPIO_RISINGEDGE     1
+#define GPIO_FALLINGEDGE    2
+#define GPIO_BOTHEDGES      3
+
 #endif  /* GPIO_H */

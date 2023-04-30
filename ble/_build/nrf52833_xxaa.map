@@ -8231,7 +8231,7 @@ RAM              0x0000000020002608 0x000000000001d9f8 xrw
 Linker script and memory map
 
 
-.text           0x000000000001c000     0x8960
+.text           0x000000000001c000     0x8964
  *(.isr_vector)
  .isr_vector    0x000000000001c000      0x200 _build/nrf52833_xxaa/gcc_startup_nrf52833.S.o
                 0x000000000001c000                __isr_vector
@@ -9150,230 +9150,230 @@ Linker script and memory map
  .rodata.gatt_evt_handler.str1.4
                 0x000000000002435c       0x1c _build/nrf52833_xxaa/ble_uart.c.o
  .rodata.ble_init.str1.4
-                0x0000000000024378       0x45 _build/nrf52833_xxaa/ble_uart.c.o
- *fill*         0x00000000000243bd        0x3 
+                0x0000000000024378       0x49 _build/nrf52833_xxaa/ble_uart.c.o
+ *fill*         0x00000000000243c1        0x3 
  .rodata.SEGGER_RTT_ReadNoLock.str1.4
-                0x00000000000243c0       0x17 _build/nrf52833_xxaa/SEGGER_RTT.c.o
- *fill*         0x00000000000243d7        0x1 
+                0x00000000000243c4       0x17 _build/nrf52833_xxaa/SEGGER_RTT.c.o
+ *fill*         0x00000000000243db        0x1 
  .rodata.data_length_update.str1.4
-                0x00000000000243d8       0xe2 _build/nrf52833_xxaa/nrf_ble_gatt.c.o
- *fill*         0x00000000000244ba        0x2 
+                0x00000000000243dc       0xe2 _build/nrf52833_xxaa/nrf_ble_gatt.c.o
+ *fill*         0x00000000000244be        0x2 
  .rodata.nrf_ble_gatt_on_ble_evt.str1.4
-                0x00000000000244bc       0x63 _build/nrf52833_xxaa/nrf_ble_gatt.c.o
- *fill*         0x000000000002451f        0x1 
+                0x00000000000244c0       0x63 _build/nrf52833_xxaa/nrf_ble_gatt.c.o
+ *fill*         0x0000000000024523        0x1 
  .rodata.str1.4
-                0x0000000000024520        0xd _build/nrf52833_xxaa/nrf_ble_gatt.c.o
- *fill*         0x000000000002452d        0x3 
+                0x0000000000024524        0xd _build/nrf52833_xxaa/nrf_ble_gatt.c.o
+ *fill*         0x0000000000024531        0x3 
  .rodata.str1.4
-                0x0000000000024530        0x8 _build/nrf52833_xxaa/ble_nus.c.o
- .rodata        0x0000000000024538       0x10 _build/nrf52833_xxaa/ble_nus.c.o
+                0x0000000000024534        0x8 _build/nrf52833_xxaa/ble_nus.c.o
+ .rodata        0x000000000002453c       0x10 _build/nrf52833_xxaa/ble_nus.c.o
  .rodata.sdh_stack_observers
-                0x0000000000024548        0xc _build/nrf52833_xxaa/nrf_sdh.c.o
+                0x000000000002454c        0xc _build/nrf52833_xxaa/nrf_sdh.c.o
  .rodata.sdh_state_observers
-                0x0000000000024554        0xc _build/nrf52833_xxaa/nrf_sdh.c.o
+                0x0000000000024558        0xc _build/nrf52833_xxaa/nrf_sdh.c.o
  .rodata.sdh_req_observers
-                0x0000000000024560        0xc _build/nrf52833_xxaa/nrf_sdh.c.o
+                0x0000000000024564        0xc _build/nrf52833_xxaa/nrf_sdh.c.o
  .rodata.str1.4
-                0x000000000002456c        0x8 _build/nrf52833_xxaa/nrf_sdh.c.o
- .rodata        0x0000000000024574        0x4 _build/nrf52833_xxaa/nrf_sdh.c.o
+                0x0000000000024570        0x8 _build/nrf52833_xxaa/nrf_sdh.c.o
+ .rodata        0x0000000000024578        0x4 _build/nrf52833_xxaa/nrf_sdh.c.o
  .rodata.nrf_sdh_ble_default_cfg_set.str1.4
-                0x0000000000024578      0x1cf _build/nrf52833_xxaa/nrf_sdh_ble.c.o
- *fill*         0x0000000000024747        0x1 
+                0x000000000002457c      0x1cf _build/nrf52833_xxaa/nrf_sdh_ble.c.o
+ *fill*         0x000000000002474b        0x1 
  .rodata.nrf_sdh_ble_enable.str1.4
-                0x0000000000024748       0xad _build/nrf52833_xxaa/nrf_sdh_ble.c.o
- *fill*         0x00000000000247f5        0x3 
+                0x000000000002474c       0xad _build/nrf52833_xxaa/nrf_sdh_ble.c.o
+ *fill*         0x00000000000247f9        0x3 
  .rodata.sdh_ble_observers
-                0x00000000000247f8        0xc _build/nrf52833_xxaa/nrf_sdh_ble.c.o
+                0x00000000000247fc        0xc _build/nrf52833_xxaa/nrf_sdh_ble.c.o
  .rodata.str1.4
-                0x0000000000024804        0xc _build/nrf52833_xxaa/nrf_sdh_ble.c.o
+                0x0000000000024808        0xc _build/nrf52833_xxaa/nrf_sdh_ble.c.o
  .rodata.sdh_soc_observers
-                0x0000000000024810        0xc _build/nrf52833_xxaa/nrf_sdh_soc.c.o
+                0x0000000000024814        0xc _build/nrf52833_xxaa/nrf_sdh_soc.c.o
  .rodata.str1.4
-                0x000000000002481c        0xc _build/nrf52833_xxaa/nrf_sdh_soc.c.o
+                0x0000000000024820        0xc _build/nrf52833_xxaa/nrf_sdh_soc.c.o
  .rodata._vfprintf_r.str1.1
-                0x0000000000024828       0x11 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf.o)
+                0x000000000002482c       0x11 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf.o)
  .rodata._printf_i.str1.1
-                0x0000000000024839       0x22 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
+                0x000000000002483d       0x22 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
  .rodata._ctype_
-                0x000000000002485b      0x101 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-ctype_.o)
-                0x000000000002485b                _ctype_
+                0x000000000002485f      0x101 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-ctype_.o)
+                0x000000000002485f                _ctype_
  *(.eh_frame*)
- .eh_frame      0x000000000002495c        0x0 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
- .eh_frame      0x000000000002495c        0x4 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtend.o
+ .eh_frame      0x0000000000024960        0x0 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x0000000000024960        0x4 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtend.o
 
-.glue_7         0x0000000000024960        0x0
- .glue_7        0x0000000000024960        0x0 linker stubs
+.glue_7         0x0000000000024964        0x0
+ .glue_7        0x0000000000024964        0x0 linker stubs
 
-.glue_7t        0x0000000000024960        0x0
- .glue_7t       0x0000000000024960        0x0 linker stubs
+.glue_7t        0x0000000000024964        0x0
+ .glue_7t       0x0000000000024964        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000024960        0x0
- .vfp11_veneer  0x0000000000024960        0x0 linker stubs
+.vfp11_veneer   0x0000000000024964        0x0
+ .vfp11_veneer  0x0000000000024964        0x0 linker stubs
 
-.v4_bx          0x0000000000024960        0x0
- .v4_bx         0x0000000000024960        0x0 linker stubs
+.v4_bx          0x0000000000024964        0x0
+ .v4_bx         0x0000000000024964        0x0 linker stubs
 
-.iplt           0x0000000000024960        0x0
- .iplt          0x0000000000024960        0x0 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x0000000000024964        0x0
+ .iplt          0x0000000000024964        0x0 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
 .mem_section_dummy_rom
 
 .sdh_soc_observers
-                0x0000000000024960        0x8
-                0x0000000000024960                PROVIDE (__start_sdh_soc_observers = .)
+                0x0000000000024964        0x8
+                0x0000000000024964                PROVIDE (__start_sdh_soc_observers = .)
  *(SORT_BY_NAME(.sdh_soc_observers*))
  .sdh_soc_observers0
-                0x0000000000024960        0x8 _build/nrf52833_xxaa/nrf_drv_clock.c.o
-                0x0000000000024968                PROVIDE (__stop_sdh_soc_observers = .)
+                0x0000000000024964        0x8 _build/nrf52833_xxaa/nrf_drv_clock.c.o
+                0x000000000002496c                PROVIDE (__stop_sdh_soc_observers = .)
 
 .sdh_ble_observers
-                0x0000000000024968       0x40
-                0x0000000000024968                PROVIDE (__start_sdh_ble_observers = .)
+                0x000000000002496c       0x40
+                0x000000000002496c                PROVIDE (__start_sdh_ble_observers = .)
  *(SORT_BY_NAME(.sdh_ble_observers*))
  .sdh_ble_observers0
-                0x0000000000024968        0x8 _build/nrf52833_xxaa/ble_conn_state.c.o
+                0x000000000002496c        0x8 _build/nrf52833_xxaa/ble_conn_state.c.o
  .sdh_ble_observers1
-                0x0000000000024970        0x8 _build/nrf52833_xxaa/bsp_btn_ble.c.o
+                0x0000000000024974        0x8 _build/nrf52833_xxaa/bsp_btn_ble.c.o
  .sdh_ble_observers1
-                0x0000000000024978       0x10 _build/nrf52833_xxaa/ble_uart.c.o
+                0x000000000002497c       0x10 _build/nrf52833_xxaa/ble_uart.c.o
  .sdh_ble_observers1
-                0x0000000000024988        0x8 _build/nrf52833_xxaa/ble_conn_params.c.o
+                0x000000000002498c        0x8 _build/nrf52833_xxaa/ble_conn_params.c.o
  .sdh_ble_observers2
-                0x0000000000024990       0x10 _build/nrf52833_xxaa/ble_uart.c.o
+                0x0000000000024994       0x10 _build/nrf52833_xxaa/ble_uart.c.o
  .sdh_ble_observers3
-                0x00000000000249a0        0x8 _build/nrf52833_xxaa/ble_uart.c.o
-                0x00000000000249a8                PROVIDE (__stop_sdh_ble_observers = .)
+                0x00000000000249a4        0x8 _build/nrf52833_xxaa/ble_uart.c.o
+                0x00000000000249ac                PROVIDE (__stop_sdh_ble_observers = .)
 
-.pwr_mgmt_data  0x00000000000249a8        0x0
-                0x00000000000249a8                PROVIDE (__start_pwr_mgmt_data = .)
+.pwr_mgmt_data  0x00000000000249ac        0x0
+                0x00000000000249ac                PROVIDE (__start_pwr_mgmt_data = .)
  *(SORT_BY_NAME(.pwr_mgmt_data*))
-                0x00000000000249a8                PROVIDE (__stop_pwr_mgmt_data = .)
+                0x00000000000249ac                PROVIDE (__stop_pwr_mgmt_data = .)
 
 .sdh_req_observers
-                0x00000000000249a8        0x0
-                0x00000000000249a8                PROVIDE (__start_sdh_req_observers = .)
+                0x00000000000249ac        0x0
+                0x00000000000249ac                PROVIDE (__start_sdh_req_observers = .)
  *(SORT_BY_NAME(.sdh_req_observers*))
-                0x00000000000249a8                PROVIDE (__stop_sdh_req_observers = .)
+                0x00000000000249ac                PROVIDE (__stop_sdh_req_observers = .)
 
 .sdh_state_observers
-                0x00000000000249a8        0x8
-                0x00000000000249a8                PROVIDE (__start_sdh_state_observers = .)
+                0x00000000000249ac        0x8
+                0x00000000000249ac                PROVIDE (__start_sdh_state_observers = .)
  *(SORT_BY_NAME(.sdh_state_observers*))
  .sdh_state_observers0
-                0x00000000000249a8        0x8 _build/nrf52833_xxaa/nrf_drv_clock.c.o
-                0x00000000000249b0                PROVIDE (__stop_sdh_state_observers = .)
+                0x00000000000249ac        0x8 _build/nrf52833_xxaa/nrf_drv_clock.c.o
+                0x00000000000249b4                PROVIDE (__stop_sdh_state_observers = .)
 
 .sdh_stack_observers
-                0x00000000000249b0       0x10
-                0x00000000000249b0                PROVIDE (__start_sdh_stack_observers = .)
+                0x00000000000249b4       0x10
+                0x00000000000249b4                PROVIDE (__start_sdh_stack_observers = .)
  *(SORT_BY_NAME(.sdh_stack_observers*))
  .sdh_stack_observers0
-                0x00000000000249b0        0x8 _build/nrf52833_xxaa/nrf_sdh_ble.c.o
+                0x00000000000249b4        0x8 _build/nrf52833_xxaa/nrf_sdh_ble.c.o
  .sdh_stack_observers0
-                0x00000000000249b8        0x8 _build/nrf52833_xxaa/nrf_sdh_soc.c.o
-                0x00000000000249c0                PROVIDE (__stop_sdh_stack_observers = .)
+                0x00000000000249bc        0x8 _build/nrf52833_xxaa/nrf_sdh_soc.c.o
+                0x00000000000249c4                PROVIDE (__stop_sdh_stack_observers = .)
 
-.nrf_queue      0x00000000000249c0        0x0
+.nrf_queue      0x00000000000249c4        0x0
                 [!provide]                        PROVIDE (__start_nrf_queue = .)
  *(.nrf_queue)
                 [!provide]                        PROVIDE (__stop_nrf_queue = .)
 
-.nrf_balloc     0x00000000000249c0       0x14
+.nrf_balloc     0x00000000000249c4       0x14
                 [!provide]                        PROVIDE (__start_nrf_balloc = .)
  *(.nrf_balloc)
- .nrf_balloc    0x00000000000249c0       0x14 _build/nrf52833_xxaa/nrf_log_frontend.c.o
-                0x00000000000249c0                log_mempool
+ .nrf_balloc    0x00000000000249c4       0x14 _build/nrf52833_xxaa/nrf_log_frontend.c.o
+                0x00000000000249c4                log_mempool
                 [!provide]                        PROVIDE (__stop_nrf_balloc = .)
 
-.cli_command    0x00000000000249d4        0x0
+.cli_command    0x00000000000249d8        0x0
                 [!provide]                        PROVIDE (__start_cli_command = .)
  *(.cli_command)
                 [!provide]                        PROVIDE (__stop_cli_command = .)
 
-.crypto_data    0x00000000000249d4        0x0
+.crypto_data    0x00000000000249d8        0x0
                 [!provide]                        PROVIDE (__start_crypto_data = .)
  *(SORT_BY_NAME(.crypto_data*))
                 [!provide]                        PROVIDE (__stop_crypto_data = .)
 
 .log_const_data
-                0x00000000000249d4       0x80
-                0x00000000000249d4                PROVIDE (__start_log_const_data = .)
+                0x00000000000249d8       0x80
+                0x00000000000249d8                PROVIDE (__start_log_const_data = .)
  *(SORT_BY_NAME(.log_const_data*))
  .log_const_data_CLOCK
-                0x00000000000249d4        0x8 _build/nrf52833_xxaa/nrfx_clock.c.o
-                0x00000000000249d4                m_nrf_log_CLOCK_logs_data_const
+                0x00000000000249d8        0x8 _build/nrf52833_xxaa/nrfx_clock.c.o
+                0x00000000000249d8                m_nrf_log_CLOCK_logs_data_const
  .log_const_data_GPIOTE
-                0x00000000000249dc        0x8 _build/nrf52833_xxaa/nrfx_gpiote.c.o
-                0x00000000000249dc                m_nrf_log_GPIOTE_logs_data_const
+                0x00000000000249e0        0x8 _build/nrf52833_xxaa/nrfx_gpiote.c.o
+                0x00000000000249e0                m_nrf_log_GPIOTE_logs_data_const
  .log_const_data_PRS
-                0x00000000000249e4        0x8 _build/nrf52833_xxaa/nrfx_prs.c.o
-                0x00000000000249e4                m_nrf_log_PRS_logs_data_const
+                0x00000000000249e8        0x8 _build/nrf52833_xxaa/nrfx_prs.c.o
+                0x00000000000249e8                m_nrf_log_PRS_logs_data_const
  .log_const_data_UART
-                0x00000000000249ec        0x8 _build/nrf52833_xxaa/nrfx_uart.c.o
-                0x00000000000249ec                m_nrf_log_UART_logs_data_const
+                0x00000000000249f0        0x8 _build/nrf52833_xxaa/nrfx_uart.c.o
+                0x00000000000249f0                m_nrf_log_UART_logs_data_const
  .log_const_data_UARTE
-                0x00000000000249f4        0x8 _build/nrf52833_xxaa/nrfx_uarte.c.o
-                0x00000000000249f4                m_nrf_log_UARTE_logs_data_const
+                0x00000000000249f8        0x8 _build/nrf52833_xxaa/nrfx_uarte.c.o
+                0x00000000000249f8                m_nrf_log_UARTE_logs_data_const
  .log_const_data_app
-                0x00000000000249fc        0x8 _build/nrf52833_xxaa/nrf_log_frontend.c.o
-                0x00000000000249fc                m_nrf_log_app_logs_data_const
+                0x0000000000024a00        0x8 _build/nrf52833_xxaa/nrf_log_frontend.c.o
+                0x0000000000024a00                m_nrf_log_app_logs_data_const
  .log_const_data_app_button
-                0x0000000000024a04        0x8 _build/nrf52833_xxaa/app_button.c.o
-                0x0000000000024a04                m_nrf_log_app_button_logs_data_const
+                0x0000000000024a08        0x8 _build/nrf52833_xxaa/app_button.c.o
+                0x0000000000024a08                m_nrf_log_app_button_logs_data_const
  .log_const_data_app_timer
-                0x0000000000024a0c        0x8 _build/nrf52833_xxaa/app_timer2.c.o
-                0x0000000000024a0c                m_nrf_log_app_timer_logs_data_const
+                0x0000000000024a10        0x8 _build/nrf52833_xxaa/app_timer2.c.o
+                0x0000000000024a10                m_nrf_log_app_timer_logs_data_const
  .log_const_data_ble_nus
-                0x0000000000024a14        0x8 _build/nrf52833_xxaa/ble_nus.c.o
-                0x0000000000024a14                m_nrf_log_ble_nus_logs_data_const
+                0x0000000000024a18        0x8 _build/nrf52833_xxaa/ble_nus.c.o
+                0x0000000000024a18                m_nrf_log_ble_nus_logs_data_const
  .log_const_data_clock
-                0x0000000000024a1c        0x8 _build/nrf52833_xxaa/nrf_drv_clock.c.o
-                0x0000000000024a1c                m_nrf_log_clock_logs_data_const
+                0x0000000000024a20        0x8 _build/nrf52833_xxaa/nrf_drv_clock.c.o
+                0x0000000000024a20                m_nrf_log_clock_logs_data_const
  .log_const_data_nrf_ble_gatt
-                0x0000000000024a24        0x8 _build/nrf52833_xxaa/nrf_ble_gatt.c.o
-                0x0000000000024a24                m_nrf_log_nrf_ble_gatt_logs_data_const
+                0x0000000000024a28        0x8 _build/nrf52833_xxaa/nrf_ble_gatt.c.o
+                0x0000000000024a28                m_nrf_log_nrf_ble_gatt_logs_data_const
  .log_const_data_nrf_sdh
-                0x0000000000024a2c        0x8 _build/nrf52833_xxaa/nrf_sdh.c.o
-                0x0000000000024a2c                m_nrf_log_nrf_sdh_logs_data_const
+                0x0000000000024a30        0x8 _build/nrf52833_xxaa/nrf_sdh.c.o
+                0x0000000000024a30                m_nrf_log_nrf_sdh_logs_data_const
  .log_const_data_nrf_sdh_ble
-                0x0000000000024a34        0x8 _build/nrf52833_xxaa/nrf_sdh_ble.c.o
-                0x0000000000024a34                m_nrf_log_nrf_sdh_ble_logs_data_const
+                0x0000000000024a38        0x8 _build/nrf52833_xxaa/nrf_sdh_ble.c.o
+                0x0000000000024a38                m_nrf_log_nrf_sdh_ble_logs_data_const
  .log_const_data_nrf_sdh_soc
-                0x0000000000024a3c        0x8 _build/nrf52833_xxaa/nrf_sdh_soc.c.o
-                0x0000000000024a3c                m_nrf_log_nrf_sdh_soc_logs_data_const
+                0x0000000000024a40        0x8 _build/nrf52833_xxaa/nrf_sdh_soc.c.o
+                0x0000000000024a40                m_nrf_log_nrf_sdh_soc_logs_data_const
  .log_const_data_pwr_mgmt
-                0x0000000000024a44        0x8 _build/nrf52833_xxaa/nrf_pwr_mgmt.c.o
-                0x0000000000024a44                m_nrf_log_pwr_mgmt_logs_data_const
+                0x0000000000024a48        0x8 _build/nrf52833_xxaa/nrf_pwr_mgmt.c.o
+                0x0000000000024a48                m_nrf_log_pwr_mgmt_logs_data_const
  .log_const_data_sortlist
-                0x0000000000024a4c        0x8 _build/nrf52833_xxaa/nrf_sortlist.c.o
-                0x0000000000024a4c                m_nrf_log_sortlist_logs_data_const
-                0x0000000000024a54                PROVIDE (__stop_log_const_data = .)
+                0x0000000000024a50        0x8 _build/nrf52833_xxaa/nrf_sortlist.c.o
+                0x0000000000024a50                m_nrf_log_sortlist_logs_data_const
+                0x0000000000024a58                PROVIDE (__stop_log_const_data = .)
 
-.log_backends   0x0000000000024a54       0x10
+.log_backends   0x0000000000024a58       0x10
                 [!provide]                        PROVIDE (__start_log_backends = .)
  *(SORT_BY_NAME(.log_backends*))
- .log_backends  0x0000000000024a54       0x10 _build/nrf52833_xxaa/nrf_log_default_backends.c.o
+ .log_backends  0x0000000000024a58       0x10 _build/nrf52833_xxaa/nrf_log_default_backends.c.o
                 [!provide]                        PROVIDE (__stop_log_backends = .)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000000024a64                __exidx_start = .
+                0x0000000000024a68                __exidx_start = .
 
-.ARM.exidx      0x0000000000024a64        0x8
+.ARM.exidx      0x0000000000024a68        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x0000000000024a64        0x8 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
+ .ARM.exidx     0x0000000000024a68        0x8 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
                                          0x10 (size before relaxing)
  .ARM.exidx.text.__udivmoddi4
-                0x0000000000024a6c        0x0 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+                0x0000000000024a70        0x0 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
                                           0x8 (size before relaxing)
-                0x0000000000024a6c                __exidx_end = .
+                0x0000000000024a70                __exidx_end = .
 
-.rel.dyn        0x0000000000024a6c        0x0
- .rel.iplt      0x0000000000024a6c        0x0 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x0000000000024a6c                . = ALIGN (0x4)
-                0x0000000000024a6c                __etext = .
+.rel.dyn        0x0000000000024a70        0x0
+ .rel.iplt      0x0000000000024a70        0x0 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x0000000000024a70                . = ALIGN (0x4)
+                0x0000000000024a70                __etext = .
 
-.data           0x0000000020002608      0x138 load address 0x0000000000024a6c
+.data           0x0000000020002608      0x138 load address 0x0000000000024a70
                 0x0000000020002608                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -9515,13 +9515,13 @@ LOAD /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-no
 END GROUP
 
 .tm_clone_table
-                0x0000000020002740        0x0 load address 0x0000000000024ba4
+                0x0000000020002740        0x0 load address 0x0000000000024ba8
  .tm_clone_table
                 0x0000000020002740        0x0 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .tm_clone_table
                 0x0000000020002740        0x0 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtend.o
 
-.igot.plt       0x0000000020002740        0x0 load address 0x0000000000024ba4
+.igot.plt       0x0000000020002740        0x0 load address 0x0000000000024ba8
  .igot.plt      0x0000000020002740        0x0 /opt/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
                 0x0000000020002740                . = ALIGN (0x4)
 
@@ -9746,8 +9746,8 @@ END GROUP
                 0x0000000020020000                PROVIDE (__stack = __StackTop)
                 0x0000000000000001                ASSERT ((__StackLimit >= __HeapLimit), region RAM overflowed with stack)
                 0x0000000000000138                DataInitFlashUsed = (__bss_start__ - __data_start__)
-                0x0000000000008a6c                CodeFlashUsed = (__etext - ORIGIN (FLASH))
-                0x0000000000008ba4                TotalFlashUsed = (CodeFlashUsed + DataInitFlashUsed)
+                0x0000000000008a70                CodeFlashUsed = (__etext - ORIGIN (FLASH))
+                0x0000000000008ba8                TotalFlashUsed = (CodeFlashUsed + DataInitFlashUsed)
                 0x0000000000000001                ASSERT ((TotalFlashUsed <= LENGTH (FLASH)), region FLASH overflowed with .data and user data)
 OUTPUT(_build/nrf52833_xxaa.out elf32-littlearm)
 LOAD linker stubs
@@ -10296,7 +10296,7 @@ LOAD linker stubs
  .debug_aranges
                 0x00000000000012a8       0x28 _build/nrf52833_xxaa/nrf_sdh_soc.c.o
 
-.debug_str      0x0000000000000000    0xbdd65
+.debug_str      0x0000000000000000    0xbdd69
  .debug_str     0x0000000000000000      0x17d _build/nrf52833_xxaa/gcc_startup_nrf52833.S.o
                                         0x443 (size before relaxing)
  .debug_str     0x000000000000017d    0x97fdf _build/nrf52833_xxaa/nrf_log_backend_rtt.c.o
@@ -10373,35 +10373,35 @@ LOAD linker stubs
                                       0x991b5 (size before relaxing)
  .debug_str     0x00000000000b0bcc     0x62dd _build/nrf52833_xxaa/bsp_btn_ble.c.o
                                       0x9dec1 (size before relaxing)
- .debug_str     0x00000000000b6ea9     0x3a11 _build/nrf52833_xxaa/ble_uart.c.o
-                                      0xa6dc9 (size before relaxing)
- .debug_str     0x00000000000ba8ba        0xe _build/nrf52833_xxaa/main.c.o
+ .debug_str     0x00000000000b6ea9     0x39db _build/nrf52833_xxaa/ble_uart.c.o
+                                      0xa6db9 (size before relaxing)
+ .debug_str     0x00000000000ba884       0x48 _build/nrf52833_xxaa/main.c.o
                                        0x719e (size before relaxing)
- .debug_str     0x00000000000ba8c8      0x5bc _build/nrf52833_xxaa/SEGGER_RTT.c.o
+ .debug_str     0x00000000000ba8cc      0x5bc _build/nrf52833_xxaa/SEGGER_RTT.c.o
                                       0x87bf0 (size before relaxing)
- .debug_str     0x00000000000bae84      0x58b _build/nrf52833_xxaa/ble_advdata.c.o
+ .debug_str     0x00000000000bae88      0x58b _build/nrf52833_xxaa/ble_advdata.c.o
                                       0x9476f (size before relaxing)
- .debug_str     0x00000000000bb40f      0x30b _build/nrf52833_xxaa/ble_advertising.c.o
+ .debug_str     0x00000000000bb413      0x30b _build/nrf52833_xxaa/ble_advertising.c.o
                                       0x97dd2 (size before relaxing)
- .debug_str     0x00000000000bb71a      0x30e _build/nrf52833_xxaa/ble_conn_params.c.o
+ .debug_str     0x00000000000bb71e      0x30e _build/nrf52833_xxaa/ble_conn_params.c.o
                                       0x9704c (size before relaxing)
- .debug_str     0x00000000000bba28      0x86a _build/nrf52833_xxaa/ble_conn_state.c.o
+ .debug_str     0x00000000000bba2c      0x86a _build/nrf52833_xxaa/ble_conn_state.c.o
                                       0x95ed8 (size before relaxing)
- .debug_str     0x00000000000bc292       0x7c _build/nrf52833_xxaa/ble_link_ctx_manager.c.o
+ .debug_str     0x00000000000bc296       0x7c _build/nrf52833_xxaa/ble_link_ctx_manager.c.o
                                       0x92752 (size before relaxing)
- .debug_str     0x00000000000bc30e      0x485 _build/nrf52833_xxaa/ble_srv_common.c.o
+ .debug_str     0x00000000000bc312      0x485 _build/nrf52833_xxaa/ble_srv_common.c.o
                                       0x8b879 (size before relaxing)
- .debug_str     0x00000000000bc793      0x473 _build/nrf52833_xxaa/nrf_ble_gatt.c.o
+ .debug_str     0x00000000000bc797      0x473 _build/nrf52833_xxaa/nrf_ble_gatt.c.o
                                       0x96d80 (size before relaxing)
- .debug_str     0x00000000000bcc06      0x1fb _build/nrf52833_xxaa/nrf_ble_qwr.c.o
+ .debug_str     0x00000000000bcc0a      0x1fb _build/nrf52833_xxaa/nrf_ble_qwr.c.o
                                       0x950d5 (size before relaxing)
- .debug_str     0x00000000000bce01      0x296 _build/nrf52833_xxaa/ble_nus.c.o
+ .debug_str     0x00000000000bce05      0x296 _build/nrf52833_xxaa/ble_nus.c.o
                                       0x98483 (size before relaxing)
- .debug_str     0x00000000000bd097      0x4d9 _build/nrf52833_xxaa/nrf_sdh.c.o
+ .debug_str     0x00000000000bd09b      0x4d9 _build/nrf52833_xxaa/nrf_sdh.c.o
                                       0x9309a (size before relaxing)
- .debug_str     0x00000000000bd570      0x690 _build/nrf52833_xxaa/nrf_sdh_ble.c.o
+ .debug_str     0x00000000000bd574      0x690 _build/nrf52833_xxaa/nrf_sdh_ble.c.o
                                       0x97841 (size before relaxing)
- .debug_str     0x00000000000bdc00      0x165 _build/nrf52833_xxaa/nrf_sdh_soc.c.o
+ .debug_str     0x00000000000bdc04      0x165 _build/nrf52833_xxaa/nrf_sdh_soc.c.o
                                       0x92050 (size before relaxing)
 
 .debug_loclists

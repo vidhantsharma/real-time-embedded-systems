@@ -1,41 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "controller.h"
 
-int FORWARD = 1;
-int REVERSE = -1;
-int STOP = 0;
+/* 
+Done: move straight(dirn, speed), rotate abt center(dirn,speed)
 
-// Controller commands
-void forward(int v)
-{
-    servo_out(FORWARD, v, REVERSE, v);
+To Do: trace trajectory (only on level plane)
+integrate X,Y acceleration to get position, find 
+initial position 
+*/
+
+void turn_ctrlr(float ang_des, float ang_curr){ // Only turning
+    /*
+    servo_out(int traj, int dirn, int speed );
+    traj=1 => straight; dirn=1 => frwd; dirn=-1 => bwd;
+    traj=0 => circle; dirn=1 => CCW; dirn=-1 => CW;
+    dirn=0 => stop
+    speed levels limited to 6
+    */ 
+    float tolr = 3.0;
+
+    if(abs(ang_des - ang_curr) >= tolr){
+        servo_out(0,1,3);
+    }
+    else{
+        printf("stopping");
+        servo_out(0,0,3);
+    }
 }
 
-void reverse(int v)
-{
-    servo_out(REVERSE, v, FORWARD, v);
+void move_ctrlr(int dirn){ // Only turning
+    servo_out(1,dirn,3);
 }
 
-void turn_left(int v)
-{
-    servo_out(FORWARD, v, FORWARD, v);
-}
-
-void turn_right(int v)
-{
-    servo_out(REVERSE, v, REVERSE, v);
-}
-
-// For testing motors
-void motor_A(void)
-{
-    servo_out(FORWARD,1,STOP,1);
-}
-
-void motor_B(void)
-{
-    servo_out(STOP,1,FORWARD,1);
-}
-
-void stop(){
-    servo_out(STOP,1,STOP,1);
-}

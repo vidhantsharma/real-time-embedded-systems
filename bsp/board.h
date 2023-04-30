@@ -51,7 +51,7 @@ extern "C" {
 #define MIC         3   // AIN3 on P0_05
                         //  (we need to specify analog input channel,
                         //   and not the pin number)
-#if 1   // disable mic
+#if 0   // disable mic
 #define RUN_MIC     0
 #else
 #define RUN_MIC     20  // P0_20
