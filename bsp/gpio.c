@@ -8,7 +8,6 @@
 // osMutexId_t mid_killswitch;  
 osEventFlagsId_t sid;
 #define FLAGS_MSK3 0x00000003U
-
 #ifndef IOREG32
 #define IOREG32(addr)   (*((volatile long *) (addr)))
 #endif
