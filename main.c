@@ -96,6 +96,7 @@ void KILLSWITCH(void *arg){
         osTimerStop(timer_clap);
         osThreadSuspend(tid2);
         osThreadSuspend(ble_task);
+        ADC_INTEN = 0;
 
     }
 }
