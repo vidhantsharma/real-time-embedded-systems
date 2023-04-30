@@ -11,6 +11,8 @@
 #define RAD_CONV 57.2957
 #define WINDOW_SIZE 10
 #define DECLINATION -1.21f; //degrees in bangalore
+#define COLLISION_THRESHOLD 250.0f
+
 static int counter = 0;
 static float data[WINDOW_SIZE] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
 
@@ -169,5 +171,58 @@ void estimate_angles(const float* accData, const float* magData, float* angles) 
     // print_vec(quat_norm,4)
     // print_vec(angles,3)
 }
+
+/**
+ * Collision detection algorithm is based on the paper 
+ * Buoy Collision Detection : https://ieeexplore.ieee.org/document/6338483
+ * Algorithm goes like this 
+ * 1. Remove dc components
+ *      A = Ax + Ay + Az
+ *      a10 = (1+xt)/2
+ *      a11 = -a10
+ *      b11 = xt
+ *      xt = exp(-2*pi*fc) // wher fc = cut-off frequency typical value = 0.5135
+ *      y1(n) = a10.x1(n) + a11.x1(n-1) + b1.y1(n-1)
+ * 2. compute the factor
+ *      x2(n) = y1(n)^2
+ *      y2(n) = a20.(x2(n) + x2(n-1) + x2(n-2)) + b21.y2(n-1)
+ *      a20 = (1-xt).g // g is signal gain
+ *      b21 = xt
+ * 3. values used here 
+ *         a10 = 0.4844
+ *         a11 = -a10
+ *         b11 = 0.9375
+ *         b21 = 0.7812
+ *         a20 = 0.2188     
+*/
+int isCollision(const float* accData){
+    static float x1n_1, x2n_1, x2n_2, y1n_1, y2n_1; 
+
+    // constants
+    float a10 = 0.4844, b11 = 0.9375;
+    float a11 = -a10;
+    float a20 = 0.2188, b21 = 0.7812;
+    
+    // remove dc components
+    float x1n = accData[0] + accData[1] + accData[2];
+    float y1n = a10*x1n + a11*x1n_1 + b11*y1n_1;
+    float x2n = y1n*y1n;
+
+    // averaging and low pass filter
+    float y2n = a20*(x2n + x2n_1 + x2n_2) + b21*y2n_1; 
+
+    // store previous value    
+    x1n_1 = x1n;
+    y1n_1 = y1n;
+    x2n_1 = x2n;
+    x2n_2 = x2n_1;
+    y2n_1 = y2n;
+
+    int result = y2n > 100 ? 1 : 0;
+
+    return result;
+
+}
+
 
 #endif // ESTIMATOR_H_ 

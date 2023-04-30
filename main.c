@@ -10,14 +10,15 @@
 #define FLAGS_MSK1 0x00000001U
 #define FLAGS_MSK2 0x00000002U
 #define FLAGS_MSK3 0x00000003U
+#define FLAGS_MSK4 0x00000004U
 
 /* OS objects */
 osThreadId_t ble_task;
-osEventFlagsId_t evt_frwd, evt_bwd, evt_left, evt_ryt, evt_stop;
+osEventFlagsId_t evt_frwd, evt_bwd, evt_left, evt_ryt, evt_stop, evt_cmd;
 extern osEventFlagsId_t evt_clap;
 extern osEventFlagsId_t sid;
 osTimerId_t timer_clap;
-osThreadId_t tid1, tid2;
+osThreadId_t tid1, tid2, tid3, tid4;
 // extern osSemaphoreId_t sid_killswitch;  
 // extern osMutexId_t mid_killswitch;
 
@@ -44,7 +45,7 @@ uint8_t frame_buffer[LED_NUM_ROWS][LED_NUM_COLS] =
     { 0, 0, 0, 0, 0}
 };
 
-#define MAX_COUNT 50
+#define MAX_COUNT 100
 static int count;
 
 uint32_t r, c;
@@ -99,13 +100,17 @@ void KILLSWITCH(void *arg){
         osTimerStop(timer_clap);
         osThreadSuspend(tid2);
         osThreadSuspend(ble_task);
-        
+        osThreadSuspend(tid3);
+        osThreadSuspend(tid4);
+
     }
 }
 
 void task_cmd(void *arg){   
     print_task("task_cmd", "I am here");
     while(1){
+        // osEventFlagsWait(evt_cmd, FLAGS_MSK4, osFlagsWaitAny, osWaitForever);
+
         if(osEventFlagsGet(evt_clap)){
             print_task("task_cmd_clap", "stop");
             stop();
@@ -153,7 +158,7 @@ void bluetooth(void *arg){
 
         osEventFlagsClear(evt_frwd, FLAGS_MSK1); osEventFlagsClear(evt_bwd, FLAGS_MSK1);
         osEventFlagsClear(evt_left, FLAGS_MSK1); osEventFlagsClear(evt_ryt, FLAGS_MSK1); osEventFlagsClear(evt_stop, FLAGS_MSK1);
-        osEventFlagsClear(evt_clap, FLAGS_MSK2);
+        osEventFlagsClear(evt_clap, FLAGS_MSK2); osEventFlagsClear(evt_cmd, FLAGS_MSK4);
         
         /* Echo on UART */
         print_task("bluetooth", (char* ) cmd_buf);
@@ -164,6 +169,7 @@ void bluetooth(void *arg){
         /* Buggy Control */
         if (strlen((char *) cmd_buf) == 1)
         {
+            osEventFlagsSet(evt_cmd, FLAGS_MSK4);
             switch (cmd_buf[0])
             {
             case 'u':
@@ -207,7 +213,34 @@ void timer_callback_clap(void *arg)
         clap_flag = 0;
         // osEventFlagsSet(evt_clap, FLAGS_MSK2);
     }
+    // uint32_t val = osEventFlagsGet(evt_cmd);
+    // printf("[COMMAND] val = %d", val);
+    count++;
+    if (count == MAX_COUNT)
+    {
+        count = 0;
+        osThreadYield();
+    }
 }
+void collision(void *arg){
+    print_task("COLLISION", "Thread started");
+    while (1){
+        print_task("CALLBACK", "check collision");
+        float accData[3];
+        accReadXYZ(accData);
+        if (isCollision(accData)){
+            printf("[COLLISION] Collision Happened");
+            osEventFlagsSet(sid, FLAGS_MSK3);
+        }
+        count++;
+        if (count == MAX_COUNT)
+        {
+            count = 0;
+            osThreadYield();
+        }
+    }
+}
+
 
 /* Mutex Definition*/
  
@@ -234,13 +267,19 @@ void task_ctrl(void *arg)
     tid2 = osThreadNew(task_cmd, NULL, NULL);
     osThreadSetPriority(tid2, osPriorityNormal);
 
-    timer_clap = osTimerNew (timer_callback_clap, osTimerPeriodic, NULL, NULL);
-    osTimerStart (timer_clap, 100);
+    tid3 = osThreadNew(timer_callback_clap, NULL, NULL);
+    osThreadSetPriority(tid3, osPriorityNormal);
+
+    tid4 = osThreadNew(collision, NULL, NULL);
+    osThreadSetPriority(tid4, osPriorityNormal);
+    // timer_clap = osTimerNew (timer_callback_clap, osTimerPeriodic, NULL, NULL);
+    // osTimerStart (timer_clap, 100);
 
     evt_frwd = osEventFlagsNew(NULL); evt_bwd = osEventFlagsNew(NULL);
     evt_left = osEventFlagsNew(NULL); evt_ryt = osEventFlagsNew(NULL); evt_stop = osEventFlagsNew(NULL);
     evt_clap = osEventFlagsNew(NULL);
     sid = osEventFlagsNew(NULL);
+    evt_cmd = osEventFlagsNew(NULL);
 
 }
 
