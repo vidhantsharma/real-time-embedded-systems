@@ -102,26 +102,26 @@ void servo_out(int traj, int dirn, int speed ){
     if(dirn == 0){
         seqB = mid_counter; seqA = mid_counter; //Stop
         // seqB = countertop; seqA = countertop; //Stop
-        printf("[SERVO] STOP here I am ");
+        printf("[SERVO] STOP here I am seqA = %d, seqB=%d", seqA, seqB);
     }
     else{
         if(traj == 1){
             if(dirn==1){    // Frwd
                 seqB = base + speed*diff;
                 seqA = seqB + mid_counter; 
-                printf("[SERVO] forward");
+                printf("[SERVO] forward seqA = %d, seqB=%d", seqA, seqB);
             }
             else{   //bwd
                 seqB = base + speed*diff +mid_counter;
                 seqA = seqB -mid_counter; 
-                printf("[SERVO] reverse");
+                printf("[SERVO] reverse seqA = %d, seqB=%d", seqA, seqB);
             }
         }
         else if(traj==0){
             if(dirn==1){    // CCW
                 seqB = base + speed*diff ;
                 seqA = seqB; 
-                printf("[SERVO] left");
+                printf("[SERVO] left seqA = %d, seqB=%d", seqA, seqB);
             }
             else{   //CW
                 seqB = base + speed*diff +mid_counter;
@@ -131,7 +131,7 @@ void servo_out(int traj, int dirn, int speed ){
         }
         else{
             seqB = mid_counter; seqA = mid_counter;   //Stop
-            printf("[SERVO] stop");
+            printf("[SERVO] stop seqA = %d, seqB=%d", seqA, seqB);
         }
     }
     
