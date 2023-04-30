@@ -35,3 +35,7 @@ void motor_B(void)
 {
     servo_out(STOP,1,FORWARD,1);
 }
+
+void stop(){
+    servo_out(STOP,1,STOP,1);
+}

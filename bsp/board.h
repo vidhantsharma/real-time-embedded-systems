@@ -14,6 +14,8 @@ extern "C" {
 #include "adc.h"
 #include "audio.h"
 #include "rng.h"
+#include "servo.h"
+#include "controller.h"
 #include "lsm303agr.h"
 
 /* LEDs definitions for 5x5 matrix display */

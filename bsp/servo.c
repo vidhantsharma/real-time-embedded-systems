@@ -117,6 +117,12 @@ void servo_out(int dirA, int vA, int dirB, int vB)
     s_sequenceA[1] = (countertopA * dutyA) / 100;
     s_sequenceB[0] = (countertopB * dutyB) / 100;
     s_sequenceB[1] = (countertopB * dutyB) / 100;
+    if (dirA == 0 || dirB == 0){
+        s_sequenceA[0] = 1000;
+        s_sequenceA[1] = 1000;
+        s_sequenceB[0] = 1000;
+        s_sequenceB[1] = 1000;
+    }
 
     /* Start sequence 0 */
     SEQ0START_PWM_B = 1;
