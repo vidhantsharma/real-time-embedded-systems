@@ -130,11 +130,13 @@ static pfn_t event_callbacks[8];
 void button0_callback(void)
 {
     // release semaphore here for kill task
+    ;
 }
 
 void button1_callback(void)
 {
     // release semaphore here for kill task
+    ;
 }
 
 void gpio_inten(uint32_t pin, uint32_t event_no, uint32_t edge, pfn_t callback)
