@@ -10373,9 +10373,9 @@ LOAD linker stubs
                                       0x991b5 (size before relaxing)
  .debug_str     0x00000000000b0bcc     0x62dd _build/nrf52833_xxaa/bsp_btn_ble.c.o
                                       0x9dec1 (size before relaxing)
- .debug_str     0x00000000000b6ea9     0x39db _build/nrf52833_xxaa/ble_uart.c.o
-                                      0xa6db9 (size before relaxing)
- .debug_str     0x00000000000ba884       0x48 _build/nrf52833_xxaa/main.c.o
+ .debug_str     0x00000000000b6ea9     0x3a15 _build/nrf52833_xxaa/ble_uart.c.o
+                                      0xa6dcd (size before relaxing)
+ .debug_str     0x00000000000ba8be        0xe _build/nrf52833_xxaa/main.c.o
                                        0x719e (size before relaxing)
  .debug_str     0x00000000000ba8cc      0x5bc _build/nrf52833_xxaa/SEGGER_RTT.c.o
                                       0x87bf0 (size before relaxing)

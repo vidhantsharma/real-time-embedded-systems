@@ -6,7 +6,6 @@
 #include "board.h"
 #include "lib.h"
 #include "estimator.h"
-#include "lsm303agr.h"
 
 #define FLAGS_MSK1 0x00000001U
 #define FLAGS_MSK2 0x00000002U
