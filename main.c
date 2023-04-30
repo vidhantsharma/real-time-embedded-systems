@@ -89,6 +89,9 @@ void KILLSWITCH(void *arg){
         // osMutexAcquire(mid_killswitch, osWaitForever);
         // uint32_t val = osSemaphoreGetCount (sid_killswitch);
         printf("[KILLSWITCH] AFTER... = %d\n", val);
+        for (int i = 0; i < LED_NUM_ROWS; i++){
+            led_on(i,i);
+        }
         // stop the motors
         stop();
         // osMutexRelease(mid_killswitch);
@@ -96,7 +99,7 @@ void KILLSWITCH(void *arg){
         osTimerStop(timer_clap);
         osThreadSuspend(tid2);
         osThreadSuspend(ble_task);
-
+        
     }
 }
 
