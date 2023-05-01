@@ -7,20 +7,22 @@
 #include "lib.h"
 #include "estimator.h"
 
-#define FLAGS_MSK1 0x00000001U
-#define FLAGS_MSK2 0x00000002U
-#define FLAGS_MSK3 0x00000003U
-#define FLAGS_MSK4 0x00000004U
+// #define FLAGS_MSK1 0x00000001U
+#define FLAGS_MSK2 0x00000002U     // EVENT CLAP
+#define FLAGS_MSK3 0x00000003U     // EVENT COLLISION
+#define FLAGS_MSK4 0x00000004U     // EVENT COMMAND
+#define FLAGS_MSK_f 0x00000005U    // 5, FORWARD
+#define FLAGS_MSK_b 0x00000006U    // 6, REVERSE
+#define FLAGS_MSK_l 0x0000005AU    // 90deg LEFT
+#define FLAGS_MSK_r 0x0000010EU    // 270deg RIGHT
+#define MAX_COUNT 50               // MAXIMUM COUNTER
 
 /* OS objects */
-osThreadId_t ble_task;
-osEventFlagsId_t evt_frwd, evt_bwd, evt_left, evt_ryt, evt_stop, evt_cmd;
+osEventFlagsId_t evt_linear, evt_angular, evt_stop, evt_cmd;
 extern osEventFlagsId_t evt_clap;
 extern osEventFlagsId_t sid;
-osTimerId_t timer_clap;
-osThreadId_t tid1, tid2, tid3, tid4;
-// extern osSemaphoreId_t sid_killswitch;  
-// extern osMutexId_t mid_killswitch;
+osThreadId_t killer_switch_id, collision_id, clap_id, command_id, bluetooth_id;
+
 
 /* Buffer to hold the command received from UART or BLE
  * We use single buffer assuming command-response protocol,
@@ -29,13 +31,16 @@ osThreadId_t tid1, tid2, tid3, tid4;
  */
 uint8_t cmd_buf[256];
 uint32_t cmd_len;
-float heading, val;
+
+// controller specifics
 float ang_des;
+int headDes_old, headDes = INT32_MIN;
 
 uint16_t samples[CLAP_FRAMELEN];     // to collect the ADC samples
 
 volatile extern int clap_flag;
 
+// LED 
 uint8_t frame_buffer[LED_NUM_ROWS][LED_NUM_COLS] =
 {
     { 0, 1, 0, 1, 0},
@@ -45,7 +50,6 @@ uint8_t frame_buffer[LED_NUM_ROWS][LED_NUM_COLS] =
     { 0, 0, 0, 0, 0}
 };
 
-#define MAX_COUNT 100
 static int count;
 
 uint32_t r, c;
@@ -54,18 +58,13 @@ uint32_t r0, c0;
 /* Debug counters */
 int b0d, b0p;
 
-/* button-press routine is called by the GPIO interrupt. We may
- * get multiple interrupts in the beginning or end of a button-press.
- * Hence, we start a timer and check if the button was still pressed
- * after the delay to debounce.
- */
-
 /* Function prototype for printing to serial from the given task*/
 void print_task(char* task_name, char* val){
     printf("[%s] ",task_name);
     printf(val);
     printf("\n");
 }
+
 /* Called from BLE softdevice using SWI2_EGU2_IRQHandler */
 static void ble_recv_handler(const uint8_t s[], uint32_t len)
 {
@@ -79,67 +78,89 @@ static void ble_recv_handler(const uint8_t s[], uint32_t len)
     cmd_len = len;
 
     /* Signal the waiting task. */
-    osThreadFlagsSet(ble_task, 1); 
+    osThreadFlagsSet(bluetooth_id, 1); 
 }
 
 void KILLSWITCH(void *arg){
     print_task("KILLSWITCH", "killing process begin ...");
     while (1){
         osEventFlagsWait(sid, FLAGS_MSK3, osFlagsWaitAny, osWaitForever);
-        // osSemaphoreAcquire(sid_killswitch ,1U);
-        // osMutexAcquire(mid_killswitch, osWaitForever);
-        // uint32_t val = osSemaphoreGetCount (sid_killswitch);
-        printf("[KILLSWITCH] AFTER... = %d\n", val);
+        printf("[KILLSWITCH] Safety Mode = %d\n");
         for (int i = 0; i < LED_NUM_ROWS; i++){
             led_on(i,i);
         }
         // stop the motors
-        stop();
-        // osMutexRelease(mid_killswitch);
-        // osSemaphoreRelease(sid_killswitch);
-        osTimerStop(timer_clap);
-        osThreadSuspend(tid2);
-        osThreadSuspend(ble_task);
-        osThreadSuspend(tid3);
-        osThreadSuspend(tid4);
+        servo_out(1,0,3);
+        osThreadSuspend(collision_id);
+        osThreadSuspend(clap_id);
+        osThreadSuspend(command_id);
+        osThreadSuspend(bluetooth_id);
 
     }
 }
 
 void task_cmd(void *arg){   
-    print_task("task_cmd", "I am here");
+    delay_ms(10);
+    float headCur;
+    uint32_t lin_flag, ang_flag, stop_flag; 
+    print_task("TASK CMD","Entering task_cmd");
+    // with pins facing forward(180deg), left-ang increases, 
     while(1){
-        // osEventFlagsWait(evt_cmd, FLAGS_MSK4, osFlagsWaitAny, osWaitForever);
-
-        if(osEventFlagsGet(evt_clap)){
-            print_task("task_cmd_clap", "stop");
-            stop();
-            print_task("task_cmd_clap", "stop done!!!");
+        headCur = computeHeading(); 
+        // osMessageQueueGet(ang_dataQ, &headCur, NULL, 0U); 
+        lin_flag = osEventFlagsGet(evt_linear);
+        ang_flag = osEventFlagsGet(evt_angular);
+        stop_flag = osEventFlagsGet(evt_stop);
+        uint32_t clap_evt_id = osEventFlagsGet(evt_clap);
+        // printf("\n[task_cmd] flags are: %d, %d, %d", lin_flag, ang_flag, stop_flag);
+        if (clap_evt_id){
+            printf("[TASK COMMAND] Clap detected stopping the robot\n");
+            servo_out(1,0,3);
         }
-        else if(osEventFlagsGet(evt_stop)){
-            print_task("task_cmd", "stop");
-            stop();
-            print_task("task_cmd", "stop done!!!");
+        else if (stop_flag){
+            printf("[TASK COMMAND] Stop Event\n");
+            servo_out(1,0,3);
         }
-        else if(osEventFlagsGet(evt_frwd)){
-            print_task("task_cmd","forward");
-            forward(1);
-            print_task("task_cmd", "forward done!");
+        else if(lin_flag){
+            if(headDes == INT32_MIN){
+                headDes = headCur;
+                printf("Initial Orientation Set[task_cmd if]\n");
+            }
+            if(lin_flag == 5){
+                printf("[task_cmd] Frwd flag, %d\n", lin_flag);
+                // delay_ms(10);
+                move_ctrlr(1, headDes, headCur);
+            }
+            else{
+                printf("[task_cmd] Bwd flag, %d\n", lin_flag);
+                // delay_ms(10);
+                move_ctrlr(-1, headDes,headCur);
+            }         
         }
-        else if(osEventFlagsGet(evt_bwd)){
-            print_task("task_cmd", "reverse");
-            reverse(1);
-            print_task("task_cmd", "reverse done!!!");
-        }
-        else if(osEventFlagsGet(evt_left)){
-            print_task("task_cmd", "Left");
-            turn_left(1);
-            print_task("task_cmd", "left done!!");
-        }
-        else if(osEventFlagsGet(evt_ryt)){
-            print_task("task_cmd", "right");
-            turn_right(1);
-            print_task("task_cmd", "right done!!!");
+        else if(ang_flag){
+            if(ang_flag == 90){
+                if(headDes == INT32_MIN){
+                    headDes = headDes_old;
+                    headDes += 90;
+                    headDes = headDes%360; 
+                }
+                // delay_ms(10);
+                print_task("TASK COMMAND", "turn");
+                turn_ctrlr(1,headDes,headCur);
+                // printf("left flag done");
+                
+            }
+            else{
+                if(headDes == INT32_MIN){
+                    headDes = headDes_old;
+                    headDes += 270;
+                    headDes = headDes%360; 
+                }
+                // delay_ms(10);
+                print_task("TASK COMMAND", "turn");
+                turn_ctrlr(-1,headDes,headCur);
+                // printf("ryt flag done");
+            }
         }
         count++;
         if (count == MAX_COUNT)
@@ -156,9 +177,10 @@ void bluetooth(void *arg){
         /* Receive a command from BLE */
         osThreadFlagsWait(1, osFlagsWaitAny, osWaitForever);
 
-        osEventFlagsClear(evt_frwd, FLAGS_MSK1); osEventFlagsClear(evt_bwd, FLAGS_MSK1);
-        osEventFlagsClear(evt_left, FLAGS_MSK1); osEventFlagsClear(evt_ryt, FLAGS_MSK1); osEventFlagsClear(evt_stop, FLAGS_MSK1);
-        osEventFlagsClear(evt_clap, FLAGS_MSK2); osEventFlagsClear(evt_cmd, FLAGS_MSK4);
+        osEventFlagsClear(evt_linear, FLAGS_MSK_f); osEventFlagsClear(evt_linear, FLAGS_MSK_b);
+        osEventFlagsClear(evt_angular, FLAGS_MSK_l); osEventFlagsClear(evt_angular, FLAGS_MSK_r); 
+        osEventFlagsClear(evt_stop, FLAGS_MSK_f);
+        osEventFlagsClear(evt_clap, FLAGS_MSK2); 
         
         /* Echo on UART */
         print_task("bluetooth", (char* ) cmd_buf);
@@ -169,41 +191,45 @@ void bluetooth(void *arg){
         /* Buggy Control */
         if (strlen((char *) cmd_buf) == 1)
         {
-            osEventFlagsSet(evt_cmd, FLAGS_MSK4);
             switch (cmd_buf[0])
             {
             case 'u':
-                print_task("bluetooth", "Move forward");
-                osEventFlagsSet(evt_frwd, FLAGS_MSK1);
+                print_task("bluetooth","forward FlagSet\n");
+                // delay_ms(50);
+                osEventFlagsSet(evt_linear, FLAGS_MSK_f);
+                headDes = INT32_MIN;
                 break;
             case 'd':
-                print_task("bluetooth", "Move reverse");
-                osEventFlagsSet(evt_bwd, FLAGS_MSK1);
+                print_task("bluetooth","reverse FlagSet\n");
+                osEventFlagsSet(evt_linear, FLAGS_MSK_b);
+                headDes = INT32_MIN;
                 break;
             case 'l':
-                print_task("bluetooth", "Turn left");
-                ang_des = 90;
-                osEventFlagsSet(evt_left, FLAGS_MSK1);
+                print_task("bluetooth ","left FlagSet\n");
+                osEventFlagsSet(evt_angular, FLAGS_MSK_l); // make mask headCurue of desired angle
+                headDes_old = headDes;
+                headDes = INT32_MIN;
                 break;
             case 'r':
-                print_task("bluetooth", "Turn right");
-                ang_des = 270.0; // Range: [0,360)
-                osEventFlagsSet(evt_ryt, FLAGS_MSK1);
+                print_task("bluetooth","right FlagSet\n");
+                osEventFlagsSet(evt_angular, FLAGS_MSK_r);
+                headDes_old = headDes;
+                headDes = INT32_MIN;
                 break;
             case 's':
-                print_task("bluetooth", "STOP!!");
-                osEventFlagsSet(evt_stop, FLAGS_MSK1);
+                print_task("bluetooth","STOP!!\n");
+                osEventFlagsSet(evt_stop, FLAGS_MSK_f);
                 break;
             default:
                 print_task("bluetooth", "STOP!!");
-                osEventFlagsSet(evt_stop, FLAGS_MSK1);
+                osEventFlagsSet(evt_stop, FLAGS_MSK_f);
                 break;
             }
         } 
     }
 }
 
-void timer_callback_clap(void *arg)
+void clap_event(void *arg)
 {
     printf("reading ADC Sample\n");
     adc_read(samples,CLAP_FRAMELEN);
@@ -222,14 +248,15 @@ void timer_callback_clap(void *arg)
         osThreadYield();
     }
 }
-void collision(void *arg){
+void collision_event(void *arg){
     print_task("COLLISION", "Thread started");
     while (1){
         print_task("CALLBACK", "check collision");
-        float accData[3];
+        float accData[3], val;
         accReadXYZ(accData);
-        if (isCollision(accData)){
-            printf("[COLLISION] Collision Happened");
+        if (isCollision(accData, &val)){
+            printf("[COLLISION] Collision Happened value = " );
+            print_float(val,4);
             osEventFlagsSet(sid, FLAGS_MSK3);
         }
         count++;
@@ -241,45 +268,34 @@ void collision(void *arg){
     }
 }
 
-
-/* Mutex Definition*/
- 
-const osMutexAttr_t kill_switch_thread_mu = {
-  "killswitch_mutex",     // human readable mutex name
-  osMutexPrioInherit,    // attr_bits
-  NULL,                // memory for control block   
-  0U                   // size for control block
-};
-
 void task_ctrl(void *arg)
 {
     // osTimerId_t timer_clap;
 
     // kill switch
-    tid1 = osThreadNew(KILLSWITCH, NULL, NULL);
-    osThreadSetPriority(tid1, osPriorityNormal);
+    killer_switch_id = osThreadNew(KILLSWITCH, NULL, NULL);
+    osThreadSetPriority(killer_switch_id, osPriorityNormal);
     // sid_killswitch = osSemaphoreNew(1U, 0U, NULL);
     // mid_killswitch = osMutexNew(&kill_switch_thread_mu);
     
-    ble_task = osThreadNew(bluetooth, NULL, NULL);
-    osThreadSetPriority(ble_task, osPriorityNormal);
+    bluetooth_id = osThreadNew(bluetooth, NULL, NULL);
+    osThreadSetPriority(bluetooth_id, osPriorityNormal);
 
-    tid2 = osThreadNew(task_cmd, NULL, NULL);
-    osThreadSetPriority(tid2, osPriorityNormal);
+    command_id = osThreadNew(task_cmd, NULL, NULL);
+    osThreadSetPriority(command_id, osPriorityNormal);
 
-    tid3 = osThreadNew(timer_callback_clap, NULL, NULL);
-    osThreadSetPriority(tid3, osPriorityNormal);
+    clap_id = osThreadNew(clap_event, NULL, NULL);
+    osThreadSetPriority(clap_id, osPriorityNormal);
 
-    tid4 = osThreadNew(collision, NULL, NULL);
-    osThreadSetPriority(tid4, osPriorityNormal);
+    collision_id = osThreadNew(collision_event, NULL, NULL);
+    osThreadSetPriority(collision_id, osPriorityNormal);
     // timer_clap = osTimerNew (timer_callback_clap, osTimerPeriodic, NULL, NULL);
     // osTimerStart (timer_clap, 100);
 
-    evt_frwd = osEventFlagsNew(NULL); evt_bwd = osEventFlagsNew(NULL);
-    evt_left = osEventFlagsNew(NULL); evt_ryt = osEventFlagsNew(NULL); evt_stop = osEventFlagsNew(NULL);
+    evt_linear = osEventFlagsNew(NULL); evt_angular = osEventFlagsNew(NULL);
+    evt_stop = osEventFlagsNew(NULL);
     evt_clap = osEventFlagsNew(NULL);
     sid = osEventFlagsNew(NULL);
-    evt_cmd = osEventFlagsNew(NULL);
 
 }
 
@@ -288,7 +304,6 @@ int main(void)
     osThreadId_t tid_ctrl;
     /* BSP initializations before BLE because we are using printf from BSP */
     board_init();
-    servo_init();
     ble_init(ble_recv_handler);
 
     /* Greetings */

@@ -172,6 +172,24 @@ void estimate_angles(const float* accData, const float* magData, float* angles) 
     // print_vec(angles,3)
 }
 
+
+float computeHeading(){
+    float accData[3];
+    float magData[3];
+    float angles[3];
+    float heading;
+    // float heading, val;
+    // printf("hello, task_imu!!!!\n");
+    accReadXYZ(accData);
+    magReadXYZ(magData);
+    heading = estimate_heading(accData, magData, angles);
+    // val = movAvg(heading);
+    // printf("\n AVG:");
+    // print_float(val,4);
+    return heading;
+}
+
+
 /**
  * Collision detection algorithm is based on the paper 
  * Buoy Collision Detection : https://ieeexplore.ieee.org/document/6338483
@@ -195,7 +213,7 @@ void estimate_angles(const float* accData, const float* magData, float* angles) 
  *         b21 = 0.7812
  *         a20 = 0.2188     
 */
-int isCollision(const float* accData){
+int isCollision(const float* accData, float* data){
     static float x1n_1, x2n_1, x2n_2, y1n_1, y2n_1; 
 
     // constants
@@ -218,7 +236,10 @@ int isCollision(const float* accData){
     x2n_2 = x2n_1;
     y2n_1 = y2n;
 
-    int result = y2n > 100 ? 1 : 0;
+
+    *data = y2n;
+
+    int result = y2n > 325 ? 1 : 0;
 
     return result;
 
