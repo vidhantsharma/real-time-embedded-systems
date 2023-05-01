@@ -22,7 +22,7 @@ osEventFlagsId_t evt_linear, evt_angular, evt_stop, evt_cmd;
 extern osEventFlagsId_t evt_clap;
 extern osEventFlagsId_t sid;
 osThreadId_t killer_switch_id, collision_id, clap_id, command_id, bluetooth_id;
-
+osMessageQueueId_t ang_dataQ; osTimerId_t timer_imu;
 
 /* Buffer to hold the command received from UART or BLE
  * We use single buffer assuming command-response protocol,
@@ -99,6 +99,12 @@ void KILLSWITCH(void *arg){
     }
 }
 
+void IMUtimer_cb(void *arg){
+    float ang_msg = computeHeading();
+    osMessageQueuePut(ang_dataQ, &ang_msg, 0U, 0U);
+    // printf("\nang_msg[timer_cb] ");
+    // print_float(ang_msg, 4);
+}
 void task_cmd(void *arg){   
     delay_ms(10);
     float headCur;
@@ -107,7 +113,7 @@ void task_cmd(void *arg){
     // with pins facing forward(180deg), left-ang increases, 
     while(1){
         headCur = computeHeading(); 
-        // osMessageQueueGet(ang_dataQ, &headCur, NULL, 0U); 
+        osMessageQueueGet(ang_dataQ, &headCur, NULL, 0U); 
         lin_flag = osEventFlagsGet(evt_linear);
         ang_flag = osEventFlagsGet(evt_angular);
         stop_flag = osEventFlagsGet(evt_stop);
@@ -291,6 +297,10 @@ void task_ctrl(void *arg)
     osThreadSetPriority(collision_id, osPriorityNormal);
     // timer_clap = osTimerNew (timer_callback_clap, osTimerPeriodic, NULL, NULL);
     // osTimerStart (timer_clap, 100);
+
+    ang_dataQ = osMessageQueueNew(5, sizeof(float) ,NULL); //msg_count,msg_size,attr 
+    timer_imu = osTimerNew (IMUtimer_cb, osTimerPeriodic, NULL, NULL);
+    osTimerStart (timer_imu, 10);
 
     evt_linear = osEventFlagsNew(NULL); evt_angular = osEventFlagsNew(NULL);
     evt_stop = osEventFlagsNew(NULL);
